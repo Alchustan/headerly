@@ -16,8 +16,49 @@ const fontMono = JetBrains_Mono({
 })
 
 export const metadata = {
-  title: "Headerly",
-  description: "Instantly view your HTTP request headers",
+  title: "Headerly - HTTP Request Header Inspector",
+  description: "Instantly view and inspect your HTTP request headers. A modern, privacy-focused developer tool for debugging browser-server communication.",
+  keywords: ["http headers", "request headers", "developer tools", "debugging", "browser headers", "inspect headers", "headerly"],
+  authors: [{ name: "Barış Yıldızoğlu", url: "https://github.com/Alchustan" }],
+  creator: "Barış Yıldızoğlu",
+  openGraph: {
+    title: "Headerly - HTTP Request Header Inspector",
+    description: "Instantly view and inspect your HTTP request headers. A modern, privacy-focused developer tool.",
+    url: "https://headerly.net",
+    siteName: "Headerly",
+    images: [
+      {
+        url: "/screenshot.png",
+        width: 1200,
+        height: 630,
+        alt: "Headerly - HTTP Request Header Inspector",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Headerly - HTTP Request Header Inspector",
+    description: "Instantly view and inspect your HTTP request headers. A modern, privacy-focused developer tool.",
+    images: ["/screenshot.png"],
+    creator: "@alchustan",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  metadataBase: new URL("https://headerly.net"),
+  alternates: {
+    canonical: "/",
+  },
 }
 
 export default function RootLayout({

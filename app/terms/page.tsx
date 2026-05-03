@@ -1,6 +1,12 @@
 import { ThemeToggle } from "@/components/theme-toggle"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Terms of Use - Headerly",
+  description: "Read our terms of use to understand the rules and guidelines for using Headerly.",
+}
 
 export default function TermsPage() {
   return (

@@ -1,6 +1,12 @@
 import { ThemeToggle } from "@/components/theme-toggle"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Headerly",
+  description: "Read our privacy policy to understand how we handle your data at Headerly.",
+}
 
 export default function PrivacyPage() {
   return (
