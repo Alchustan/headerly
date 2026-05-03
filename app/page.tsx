@@ -2,10 +2,11 @@ import { headers } from "next/headers"
 import { HeaderCard } from "@/components/header-card"
 import { Terminal, Globe } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link"
 
 export default async function Page() {
   const headersList = await headers()
-  
+
   // Convert headers to a plain object
   const headersObj: Record<string, string> = {}
   headersList.forEach((value, key) => {
@@ -29,7 +30,7 @@ export default async function Page() {
 
       <main className="container mx-auto flex-1 px-4 pb-20">
         <HeaderCard headers={headersObj} />
-        
+
         <section className="mt-20 grid gap-8 sm:grid-cols-3 max-w-6xl mx-auto">
           <div className="flex flex-col gap-2 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -67,15 +68,18 @@ export default async function Page() {
             &copy; {new Date().getFullYear()} Headerly. Built for the modern web.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Home
+            </Link>
+            <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Privacy
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link href="https://github.com/Alchustan/headerly" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               GitHub
-            </a>
+            </Link>
           </div>
         </div>
       </footer>
