@@ -26,35 +26,36 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   return (
     <div
       className={cn(
-        "group flex flex-col gap-2 rounded-lg border border-transparent p-3 transition-all hover:border-border hover:bg-muted/50",
-        isImportant && "bg-primary/5 border-primary/10"
+        "group flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:bg-white/5 hover:border-white/10 hover:shadow-lg",
+        isImportant && "bg-gradient-to-r from-primary/5 to-transparent border-primary/10"
       )}
     >
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2 overflow-hidden">
-          <span className="shrink-0 text-sm font-semibold text-muted-foreground">
-            {name}:
-          </span>
-          
-          <Tooltip delayDuration={300}>
-            <TooltipTrigger asChild>
-              <button className="shrink-0 text-muted-foreground/50 hover:text-primary transition-colors focus:outline-none">
-                <Info className="h-3.5 w-3.5" />
-                <span className="sr-only">Information about {name}</span>
-              </button>
-            </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-xs text-xs">
-              <p>{description}</p>
-            </TooltipContent>
-          </Tooltip>
+        <div className="flex items-center gap-3 overflow-hidden">
+          <div className="flex items-center gap-2 px-2.5 py-1 rounded-md bg-black/20 border border-white/5">
+            <span className="shrink-0 text-sm font-medium text-zinc-400">
+              {name}
+            </span>
+            <Tooltip delayDuration={300}>
+              <TooltipTrigger asChild>
+                <button className="shrink-0 text-zinc-500 hover:text-primary transition-colors focus:outline-none">
+                  <Info className="h-3.5 w-3.5" />
+                  <span className="sr-only">Information about {name}</span>
+                </button>
+              </TooltipTrigger>
+              <TooltipContent side="top" className="max-w-xs text-xs bg-[#16151A] border-white/10">
+                <p>{description}</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
 
           {isImportant && (
-            <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider">
+            <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider border-primary/20 text-primary bg-primary/5">
               Important
             </Badge>
           )}
         </div>
-        <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 active:scale-95">
           <CopyButton value={value} copyMessage={`Copy ${name}`} />
         </div>
       </div>

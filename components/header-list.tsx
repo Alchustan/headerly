@@ -34,28 +34,33 @@ export function HeaderList({ headers }: HeaderListProps) {
   }, [headers, searchQuery])
 
   return (
-    <div className="flex h-full flex-col gap-4">
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+    <div className="flex h-full flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="relative group">
+        <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400 group-focus-within:text-primary transition-colors" />
         <Input
           placeholder="Search headers..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-9 pr-9"
+          className="h-14 pl-12 pr-24 rounded-full border-white/10 bg-white/5 backdrop-blur-md text-base focus-visible:ring-primary/50 shadow-inner"
         />
-        {searchQuery && (
-          <button
-            onClick={() => setSearchQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        )}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="p-1 text-zinc-500 hover:text-white transition-colors rounded-full hover:bg-white/10"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+          <div className="hidden sm:flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-zinc-400">
+            <span className="text-xs">⌘</span>K
+          </div>
+        </div>
       </div>
 
-      <ScrollArea className="h-[500px] pr-4">
+      <ScrollArea className="h-[500px] pr-4 -mr-4">
         {filteredHeaders.length > 0 ? (
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-3 pb-4">
             {filteredHeaders.map(([key, value]) => (
               <HeaderItem
                 key={key}
@@ -66,9 +71,14 @@ export function HeaderList({ headers }: HeaderListProps) {
             ))}
           </div>
         ) : (
-          <div className="flex h-[200px] flex-col items-center justify-center gap-2 text-center">
-            <Search className="h-10 w-10 text-muted-foreground/50" />
-            <p className="text-sm text-muted-foreground">No headers found matching your search.</p>
+          <div className="flex h-[300px] flex-col items-center justify-center gap-4 text-center">
+            <div className="relative flex h-24 w-24 items-center justify-center">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#FF6B6B] to-[#FF8E53] opacity-20 blur-xl"></div>
+              <div className="absolute inset-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"></div>
+              <Search className="relative h-8 w-8 text-[#FF8E53]" />
+            </div>
+            <p className="text-lg font-medium text-white">No headers found</p>
+            <p className="text-sm text-zinc-400">Try adjusting your search query to find what you're looking for.</p>
           </div>
         )}
       </ScrollArea>

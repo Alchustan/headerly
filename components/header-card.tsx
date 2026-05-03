@@ -48,34 +48,36 @@ export function HeaderCard({ headers }: HeaderCardProps) {
   }
 
   return (
-    <Card className="mx-auto w-full max-w-4xl border-border/50 bg-card/50 backdrop-blur-sm">
-      <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
+    <Card className="mx-auto w-full max-w-6xl rounded-2xl border-white/5 bg-white/5 backdrop-blur-xl shadow-2xl">
+      <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 border-b border-white/5 pb-6">
         <div>
-          <CardTitle className="text-xl font-bold tracking-tight">Request Headers</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-2xl font-bold tracking-tight">Request Headers</CardTitle>
+          <CardDescription className="text-zinc-400 mt-1">
             {Object.keys(headers).length} headers detected
           </CardDescription>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-3">
           <ViewToggle view={view} onViewChange={setView} />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-2">
             <Button
               variant="outline"
               size="icon"
               onClick={handleRefresh}
               disabled={isRefreshing}
-              className={isRefreshing ? "animate-spin" : ""}
+              className={`rounded-full active:scale-95 transition-transform ${isRefreshing ? "animate-spin" : ""}`}
             >
-              <RefreshCw className="h-4 w-4" />
+              <RefreshCw className="h-4 w-4 text-zinc-400" />
             </Button>
-            <Button variant="outline" size="icon" onClick={downloadJson}>
-              <Download className="h-4 w-4" />
+            <Button variant="outline" size="icon" onClick={downloadJson} className="rounded-full active:scale-95 transition-transform">
+              <Download className="h-4 w-4 text-zinc-400" />
             </Button>
-            <CopyButton value={jsonString} copyMessage="Copy full JSON" />
+            <div className="active:scale-95 transition-transform">
+              <CopyButton value={jsonString} copyMessage="Copy full JSON" />
+            </div>
           </div>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         {view === "pretty" ? (
           <HeaderList headers={headers} />
         ) : (
