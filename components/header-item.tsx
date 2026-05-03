@@ -4,7 +4,13 @@ import * as React from "react"
 import { CopyButton } from "@/components/copy-button"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown, ChevronUp, Info } from "lucide-react"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { getHeaderDescription } from "@/lib/header-info"
 
 interface HeaderItemProps {
   name: string
@@ -15,6 +21,7 @@ interface HeaderItemProps {
 export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   const [isExpanded, setIsExpanded] = React.useState(false)
   const isLong = value.length > 100
+  const description = getHeaderDescription(name)
 
   return (
     <div
@@ -28,6 +35,19 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
           <span className="shrink-0 text-sm font-semibold text-muted-foreground">
             {name}:
           </span>
+          
+          <Tooltip delayDuration={300}>
+            <TooltipTrigger asChild>
+              <button className="shrink-0 text-muted-foreground/50 hover:text-primary transition-colors focus:outline-none">
+                <Info className="h-3.5 w-3.5" />
+                <span className="sr-only">Information about {name}</span>
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="top" className="max-w-xs text-xs">
+              <p>{description}</p>
+            </TooltipContent>
+          </Tooltip>
+
           {isImportant && (
             <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider">
               Important

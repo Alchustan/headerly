@@ -1,0 +1,36 @@
+export const HEADER_DESCRIPTIONS: Record<string, string> = {
+  "accept": "Specifies the media types that are acceptable for the response.",
+  "accept-encoding": "The compression methods the client supports (e.g., gzip, br).",
+  "accept-language": "The preferred natural languages and locales for the response.",
+  "authorization": "Contains the credentials to authenticate a user with a server.",
+  "cache-control": "Directives for caching mechanisms in both requests and responses.",
+  "cf-connecting-ip": "The original client IP address of a request that passed through Cloudflare.",
+  "cf-ray": "A unique identifier for each request sent through Cloudflare.",
+  "connection": "Controls whether the network connection stays open after the transaction finishes.",
+  "content-length": "The size of the request body in bytes.",
+  "content-type": "The media type of the resource (e.g., application/json, text/html).",
+  "cookie": "Contains stored HTTP cookies previously sent by the server with Set-Cookie.",
+  "dnt": "Do Not Track request header indicates the user's tracking preference.",
+  "host": "The domain name of the server and the TCP port number on which the server is listening.",
+  "if-none-match": "Allows making the request conditional based on the ETag of the resource.",
+  "origin": "Indicates the origin (protocol, domain, port) that caused the request.",
+  "priority": "Indicates the priority of the request in protocols like HTTP/2 or HTTP/3.",
+  "referer": "The address of the previous web page from which a link to the currently requested page was followed.",
+  "sec-ch-ua": "User agent client hints for browser brand and version.",
+  "sec-ch-ua-mobile": "Indicates whether the browser is on a mobile device.",
+  "sec-ch-ua-platform": "The platform or operating system the browser is running on.",
+  "sec-fetch-dest": "Indicates the request's destination (e.g., document, image, empty).",
+  "sec-fetch-mode": "Indicates the mode of the request (e.g., cors, navigate, no-cors).",
+  "sec-fetch-site": "Indicates the relationship between the request initiator's origin and the resource's origin.",
+  "sec-fetch-user": "Indicates whether the request was triggered by a user activation.",
+  "upgrade-insecure-requests": "Signals the server that the client prefers an encrypted response.",
+  "user-agent": "Contains information about the client's browser, OS, and device.",
+  "x-forwarded-for": "The standard header for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer.",
+  "x-forwarded-host": "The original host requested by the client in the Host HTTP request header.",
+  "x-forwarded-proto": "The original protocol (HTTP or HTTPS) of the request.",
+  "x-real-ip": "An alternative header used by some proxies to pass the client's IP address.",
+};
+
+export function getHeaderDescription(name: string): string {
+  return HEADER_DESCRIPTIONS[name.toLowerCase()] || "No description available for this header.";
+}
