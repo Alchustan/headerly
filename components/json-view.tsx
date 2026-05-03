@@ -21,13 +21,13 @@ export function JsonView({ data }: JsonViewProps) {
       language="json"
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, backgroundColor: "transparent", padding: "1.5rem" }}>
+        <pre className={className} style={{ ...style, backgroundColor: "transparent", padding: "1.5rem", minWidth: "max-content" }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line })} className="table-row">
               <span className="table-cell select-none pr-4 text-right opacity-30 text-xs w-8">
                 {i + 1}
               </span>
-              <span className="table-cell">
+              <span className="table-cell whitespace-nowrap">
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token })} />
                 ))}
