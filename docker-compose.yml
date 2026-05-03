@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  headerly:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: headerly
+    restart: always
+    networks:
+      - traefik-public
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.headerly.rule=Host(`headerly.net`)"
+      - "traefik.http.routers.headerly.entrypoints=websecure"
+      - "traefik.http.routers.headerly.tls=true"
+      - "traefik.http.routers.headerly.tls.certresolver=letsencrypt"
+      - "traefik.http.services.headerly.loadbalancer.server.port=3000"
+
+networks:
+  traefik-public:
+    external: true
