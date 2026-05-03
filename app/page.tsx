@@ -1,6 +1,7 @@
 import { headers } from "next/headers"
 import { HeaderCard } from "@/components/header-card"
-import { Terminal, Globe, Shield } from "lucide-react"
+import { Terminal, Globe } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default async function Page() {
   const headersList = await headers()
@@ -18,11 +19,11 @@ export default async function Page() {
       <div className="absolute left-[-10%] top-[-10%] h-[40%] w-[40%] rounded-full bg-primary/5 blur-[120px]" />
       <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[40%] rounded-full bg-primary/5 blur-[120px]" />
 
+      <div className="absolute right-4 top-4 z-50">
+        <ThemeToggle />
+      </div>
+
       <header className="container mx-auto flex flex-col items-center gap-2 py-12 text-center md:py-20">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
-          <Shield className="h-3 w-3" />
-          Secure & Private
-        </div>
         <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
           Header<span className="text-primary">ly</span>
         </h1>
