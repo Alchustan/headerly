@@ -48,11 +48,11 @@ export function HeaderCard({ headers }: HeaderCardProps) {
   }
 
   return (
-    <Card className="mx-auto w-full max-w-6xl rounded-2xl border-white/5 bg-white/5 backdrop-blur-xl shadow-2xl">
-      <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 border-b border-white/5 pb-6">
+    <Card className="mx-auto w-full max-w-6xl rounded-2xl border border-border bg-card shadow-lg dark:shadow-none">
+      <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 border-b border-border pb-6">
         <div>
-          <CardTitle className="text-2xl font-bold tracking-tight">Request Headers</CardTitle>
-          <CardDescription className="text-zinc-400 mt-1">
+          <CardTitle className="text-2xl font-bold tracking-tight text-card-foreground">Request Headers</CardTitle>
+          <CardDescription className="text-muted-foreground mt-1">
             {Object.keys(headers).length} headers detected
           </CardDescription>
         </div>
@@ -64,14 +64,14 @@ export function HeaderCard({ headers }: HeaderCardProps) {
               size="icon"
               onClick={handleRefresh}
               disabled={isRefreshing}
-              className={`rounded-full active:scale-95 transition-transform ${isRefreshing ? "animate-spin" : ""}`}
+              className={`rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform ${isRefreshing ? "animate-spin" : ""}`}
             >
-              <RefreshCw className="h-4 w-4 text-zinc-400" />
+              <RefreshCw className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <Button variant="outline" size="icon" onClick={downloadJson} className="rounded-full active:scale-95 transition-transform">
-              <Download className="h-4 w-4 text-zinc-400" />
+            <Button variant="outline" size="icon" onClick={downloadJson} className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform">
+              <Download className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <div className="active:scale-95 transition-transform">
+            <div className="active:scale-95 transition-transform shadow-sm rounded-xl bg-background">
               <CopyButton value={jsonString} copyMessage="Copy full JSON" />
             </div>
           </div>

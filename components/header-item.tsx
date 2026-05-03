@@ -26,14 +26,14 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   return (
     <div
       className={cn(
-        "group flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:bg-white/5 hover:border-white/10 hover:shadow-lg",
-        isImportant && "bg-gradient-to-r from-primary/5 to-transparent border-primary/10"
+        "group flex flex-col gap-2 border border-border py-4 px-4 bg-card transition-all hover:bg-muted/50 rounded-2xl shadow-sm",
+        isImportant && "bg-primary/5 border-primary/10 shadow-primary/5"
       )}
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 overflow-hidden">
-          <div className="flex items-center gap-2 px-2.5 py-1 rounded-md bg-black/20 border border-white/5">
-            <span className="shrink-0 text-sm font-medium text-zinc-400">
+          <div className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-[#FFF0E8] dark:bg-black/20 border border-transparent dark:border-white/5">
+            <span className="shrink-0 text-sm font-medium text-[#4F46E5] dark:text-zinc-400">
               {name}
             </span>
             <Tooltip delayDuration={300}>
@@ -43,14 +43,14 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
                   <span className="sr-only">Information about {name}</span>
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top" className="max-w-xs text-xs bg-[#16151A] border-white/10">
+              <TooltipContent side="top" className="max-w-xs text-xs bg-popover border border-border text-popover-foreground shadow-lg rounded-2xl">
                 <p>{description}</p>
               </TooltipContent>
             </Tooltip>
           </div>
 
           {isImportant && (
-            <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider border-primary/20 text-primary bg-primary/5">
+            <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider border-primary/20 text-primary bg-[#FFF0E8] dark:bg-primary/5 rounded-xl">
               Important
             </Badge>
           )}
@@ -63,7 +63,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
       <div className="relative">
         <div
           className={cn(
-            "break-all font-mono text-sm leading-relaxed text-foreground",
+            "break-all font-mono text-sm leading-relaxed text-foreground rounded-xl p-1",
             !isExpanded && isLong && "line-clamp-2"
           )}
         >

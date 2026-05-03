@@ -13,21 +13,16 @@ export default async function Page() {
   })
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_45%_at_50%_50%,rgba(var(--primary-rgb),0.05)_0%,transparent_100%)]" />
-      <div className="absolute left-[-10%] top-[-10%] h-[50%] w-[50%] rounded-full bg-[#FF8E53]/10 blur-[150px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] h-[50%] w-[50%] rounded-full bg-[#FF6B6B]/10 blur-[150px]" />
-
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
       <div className="absolute right-4 top-4 z-50">
         <ThemeToggle />
       </div>
 
       <header className="container mx-auto flex flex-col items-center gap-2 py-12 text-center md:py-20">
-        <h1 className="mt-4 text-4xl font-extrabold tracking-widest sm:text-5xl md:text-6xl bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+        <h1 className="mt-4 text-4xl font-extrabold tracking-widest sm:text-5xl md:text-6xl text-primary">
           Headerly
         </h1>
-        <p className="max-w-[600px] text-zinc-400 md:text-xl">
+        <p className="max-w-[600px] text-muted-foreground md:text-xl">
           Instantly view and inspect your HTTP request headers in a clean, developer-friendly interface.
         </p>
       </header>
@@ -36,30 +31,30 @@ export default async function Page() {
         <HeaderCard headers={headersObj} />
         
         <section className="mt-20 grid gap-8 sm:grid-cols-3 max-w-6xl mx-auto">
-          <div className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <div className="flex flex-col gap-2 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Globe className="h-5 w-5" />
             </div>
-            <h3 className="text-lg font-bold">Privacy First</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
+            <h3 className="text-lg font-bold text-card-foreground">Privacy First</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Headers are processed server-side and never stored. What you see is only visible to you.
             </p>
           </div>
-          <div className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <div className="flex flex-col gap-2 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Code2 className="h-5 w-5" />
             </div>
-            <h3 className="text-lg font-bold">Developer Tools</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
+            <h3 className="text-lg font-bold text-card-foreground">Developer Tools</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Built for developers. Copy individual values or the entire JSON payload with a single click.
             </p>
           </div>
-          <div className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <div className="flex flex-col gap-2 rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Terminal className="h-5 w-5" />
             </div>
-            <h3 className="text-lg font-bold">Open Source</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
+            <h3 className="text-lg font-bold text-card-foreground">Open Source</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Headerly is built with modern tools: Next.js, Tailwind, and Radix UI.
             </p>
           </div>
