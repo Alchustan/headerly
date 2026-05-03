@@ -16,6 +16,8 @@ import { Button } from "@/components/ui/button"
 import { RefreshCw, Download } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
+import { JsonView } from "./json-view"
+
 interface HeaderCardProps {
   headers: Record<string, string>
 }
@@ -79,9 +81,7 @@ export function HeaderCard({ headers }: HeaderCardProps) {
         ) : (
           <div className="relative rounded-lg border bg-muted/30 p-1">
             <ScrollArea className="h-[500px] w-full rounded-md font-mono text-sm">
-              <pre className="p-4 leading-relaxed">
-                {jsonString}
-              </pre>
+              <JsonView data={headers} />
             </ScrollArea>
           </div>
         )}
