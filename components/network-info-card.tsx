@@ -11,110 +11,108 @@ export interface GeoData {
   query: string
 }
 
-export function NetworkInfoCard({ geoData }: { geoData: GeoData | null }) {
+export function NetworkInfoCards({ geoData }: { geoData: GeoData | null }) {
   if (!geoData) return null
 
   const isLocal = geoData.status === "fail" || geoData.query === "127.0.0.1" || geoData.query === "::1"
 
   return (
-    <div className="mt-8 rounded-2xl border border-border bg-card shadow-lg p-8 max-w-6xl mx-auto transition-all hover:shadow-xl dark:shadow-none overflow-hidden">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-inner">
-          <Globe className="h-6 w-6" />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {/* IP Card */}
+      <InfoCard 
+        icon={<Server className="h-5 w-5" />}
+        label="Public IP Address"
+        value={geoData.query || "Unknown"}
+        description="Your unique internet identifier"
+      />
+
+      {!isLocal ? (
+        <>
+          <InfoCard 
+            icon={<MapPin className="h-5 w-5" />}
+            label="Physical Location"
+            value={`${geoData.city || "Unknown City"}, ${geoData.country || ""}`}
+            subValue={geoData.countryCode ? `(${geoData.countryCode})` : undefined}
+            description="Detected origin of your connection"
+          />
+          <InfoCard 
+            icon={<Building2 className="h-5 w-5" />}
+            label="Service Provider"
+            value={geoData.isp || "Unknown Provider"}
+            description="Your internet service provider (ISP)"
+          />
+          <InfoCard 
+            icon={<LocateFixed className="h-5 w-5" />}
+            label="Region"
+            value={geoData.regionName || "Not detected"}
+            description="State or province level location"
+          />
+          <InfoCard 
+            icon={<Activity className="h-5 w-5" />}
+            label="Organization"
+            value={geoData.org || "Individual User"}
+            description="Network owner or organization"
+          />
+        </>
+      ) : (
+        <div className="lg:col-span-2 flex items-center p-8 rounded-3xl bg-primary/5 border border-primary/10 shadow-sm">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary shrink-0">
+              <Globe className="h-6 w-6" />
+            </div>
+            <div>
+              <p className="text-xl font-bold text-foreground">Local Environment Detected</p>
+              <p className="text-muted-foreground mt-1 leading-relaxed">
+                You are accessing Headerly from a local or private network. Geolocation data is only available for public IP ranges.
+              </p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-card-foreground">Network Analysis</h2>
-          <p className="text-sm text-muted-foreground">Detailed connection profile and origin</p>
+      )}
+    </div>
+  )
+}
+
+function InfoCard({ 
+  icon, 
+  label, 
+  value, 
+  subValue, 
+  description 
+}: { 
+  icon: React.ReactNode, 
+  label: string, 
+  value: string, 
+  subValue?: string,
+  description: string 
+}) {
+  return (
+    <div className="group rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-primary/20">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+          {icon}
         </div>
+        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+          {label}
+        </span>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="flex flex-col gap-3 p-4 rounded-xl bg-muted/30 border border-border/50">
-          <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-            <Server className="h-3.5 w-3.5" /> Public IP Address
+      <div className="space-y-1">
+        <div className="flex items-baseline gap-2 flex-wrap">
+          <span className="text-2xl font-bold text-foreground tracking-tight">
+            {value}
           </span>
-          <div className="flex items-center justify-between">
-            <span className="text-xl font-mono font-bold text-foreground tracking-tight">
-              {geoData.query || "Unknown"}
+          {subValue && (
+            <span className="text-sm font-medium text-muted-foreground">
+              {subValue}
             </span>
-          </div>
+          )}
         </div>
-
-        {!isLocal ? (
-          <>
-            <div className="flex flex-col gap-3 p-4 rounded-xl bg-muted/30 border border-border/50">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5" /> Physical Location
-              </span>
-              <span className="text-xl font-bold text-foreground tracking-tight">
-                {[geoData.city, geoData.country].filter(Boolean).join(", ")}
-                {geoData.countryCode && (
-                  <span className="ml-2 text-sm font-medium text-muted-foreground">
-                    ({geoData.countryCode})
-                  </span>
-                )}
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 p-4 rounded-xl bg-muted/30 border border-border/50">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                <Building2 className="h-3.5 w-3.5" /> Service Provider
-              </span>
-              <span className="text-xl font-bold text-foreground tracking-tight truncate" title={geoData.isp}>
-                {geoData.isp || "Unknown Provider"}
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 p-4 rounded-xl bg-muted/30 border border-border/50">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                <LocateFixed className="h-3.5 w-3.5" /> Region
-              </span>
-              <span className="text-xl font-bold text-foreground tracking-tight">
-                {geoData.regionName || "Not detected"}
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 p-4 rounded-xl bg-muted/30 border border-border/50">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                <Activity className="h-3.5 w-3.5" /> Organization
-              </span>
-              <span className="text-xl font-bold text-foreground tracking-tight truncate" title={geoData.org}>
-                {geoData.org || "Individual User"}
-              </span>
-            </div>
-          </>
-        ) : (
-          <div className="lg:col-span-2 flex items-center p-6 rounded-xl bg-primary/5 border border-primary/10">
-            <div className="flex items-start gap-4">
-              <ShieldCheck className="h-6 w-6 text-primary shrink-0 mt-1" />
-              <div>
-                <p className="font-bold text-foreground">Local Environment Detected</p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  You are accessing Headerly from a local or private network. Geolocation data is not available for private IP ranges.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {description}
+        </p>
       </div>
     </div>
   )
 }
 
-function ShieldCheck(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-      <path d="m9 12 2 2 4-4" />
-    </svg>
-  )
-}
 
