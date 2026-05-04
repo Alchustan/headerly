@@ -4,7 +4,7 @@ import * as React from "react"
 import { CopyButton } from "@/components/copy-button"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
-import { ChevronDown, ChevronUp, Info, ExternalLink } from "lucide-react"
+import { Info, ExternalLink } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -32,9 +32,7 @@ interface HeaderItemProps {
 }
 
 export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
-  const [isExpanded, setIsExpanded] = React.useState(false)
   const [mounted, setMounted] = React.useState(false)
-  const isLong = value.length > 100
   const headerInfo = getHeaderInfo(name)
   const isMobile = useIsMobile()
 
@@ -132,33 +130,9 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
       </div>
 
       <div className="relative">
-        <div
-          className={cn(
-            "break-all font-mono text-[15px] leading-relaxed text-foreground rounded-xl p-1",
-            !isExpanded && isLong && "line-clamp-2"
-          )}
-        >
+        <div className="break-all font-mono text-[15px] leading-relaxed text-foreground rounded-xl p-1">
           {value}
         </div>
-
-        {isLong && (
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-1 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
-          >
-            {isExpanded ? (
-              <>
-                <ChevronUp className="h-3 w-3" />
-                Show less
-              </>
-            ) : (
-              <>
-                <ChevronDown className="h-3 w-3" />
-                Show more
-              </>
-            )}
-          </button>
-        )}
       </div>
     </div>
   )
