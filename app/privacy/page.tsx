@@ -1,4 +1,4 @@
-import { ThemeToggle } from "@/components/theme-toggle"
+
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { Metadata } from "next"
@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
-      <div className="absolute right-4 top-4 z-50">
-        <ThemeToggle />
-      </div>
+    <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
 
       <header className="container mx-auto flex flex-col items-center gap-4 py-12 text-center md:py-20">
         <Link 

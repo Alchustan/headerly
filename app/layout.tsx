@@ -61,6 +61,8 @@ export const metadata = {
   },
 }
 
+import { Navbar } from "@/components/navbar"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,9 +70,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("antialiased", fontSans.variable, fontMono.variable)}>
-      <body className={cn(fontSans.className, "min-h-screen bg-background text-foreground")}>
+      <body className={cn(fontSans.className, "min-h-screen bg-background text-foreground flex flex-col")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <Navbar />
+            {children}
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,7 +1,6 @@
 import { headers } from "next/headers"
 import { HeaderCard } from "@/components/header-card"
 import { Terminal, Globe } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
 import Link from "next/link"
 
 export default async function Page() {
@@ -14,11 +13,7 @@ export default async function Page() {
   })
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
-      <div className="absolute right-4 top-4 z-50">
-        <ThemeToggle />
-      </div>
-
+    <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
       <header className="container mx-auto flex flex-col items-center gap-2 py-12 text-center md:py-20">
         <h1 className="mt-4 text-4xl font-extrabold tracking-widest sm:text-5xl md:text-6xl text-primary">
           Headerly
