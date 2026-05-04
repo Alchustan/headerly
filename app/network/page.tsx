@@ -1,6 +1,6 @@
 import { headers } from "next/headers"
 import { NetworkInfoCard, type GeoData } from "@/components/network-info-card"
-import { Activity, ShieldCheck } from "lucide-react"
+import { Activity } from "lucide-react"
 
 export default async function NetworkPage() {
   const headersList = await headers()
@@ -47,10 +47,7 @@ export default async function NetworkPage() {
         <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl">
           Detailed IP and geolocation analysis of your current connection.
         </p>
-        <div className="flex items-center gap-2 mt-2 text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-100 dark:border-emerald-500/20">
-          <ShieldCheck className="h-3 w-3" />
-          Securely processed
-        </div>
+
       </header>
 
       <main className="container mx-auto flex-1 px-4 pb-24">

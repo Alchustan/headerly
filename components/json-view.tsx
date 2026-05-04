@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Highlight, themes } from "prism-react-renderer"
 import { useTheme } from "next-themes"
+import { cn } from "@/lib/utils"
 
 interface JsonViewProps {
   data: Record<string, any>
@@ -21,13 +22,23 @@ export function JsonView({ data }: JsonViewProps) {
       language="json"
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, backgroundColor: "transparent", padding: "1.5rem", minWidth: "max-content" }}>
+        <pre 
+          className={cn(className, "min-w-fit")} 
+          style={{ 
+            ...style, 
+            backgroundColor: "transparent", 
+            padding: "0",
+            margin: 0,
+            fontSize: "0.875rem",
+            lineHeight: "1.7",
+          }}
+        >
           {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line })} className="table-row">
-              <span className="table-cell select-none pr-4 text-right opacity-30 text-xs w-8">
+            <div key={i} {...getLineProps({ line })} className="flex hover:bg-primary/5 transition-colors group">
+              <span className="inline-block w-10 shrink-0 select-none text-right text-[10px] font-mono text-muted-foreground/50 pr-4 pt-0.5 group-hover:text-primary/60 transition-colors">
                 {i + 1}
               </span>
-              <span className="table-cell whitespace-nowrap">
+              <span className="whitespace-pre pr-8">
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token })} />
                 ))}

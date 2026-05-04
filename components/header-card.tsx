@@ -23,13 +23,13 @@ interface HeaderCardProps {
 
 export function HeaderCard({ headers }: HeaderCardProps) {
   const [view, setView] = React.useState<"pretty" | "raw">("pretty")
-  const [isPending, startTransition] = React.useTransition()
+  const [isRefreshing, setIsRefreshing] = React.useState(false)
   const router = useRouter()
 
   const handleRefresh = () => {
-    startTransition(() => {
-      router.refresh()
-    })
+    setIsRefreshing(true)
+    router.refresh()
+    setTimeout(() => setIsRefreshing(false), 600)
   }
 
   const jsonString = React.useMemo(() => JSON.stringify(headers, null, 2), [headers])
@@ -69,11 +69,11 @@ export function HeaderCard({ headers }: HeaderCardProps) {
               variant="outline"
               size="icon"
               onClick={handleRefresh}
-              disabled={isPending}
+              disabled={isRefreshing}
               aria-label="Refresh headers"
-              className={`rounded-xl border-border bg-background shadow-sm active:scale-95 transition-all ${isPending ? "animate-spin" : ""}`}
+              className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-all"
             >
-              <RefreshCw className="h-4 w-4 text-muted-foreground" />
+              <RefreshCw className={`h-4 w-4 text-muted-foreground ${isRefreshing ? "animate-spin" : ""}`} />
             </Button>
             <Button 
               variant="outline" 
@@ -96,7 +96,7 @@ export function HeaderCard({ headers }: HeaderCardProps) {
         ) : (
           <div className="relative rounded-2xl border border-border bg-muted/30 p-1">
             <ScrollArea className="h-[550px] w-full rounded-xl font-mono text-sm">
-              <div className="p-4">
+              <div className="p-6">
                 <JsonView data={headers} />
               </div>
             </ScrollArea>

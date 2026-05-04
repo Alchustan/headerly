@@ -89,7 +89,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
           <div className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10 min-w-0 max-w-full">
-            <span className="truncate text-sm font-bold text-primary min-w-0">
+            <span className="truncate text-[15px] font-bold text-primary min-w-0">
               {name}
             </span>
             {mounted ? (
@@ -134,7 +134,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
       <div className="relative">
         <div
           className={cn(
-            "break-all font-mono text-sm leading-relaxed text-foreground rounded-xl p-1",
+            "break-all font-mono text-[15px] leading-relaxed text-foreground rounded-xl p-1",
             !isExpanded && isLong && "line-clamp-2"
           )}
         >

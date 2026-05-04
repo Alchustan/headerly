@@ -11,9 +11,7 @@ export default async function Page() {
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
       <header className="container mx-auto flex flex-col items-center gap-4 py-12 text-center md:py-20 px-4">
-        <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-2">
-          HTTP Inspector
-        </div>
+
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary lg:text-7xl">
           Headerly
         </h1>
