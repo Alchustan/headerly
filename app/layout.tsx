@@ -62,6 +62,7 @@ export const metadata = {
 }
 
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
 export default function RootLayout({
   children,
@@ -74,7 +75,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <TooltipProvider>
             <Navbar />
-            {children}
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
           </TooltipProvider>
         </ThemeProvider>
       </body>
