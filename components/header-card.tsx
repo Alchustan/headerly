@@ -16,6 +16,11 @@ import { Button } from "@/components/ui/button"
 import { RefreshCw, Download } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { JsonView } from "./json-view"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface HeaderCardProps {
   headers: Record<string, string>
@@ -65,25 +70,41 @@ export function HeaderCard({ headers }: HeaderCardProps) {
         <div className="flex flex-wrap items-center gap-3">
           <ViewToggle view={view} onViewChange={setView} />
           <div className="flex items-center gap-2 sm:ml-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handleRefresh}
-              disabled={isRefreshing}
-              aria-label="Refresh headers"
-              className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-all"
-            >
-              <RefreshCw className={`h-4 w-4 text-muted-foreground ${isRefreshing ? "animate-spin" : ""}`} />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={downloadJson} 
-              aria-label="Download as JSON"
-              className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
-            >
-              <Download className="h-4 w-4 text-muted-foreground" />
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={handleRefresh}
+                  disabled={isRefreshing}
+                  aria-label="Refresh headers"
+                  className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-all"
+                >
+                  <RefreshCw className={`h-4 w-4 text-muted-foreground ${isRefreshing ? "animate-spin" : ""}`} />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>Refresh headers</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  onClick={downloadJson} 
+                  aria-label="Download as JSON"
+                  className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
+                >
+                  <Download className="h-4 w-4 text-muted-foreground" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>Download JSON</p>
+              </TooltipContent>
+            </Tooltip>
+
             <CopyButton 
               value={jsonString} 
               copyMessage="Copy full JSON" 
