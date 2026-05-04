@@ -47,7 +47,7 @@ export function CopyButton({
         <Button
           variant={variant}
           size={size}
-          className={cn("h-8 w-8 transition-all", className)}
+          className={cn("transition-all", className)}
           onClick={copyToClipboard}
           {...props}
         >

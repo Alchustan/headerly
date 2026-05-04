@@ -84,9 +84,12 @@ export function HeaderCard({ headers }: HeaderCardProps) {
             >
               <Download className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <div className="active:scale-95 transition-transform shadow-sm rounded-xl bg-background border border-border">
-              <CopyButton value={jsonString} copyMessage="Copy full JSON" />
-            </div>
+            <CopyButton 
+              value={jsonString} 
+              copyMessage="Copy full JSON" 
+              variant="outline"
+              className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
+            />
           </div>
         </div>
       </CardHeader>
