@@ -12,40 +12,26 @@ export default async function NetworkPage() {
   let geoData: GeoData | null = null
   const isLocal = ip === "127.0.0.1" || ip === "::1" || ip === "localhost"
 
-  if (!isLocal) {
-    try {
-      // Using a more reliable way to fetch with timeout
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 5000)
-      
-      const res = await fetch(`http://ip-api.com/json/${ip}`, { 
-        cache: 'no-store',
-        signal: controller.signal 
-      })
-      
-      clearTimeout(timeoutId)
-      
-      if (res.ok) {
-        geoData = await res.json()
-      }
-    } catch (e) {
-      console.error("Failed to fetch geo data:", e)
+  // Only use internal data (from request headers)
+  if (headersObj['cf-ipcountry']) {
+    geoData = {
+      status: "success",
+      query: ip,
+      countryCode: headersObj['cf-ipcountry'],
+      country: headersObj['cf-ipcountry'], // Ideally we'd map this to a name, but for now we'll show the code
+      city: headersObj['cf-ipcity'] || "Unknown City",
+      regionName: headersObj['cf-region-name'] || headersObj['cf-region'] || "Unknown Region",
+      isp: headersObj['cf-ipasn'] ? `ASN ${headersObj['cf-ipasn']}` : "Cloudflare Protected Network",
+      org: headersObj['cf-ipcontinent'] ? `Continent: ${headersObj['cf-ipcontinent']}` : undefined
     }
-  }
-
-  // Fallback to Cloudflare headers if geoData is missing or failed
-  if (!geoData || geoData.status === 'fail') {
-    if (headersObj['cf-ipcountry']) {
-      geoData = {
-        status: "success",
-        query: ip,
-        countryCode: headersObj['cf-ipcountry'],
-        country: headersObj['cf-ipcountry'],
-        city: headersObj['cf-ipcity'] || "Unknown City",
-        isp: "Cloudflare Network"
-      }
-    } else if (isLocal) {
-      geoData = { status: "fail", query: ip }
+  } else if (isLocal) {
+    geoData = { status: "fail", query: ip }
+  } else {
+    // If not local but no geo headers, we just show the IP
+    geoData = {
+      status: "fail",
+      query: ip,
+      isp: "Internal Routing"
     }
   }
 
