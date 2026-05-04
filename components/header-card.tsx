@@ -15,7 +15,6 @@ import { CopyButton } from "./copy-button"
 import { Button } from "@/components/ui/button"
 import { RefreshCw, Download } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
-
 import { JsonView } from "./json-view"
 
 interface HeaderCardProps {
@@ -24,54 +23,68 @@ interface HeaderCardProps {
 
 export function HeaderCard({ headers }: HeaderCardProps) {
   const [view, setView] = React.useState<"pretty" | "raw">("pretty")
-  const [isRefreshing, setIsRefreshing] = React.useState(false)
+  const [isPending, startTransition] = React.useTransition()
   const router = useRouter()
 
   const handleRefresh = () => {
-    setIsRefreshing(true)
-    router.refresh()
-    setTimeout(() => setIsRefreshing(false), 600)
+    startTransition(() => {
+      router.refresh()
+    })
   }
 
-  const jsonString = JSON.stringify(headers, null, 2)
+  const jsonString = React.useMemo(() => JSON.stringify(headers, null, 2), [headers])
 
-  const downloadJson = () => {
+  const downloadJson = React.useCallback(() => {
     const blob = new Blob([jsonString], { type: "application/json" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = "headers.json"
+    a.download = `headers-${new Date().toISOString().split('T')[0]}.json`
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
     URL.revokeObjectURL(url)
-  }
+  }, [jsonString])
+
+  const headerCount = Object.keys(headers).length
 
   return (
-    <Card className="mx-auto w-full max-w-6xl rounded-2xl border border-border bg-card shadow-lg dark:shadow-none">
-      <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 border-b border-border pb-6">
+    <Card className="mx-auto w-full max-w-6xl rounded-2xl border border-border bg-card shadow-lg dark:shadow-none overflow-hidden">
+      <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 border-b border-border bg-muted/5 pb-6">
         <div>
-          <CardTitle className="text-2xl font-bold tracking-tight text-card-foreground">Request Headers</CardTitle>
+          <CardTitle className="text-2xl font-bold tracking-tight text-card-foreground flex items-center gap-2">
+            Request Headers
+            <span className="inline-flex items-center justify-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+              {headerCount}
+            </span>
+          </CardTitle>
           <CardDescription className="text-muted-foreground mt-1">
-            {Object.keys(headers).length} headers detected
+            Detecting active browser and connection headers
           </CardDescription>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <ViewToggle view={view} onViewChange={setView} />
-          <div className="flex items-center gap-2 ml-2">
+          <div className="flex items-center gap-2 sm:ml-2">
             <Button
               variant="outline"
               size="icon"
               onClick={handleRefresh}
-              disabled={isRefreshing}
-              className={`rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform ${isRefreshing ? "animate-spin" : ""}`}
+              disabled={isPending}
+              aria-label="Refresh headers"
+              className={`rounded-xl border-border bg-background shadow-sm active:scale-95 transition-all ${isPending ? "animate-spin" : ""}`}
             >
               <RefreshCw className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <Button variant="outline" size="icon" onClick={downloadJson} className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={downloadJson} 
+              aria-label="Download as JSON"
+              className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
+            >
               <Download className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <div className="active:scale-95 transition-transform shadow-sm rounded-xl bg-background">
+            <div className="active:scale-95 transition-transform shadow-sm rounded-xl bg-background border border-border">
               <CopyButton value={jsonString} copyMessage="Copy full JSON" />
             </div>
           </div>
@@ -81,9 +94,11 @@ export function HeaderCard({ headers }: HeaderCardProps) {
         {view === "pretty" ? (
           <HeaderList headers={headers} />
         ) : (
-          <div className="relative rounded-lg border bg-muted/30 p-1">
-            <ScrollArea className="h-[500px] w-full rounded-md font-mono text-sm">
-              <JsonView data={headers} />
+          <div className="relative rounded-2xl border border-border bg-muted/30 p-1">
+            <ScrollArea className="h-[550px] w-full rounded-xl font-mono text-sm">
+              <div className="p-4">
+                <JsonView data={headers} />
+              </div>
             </ScrollArea>
           </div>
         )}
@@ -91,3 +106,4 @@ export function HeaderCard({ headers }: HeaderCardProps) {
     </Card>
   )
 }
+

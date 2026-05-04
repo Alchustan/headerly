@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Instantly view and inspect your HTTP request headers.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#000000',
-    theme_color: '#000000',
+    background_color: '#FDFCFB',
+    theme_color: '#FF6B6B',
     icons: [
       {
         src: '/favicon.ico',

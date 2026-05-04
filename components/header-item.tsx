@@ -33,9 +33,14 @@ interface HeaderItemProps {
 
 export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   const [isExpanded, setIsExpanded] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false)
   const isLong = value.length > 100
   const headerInfo = getHeaderInfo(name)
   const isMobile = useIsMobile()
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const InfoContent = () => (
     <div className="flex flex-col gap-4">
@@ -83,36 +88,40 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-[#FFF0E8] dark:bg-black/20 border border-transparent dark:border-white/5 min-w-0 max-w-full">
-            <span className="truncate text-sm font-medium text-[#4F46E5] dark:text-zinc-400 min-w-0">
+          <div className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10 min-w-0 max-w-full">
+            <span className="truncate text-sm font-bold text-primary min-w-0">
               {name}
             </span>
-            {isMobile ? (
-              <Dialog>
-                <DialogTrigger asChild>{InfoTrigger}</DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle className="sr-only">Header Information: {name}</DialogTitle>
-                  </DialogHeader>
-                  <InfoContent />
-                </DialogContent>
-              </Dialog>
+            {mounted ? (
+              isMobile ? (
+                <Dialog>
+                  <DialogTrigger asChild>{InfoTrigger}</DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="sr-only">Header Information: {name}</DialogTitle>
+                    </DialogHeader>
+                    <InfoContent />
+                  </DialogContent>
+                </Dialog>
+              ) : (
+                <Tooltip delayDuration={150}>
+                  <TooltipTrigger asChild>{InfoTrigger}</TooltipTrigger>
+                  <TooltipContent
+                    side="top"
+                    sideOffset={8}
+                    className="w-[320px] px-4 py-4 bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-xl rounded-2xl"
+                  >
+                    <InfoContent />
+                  </TooltipContent>
+                </Tooltip>
+              )
             ) : (
-              <Tooltip delayDuration={150}>
-                <TooltipTrigger asChild>{InfoTrigger}</TooltipTrigger>
-                <TooltipContent
-                  side="top"
-                  sideOffset={8}
-                  className="w-[320px] px-4 py-4 bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-xl rounded-2xl"
-                >
-                  <InfoContent />
-                </TooltipContent>
-              </Tooltip>
+              InfoTrigger
             )}
           </div>
 
           {isImportant && (
-            <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider border-primary/20 text-primary bg-[#FFF0E8] dark:bg-primary/5 rounded-xl shrink-0">
+            <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider border-primary/20 text-primary bg-primary/5 rounded-xl shrink-0 font-bold">
               Important
             </Badge>
           )}
