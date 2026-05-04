@@ -6,6 +6,13 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { ChevronDown, ChevronUp, Info, ExternalLink } from "lucide-react"
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -31,31 +38,37 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   const isMobile = useIsMobile()
 
   const InfoContent = () => (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center justify-between border-b border-border pb-3">
         <div className="flex items-center gap-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-          <span className="text-[10px] font-bold uppercase tracking-tight text-muted-foreground">Header Info</span>
+          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Header Info</span>
         </div>
         {headerInfo.mdnUrl && (
-          <a 
-            href={headerInfo.mdnUrl} 
-            target="_blank" 
+          <a
+            href={headerInfo.mdnUrl}
+            target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-[10px] font-bold text-primary hover:underline"
+            className="flex items-center gap-1.5 text-xs font-bold text-primary hover:underline bg-primary/10 px-2 py-1 rounded-lg transition-colors"
           >
-            MDN <ExternalLink className="h-2.5 w-2.5" />
+            MDN Docs <ExternalLink className="h-3 w-3" />
           </a>
         )}
       </div>
-      <p className="text-sm leading-relaxed font-medium">
-        {headerInfo.description}
-      </p>
+      <div className="space-y-2">
+        <h3 className="text-lg font-bold text-foreground">{name}</h3>
+        <p className="text-sm leading-relaxed text-muted-foreground font-medium">
+          {headerInfo.description}
+        </p>
+      </div>
     </div>
   )
 
   const InfoTrigger = (
-    <button className="shrink-0 text-zinc-400 hover:text-primary transition-all focus:outline-none hover:scale-110 active:scale-95">
+    <button
+      type="button"
+      className="shrink-0 text-zinc-400 hover:text-primary transition-all focus:outline-none hover:scale-110 active:scale-95"
+    >
       <Info className="h-4 w-4" />
       <span className="sr-only">Information about {name}</span>
     </button>
@@ -75,21 +88,20 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
               {name}
             </span>
             {isMobile ? (
-              <Popover>
-                <PopoverTrigger asChild>{InfoTrigger}</PopoverTrigger>
-                <PopoverContent 
-                  side="top" 
-                  sideOffset={8}
-                  className="w-[320px] px-4 py-4 bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-xl rounded-2xl"
-                >
+              <Dialog>
+                <DialogTrigger asChild>{InfoTrigger}</DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle className="sr-only">Header Information: {name}</DialogTitle>
+                  </DialogHeader>
                   <InfoContent />
-                </PopoverContent>
-              </Popover>
+                </DialogContent>
+              </Dialog>
             ) : (
-              <Tooltip delayDuration={300}>
+              <Tooltip delayDuration={150}>
                 <TooltipTrigger asChild>{InfoTrigger}</TooltipTrigger>
-                <TooltipContent 
-                  side="top" 
+                <TooltipContent
+                  side="top"
                   sideOffset={8}
                   className="w-[320px] px-4 py-4 bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-xl rounded-2xl"
                 >
@@ -109,7 +121,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
           <CopyButton value={value} copyMessage={`Copy ${name}`} />
         </div>
       </div>
-      
+
       <div className="relative">
         <div
           className={cn(
@@ -119,7 +131,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
         >
           {value}
         </div>
-        
+
         {isLong && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}

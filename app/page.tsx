@@ -56,7 +56,7 @@ export default async function Page() {
             </div>
             <h3 className="text-lg font-bold text-card-foreground">Open Source</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Headerly is built with modern tools: Next.js, Tailwind, and Radix UI.
+              Headerly is open-source and MIT licensed. Explore the code on GitHub, report issues, or contribute to make it better.
             </p>
           </div>
         </section>
