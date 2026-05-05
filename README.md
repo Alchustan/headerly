@@ -8,6 +8,7 @@ Headerly is a modern, developer-centric tool designed to instantly view and insp
 
 - **Live Header Inspection**: Instantly view all HTTP headers sent by your browser.
 - **Network Analysis**: A dedicated page for comprehensive connection details, including IP address, geolocation (City, Region, Country), and ISP information—derived solely from secure edge-computing headers.
+- **User-Agent Analysis**: Detailed breakdown of your browser, operating system, and hardware platform, including an educational "How it works" section to understand digital fingerprints.
 - **Enhanced Search**: Lightning-fast header filtering with keyboard shortcuts support (**⌘K** or **Ctrl+K**).
 - **Dual View Modes**:
   - **Pretty View**: A clean, organized list with detailed descriptions and MDN documentation links for common headers.
@@ -32,6 +33,7 @@ Headerly is built using the latest modern web technologies:
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Theming**: [Next Themes](https://github.com/pacocoursey/next-themes)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Parsing**: [ua-parser-js](https://github.com/fent/ua-parser-js)
 
 ## 🚀 Getting Started
 
@@ -75,6 +77,7 @@ npm start
 headerly/
 ├── app/                # Next.js App Router (pages & layouts)
 │   ├── network/        # Network analysis page (IP & Geo)
+│   ├── user-agent/     # User-Agent analysis and education page
 │   ├── privacy/        # Privacy policy page
 │   ├── terms/          # Terms of service page
 │   ├── layout.tsx      # Global layout with navbar and footer
