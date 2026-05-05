@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Activity, LayoutList } from "lucide-react"
+import { Activity, LayoutList, MonitorCheck } from "lucide-react"
 
 export function Navbar() {
   return (
@@ -26,6 +26,13 @@ export function Navbar() {
             >
               <Activity className="h-4 w-4" />
               <span>Network Info</span>
+            </Link>
+            <Link
+              href="/user-agent"
+              className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              <MonitorCheck className="h-4 w-4" />
+              <span>User Agent</span>
             </Link>
           </div>
         </div>
