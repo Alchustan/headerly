@@ -1,4 +1,6 @@
 import { MapPin, Server, Activity, Globe, Building2, LocateFixed } from "lucide-react"
+import { IPAddressCard } from "./ip-address-card"
+import { useTranslations } from "next-intl"
 
 export interface GeoData {
   status: string
@@ -12,6 +14,7 @@ export interface GeoData {
 }
 
 export function NetworkInfoCards({ geoData }: { geoData: GeoData | null }) {
+  const t = useTranslations("NetworkInfo")
   if (!geoData) return null
 
   const isLocal = geoData.status === "fail" || geoData.query === "127.0.0.1" || geoData.query === "::1"
@@ -19,39 +22,34 @@ export function NetworkInfoCards({ geoData }: { geoData: GeoData | null }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
       {/* IP Card */}
-      <InfoCard 
-        icon={<Server className="h-5 w-5" />}
-        label="Public IP Address"
-        value={geoData.query || "Unknown"}
-        description="Your unique internet identifier"
-      />
+      <IPAddressCard initialIp={geoData.query} />
 
       {!isLocal ? (
         <>
           <InfoCard 
             icon={<MapPin className="h-5 w-5" />}
-            label="Physical Location"
+            label={t("location.label")}
             value={`${geoData.city || "Unknown City"}, ${geoData.country || ""}`}
             subValue={geoData.countryCode ? `(${geoData.countryCode})` : undefined}
-            description="Detected origin of your connection"
+            description={t("location.description")}
           />
           <InfoCard 
             icon={<Building2 className="h-5 w-5" />}
-            label="Service Provider"
+            label={t("isp.label")}
             value={geoData.isp || "Unknown Provider"}
-            description="Your internet service provider (ISP)"
+            description={t("isp.description")}
           />
           <InfoCard 
             icon={<LocateFixed className="h-5 w-5" />}
-            label="Region"
+            label={t("region.label")}
             value={geoData.regionName || "Not detected"}
-            description="State or province level location"
+            description={t("region.description")}
           />
           <InfoCard 
             icon={<Activity className="h-5 w-5" />}
-            label="Organization"
+            label={t("org.label")}
             value={geoData.org || "Individual User"}
-            description="Network owner or organization"
+            description={t("org.description")}
           />
         </>
       ) : (
@@ -61,9 +59,9 @@ export function NetworkInfoCards({ geoData }: { geoData: GeoData | null }) {
               <Globe className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xl font-bold text-foreground">Local Environment Detected</p>
+              <p className="text-xl font-bold text-foreground">{t("local.title")}</p>
               <p className="text-muted-foreground mt-1 leading-relaxed">
-                You are accessing Headerly from a local or private network. Geolocation data is only available for public IP ranges.
+                {t("local.description")}
               </p>
             </div>
           </div>

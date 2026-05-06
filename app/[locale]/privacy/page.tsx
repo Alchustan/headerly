@@ -1,14 +1,18 @@
 
 import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Privacy Policy - Headerly",
-  description: "Read our privacy policy to understand how we handle your data at Headerly.",
-}
+import { Link } from "@/i18n/routing"
+import { useTranslations, useLocale } from "next-intl"
 
 export default function PrivacyPage() {
+  const t = useTranslations("PrivacyPage")
+  const locale = useLocale()
+
+  const lastUpdated = new Date().toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', { 
+    month: 'long', 
+    day: 'numeric', 
+    year: 'numeric' 
+  })
+
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
 
@@ -18,13 +22,13 @@ export default function PrivacyPage() {
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to Home
+          {t("back")}
         </Link>
         <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl text-primary">
-          Privacy Policy
+          {t("title")}
         </h1>
         <p className="max-w-[600px] text-muted-foreground md:text-xl">
-          Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          {t("lastUpdated")}: {lastUpdated}
         </p>
       </header>
 

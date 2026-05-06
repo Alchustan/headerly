@@ -26,7 +26,10 @@ interface HeaderCardProps {
   headers: Record<string, string>
 }
 
+import { useTranslations } from "next-intl"
+
 export function HeaderCard({ headers }: HeaderCardProps) {
+  const t = useTranslations("HeaderCard")
   const [view, setView] = React.useState<"pretty" | "raw">("pretty")
   const [isRefreshing, setIsRefreshing] = React.useState(false)
   const router = useRouter()
@@ -58,13 +61,13 @@ export function HeaderCard({ headers }: HeaderCardProps) {
       <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 border-b border-border bg-muted/5 pb-6">
         <div>
           <CardTitle className="text-2xl font-bold tracking-tight text-card-foreground flex items-center gap-2">
-            Request Headers
+            {t("title")}
             <span className="inline-flex items-center justify-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
               {headerCount}
             </span>
           </CardTitle>
           <CardDescription className="text-muted-foreground mt-1">
-            Detecting active browser and connection headers
+            {t("description")}
           </CardDescription>
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -77,14 +80,14 @@ export function HeaderCard({ headers }: HeaderCardProps) {
                   size="icon"
                   onClick={handleRefresh}
                   disabled={isRefreshing}
-                  aria-label="Refresh headers"
+                  aria-label={t("refresh")}
                   className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-all"
                 >
                   <RefreshCw className={`h-4 w-4 text-muted-foreground ${isRefreshing ? "animate-spin" : ""}`} />
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">
-                <p>Refresh headers</p>
+                <p>{t("refresh")}</p>
               </TooltipContent>
             </Tooltip>
 
@@ -94,20 +97,20 @@ export function HeaderCard({ headers }: HeaderCardProps) {
                   variant="outline" 
                   size="icon" 
                   onClick={downloadJson} 
-                  aria-label="Download as JSON"
+                  aria-label={t("download")}
                   className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
                 >
                   <Download className="h-4 w-4 text-muted-foreground" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">
-                <p>Download JSON</p>
+                <p>{t("download")}</p>
               </TooltipContent>
             </Tooltip>
 
             <CopyButton 
               value={jsonString} 
-              copyMessage="Copy full JSON" 
+              copyMessage={t("copy")} 
               variant="outline"
               className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
             />

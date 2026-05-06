@@ -1,0 +1,198 @@
+{
+  "Navbar": {
+    "brand": "Headerly",
+    "headers": "Headers",
+    "network": "Network Info",
+    "userAgent": "User Agent"
+  },
+  "Footer": {
+    "builtWith": "Built for the modern web.",
+    "home": "Home",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "github": "GitHub"
+  },
+  "HomePage": {
+    "title": "Headerly",
+    "description": "Instantly view and inspect your HTTP request headers in a clean, developer-friendly interface.",
+    "features": {
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Headers are processed server-side and never stored. What you see is only visible to you and stays within your session."
+      },
+      "devTools": {
+        "title": "Developer Tools",
+        "description": "Built for developers. Copy individual values or the entire JSON payload with a single click. High performance and easy to use."
+      },
+      "openSource": {
+        "title": "Open Source",
+        "description": "Headerly is open-source and MIT licensed. Explore the code on GitHub, report issues, or contribute to make it better."
+      }
+    }
+  },
+  "NetworkPage": {
+    "title": "Network Details",
+    "description": "Explore the technical blueprint of your current connection, derived solely from request metadata.",
+    "howItWorks": {
+      "title": "How is this data provided?",
+      "subtitle": "Privacy-first, transparent, and secure.",
+      "p1": "At Headerly, your privacy is our top priority. We <strong>do not rely on third-party geolocation APIs</strong> or share your usage data.",
+      "p2": "All the network and location details displayed above are extracted solely from the <strong>HTTP request metadata</strong> sent by your browser. We use secure edge computing headers (Cloudflare Edge) to determine your approximate origin in real-time."
+    },
+    "features": {
+      "noTracking": {
+        "title": "Zero Third-Party Tracking",
+        "description": "No external APIs ever see your IP address."
+      },
+      "realTime": {
+        "title": "Real-Time Processing",
+        "description": "Data is analyzed on-the-fly at the network edge."
+      },
+      "nonPersistent": {
+        "title": "Non-Persistent Data",
+        "description": "We never store your connection details."
+      },
+      "security": {
+        "title": "Edge-to-Edge Security",
+        "description": "Encrypted delivery of your network profile."
+      }
+    }
+  },
+  "UserAgentPage": {
+    "title": "User-Agent Analysis",
+    "description": "Deep dive into your browser's digital fingerprint and understand how identification works.",
+    "howItWorks": {
+      "title": "How is this detected?",
+      "subtitle": "Decoding the browser's identity string.",
+      "p1": "Every time you visit a website, your browser sends a <code>User-Agent</code> header. This string acts as a \"passport\" that tells the server:",
+      "list": {
+        "engine": "<strong>Browser Engine:</strong> The underlying technology (like Blink for Chrome/Edge or Gecko for Firefox).",
+        "os": "<strong>OS Details:</strong> The operating system and version you are running.",
+        "device": "<strong>Device Info:</strong> Whether you are on a phone, tablet, or desktop, and sometimes the specific model."
+      },
+      "p2": "We use an advanced parsing library to break down this complex string into human-readable components. This process is done entirely on the server and the result is only used to display this dashboard."
+    },
+    "features": {
+      "matching": {
+        "title": "Pattern Matching",
+        "description": "We scan the string for specific keywords and version numbers used by vendors."
+      },
+      "engine": {
+        "title": "Engine Inference",
+        "description": "Identifying the core rendering engine based on standard naming conventions."
+      },
+      "privacy": {
+        "title": "Privacy Protected",
+        "description": "Your ID string is processed in real-time and never saved or tracked."
+      },
+      "realTime": {
+        "title": "Real-Time Analysis",
+        "description": "Parsing happens in milliseconds during the request lifecycle."
+      }
+    }
+  },
+  "PrivacyPage": {
+    "back": "Back to Home",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated"
+  },
+  "TermsPage": {
+    "back": "Back to Home",
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated"
+  },
+  "HeaderCard": {
+    "title": "Request Headers",
+    "description": "Detecting active browser and connection headers",
+    "refresh": "Refresh headers",
+    "download": "Download JSON",
+    "copy": "Copy full JSON"
+  },
+  "NetworkInfo": {
+    "location": {
+      "label": "Physical Location",
+      "description": "Detected origin of your connection"
+    },
+    "isp": {
+      "label": "Service Provider",
+      "description": "Your internet service provider (ISP)"
+    },
+    "region": {
+      "label": "Region",
+      "description": "State or province level location"
+    },
+    "org": {
+      "label": "Organization",
+      "description": "Network owner or organization"
+    },
+    "local": {
+      "title": "Local Environment Detected",
+      "description": "You are accessing Headerly from a local or private network. Geolocation data is only available for public IP ranges."
+    }
+  },
+  "UAInfo": {
+    "browser": {
+      "label": "Browser",
+      "description": "The software you're using to browse"
+    },
+    "os": {
+      "label": "Operating System",
+      "description": "The core system software of your device"
+    },
+    "device": {
+      "label": "Device",
+      "description": "The hardware platform you're using",
+      "desktop": "Desktop",
+      "computer": "Computer"
+    },
+    "engine": {
+      "label": "Engine",
+      "description": "The rendering engine of your browser"
+    },
+    "raw": {
+      "title": "Raw User-Agent String",
+      "description": "This is the full identification string sent by your browser."
+    },
+    "unknown": "Unknown"
+  },
+  "Headers": {
+    "accept": "The Accept request header advertises which content types, expressed as MIME types, the client is able to understand.",
+    "accept-encoding": "The Accept-Encoding request header advertises which content encoding, usually a compression algorithm, the client is able to understand.",
+    "accept-language": "The Accept-Language request header advertises which languages the client is able to understand, and which locale variant is preferred.",
+    "authorization": "The HTTP Authorization request header contains the credentials to authenticate a user agent with a server.",
+    "cache-control": "The Cache-Control HTTP header field holds directives (instructions) for caching in both requests and responses.",
+    "cf-connecting-ip": "A Cloudflare-specific header that identifies the original client IP address of a request passing through the Cloudflare network.",
+    "cf-ray": "A Cloudflare-specific header. A unique identifier for every request that passes through Cloudflare, used for troubleshooting.",
+    "connection": "The Connection general header controls whether the network connection stays open after the current transaction finishes.",
+    "content-length": "The Content-Length header indicates the size of the message body, in bytes, sent to the recipient.",
+    "content-type": "The Content-Type representation header is used to indicate the original MIME type of the resource.",
+    "cookie": "The Cookie HTTP request header contains stored HTTP cookies previously sent by the server with the Set-Cookie header.",
+    "dnt": "The DNT (Do Not Track) request header indicates the user's tracking preference. It lets users opt out of tracking by websites.",
+    "host": "The Host request header specifies the host name and port number of the server to which the request is being sent.",
+    "if-none-match": "The If-None-Match HTTP request header makes the request conditional. For GET and HEAD methods, the server will return the requested resource only if it doesn't have an ETag matching the given ones.",
+    "origin": "The Origin request header indicates where a fetch originates from. It doesn't include any path information, but only the server name.",
+    "priority": "The Priority request header is used to indicate the relative priority of a request, used by browsers to optimize resource loading.",
+    "referer": "The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed.",
+    "sec-ch-ua": "The Sec-CH-UA header provides the user agent's branding and version information via Client Hints.",
+    "sec-ch-ua-mobile": "The Sec-CH-UA-Mobile header indicates if the user agent is on a mobile device.",
+    "sec-ch-ua-platform": "The Sec-CH-UA-Platform header indicates the platform or operating system on which the user agent is running.",
+    "sec-fetch-dest": "The Sec-Fetch-Dest fetch metadata header indicates the request's destination.",
+    "sec-fetch-mode": "The Sec-Fetch-Mode fetch metadata header indicates the mode of the request.",
+    "sec-fetch-site": "The Sec-Fetch-Site fetch metadata header indicates the relationship between a request initiator's origin and the target resource's origin.",
+    "sec-fetch-user": "The Sec-Fetch-User fetch metadata header indicates whether a navigation request was triggered by user activation.",
+    "upgrade-insecure-requests": "The Upgrade-Insecure-Requests request header sends a signal to the server expressing the client's preference for an encrypted and authenticated response.",
+    "user-agent": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent.",
+    "x-forwarded-for": "The X-Forwarded-For (XFF) request header is a de-facto standard header for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or a load balancer.",
+    "x-forwarded-host": "The X-Forwarded-Host request header is a de-facto standard header for identifying the original host requested by the client in the Host HTTP request header.",
+    "x-forwarded-proto": "The X-Forwarded-Proto request header is a de-facto standard header for identifying the protocol (HTTP or HTTPS) that a client used to connect to your proxy or load balancer.",
+    "x-real-ip": "A common de-facto standard header used by proxies and load balancers to pass the original client's IP address to the application server.",
+    "defaultDescription": "No detailed description available for this header.",
+    "infoLabel": "Header Info",
+    "mdnDocs": "MDN Docs",
+    "importantBadge": "Important"
+  },
+  "Metadata": {
+    "title": "Headerly - HTTP Request Header Inspector",
+    "description": "Instantly view and inspect your HTTP request headers. A modern, privacy-focused developer tool for debugging browser-server communication."
+  }
+}

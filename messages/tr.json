@@ -1,0 +1,198 @@
+{
+  "Navbar": {
+    "brand": "Headerly",
+    "headers": "Header'lar",
+    "network": "Ağ Bilgisi",
+    "userAgent": "Kullanıcı Aracısı"
+  },
+  "Footer": {
+    "builtWith": "Modern web için tasarlandı.",
+    "home": "Anasayfa",
+    "terms": "Şartlar",
+    "privacy": "Gizlilik",
+    "github": "GitHub"
+  },
+  "HomePage": {
+    "title": "Headerly",
+    "description": "HTTP istek başlıklarınızı temiz ve geliştirici dostu bir arayüzde anında görüntüleyin ve inceleyin.",
+    "features": {
+      "privacy": {
+        "title": "Önce Gizlilik",
+        "description": "Başlıklar sunucu tarafında işlenir ve asla kaydedilmez. Gördüğünüz veriler sadece size özeldir ve oturumunuzda kalır."
+      },
+      "devTools": {
+        "title": "Geliştirici Araçları",
+        "description": "Geliştiriciler için üretildi. Tek tıkla değerleri veya tüm JSON içeriğini kopyalayın. Yüksek performanslı ve kullanımı kolay."
+      },
+      "openSource": {
+        "title": "Açık Kaynak",
+        "description": "Headerly açık kaynaklıdır ve MIT lisanslıdır. Kodu GitHub'da inceleyin, hata bildirin veya daha iyi hale getirmek için katkıda bulunun."
+      }
+    }
+  },
+  "NetworkPage": {
+    "title": "Ağ Detayları",
+    "description": "Mevcut bağlantınızın teknik detaylarını, sadece istek meta verilerinden türetilmiş şekilde keşfedin.",
+    "howItWorks": {
+      "title": "Bu veriler nasıl sağlanıyor?",
+      "subtitle": "Gizlilik odaklı, şeffaf ve güvenli.",
+      "p1": "Headerly'de gizliliğiniz en önemli önceliğimizdir. <strong>Üçüncü taraf konum belirleme API'larına güvenmiyoruz</strong> ve kullanım verilerinizi paylaşmıyoruz.",
+      "p2": "Yukarıda görüntülenen tüm ağ ve konum detayları, sadece tarayıcınız tarafından gönderilen <strong>HTTP istek meta verilerinden</strong> çıkarılır. Yaklaşık konumunuzu gerçek zamanlı olarak belirlemek için güvenli kenar hesaplama başlıklarını (Cloudflare Edge) kullanıyoruz."
+    },
+    "features": {
+      "noTracking": {
+        "title": "Sıfır Üçüncü Taraf Takibi",
+        "description": "Hiçbir harici API IP adresinizi görmez."
+      },
+      "realTime": {
+        "title": "Gerçek Zamanlı İşleme",
+        "description": "Veriler ağın uç noktasında (edge) anında analiz edilir."
+      },
+      "nonPersistent": {
+        "title": "Kalıcı Olmayan Veri",
+        "description": "Bağlantı detaylarınızı asla saklamıyoruz."
+      },
+      "security": {
+        "title": "Uçtan Uca Güvenlik",
+        "description": "Ağ profilinizin şifrelenmiş teslimatı."
+      }
+    }
+  },
+  "UserAgentPage": {
+    "title": "User-Agent Analizi",
+    "description": "Tarayıcınızın dijital parmak izine derinlemesine dalın ve kimlik belirlemenin nasıl çalıştığını anlayın.",
+    "howItWorks": {
+      "title": "Bu nasıl tespit ediliyor?",
+      "subtitle": "Tarayıcının kimlik dizesini çözmek.",
+      "p1": "Bir web sitesini her ziyaret ettiğinizde, tarayıcınız bir <code>User-Agent</code> başlığı gönderir. Bu dize, sunucuya şunları söyleyen bir \"pasaport\" görevi görür:",
+      "list": {
+        "engine": "<strong>Tarayıcı Motoru:</strong> Altta yatan teknoloji (Chrome/Edge için Blink veya Firefox için Gecko gibi).",
+        "os": "<strong>İşletim Sistemi Detayları:</strong> Çalıştırdığınız işletim sistemi ve sürümü.",
+        "device": "<strong>Cihaz Bilgisi:</strong> Telefon, tablet veya masaüstü olup olmadığınız ve bazen belirli model bilgisi."
+      },
+      "p2": "Bu karmaşık dizeyi insan tarafından okunabilir bileşenlere ayırmak için gelişmiş bir ayrıştırma kütüphanesi kullanıyoruz. Bu işlem tamamen sunucuda yapılır ve sonuç sadece bu paneli görüntülemek için kullanılır."
+    },
+    "features": {
+      "matching": {
+        "title": "Desen Eşleştirme",
+        "description": "Dizeyi, üreticiler tarafından kullanılan belirli anahtar kelimeler ve sürüm numaraları için tarıyoruz."
+      },
+      "engine": {
+        "title": "Motor Çıkarımı",
+        "description": "Standart adlandırma kurallarına dayanarak çekirdek işleme motorunu tanımlama."
+      },
+      "privacy": {
+        "title": "Gizlilik Korumalı",
+        "description": "Kimlik dizeniz gerçek zamanlı olarak işlenir ve asla kaydedilmez veya takip edilmez."
+      },
+      "realTime": {
+        "title": "Gerçek Zamanlı Analiz",
+        "description": "Ayrıştırma, istek yaşam döngüsü sırasında milisaniyeler içinde gerçekleşir."
+      }
+    }
+  },
+  "PrivacyPage": {
+    "back": "Anasayfaya Dön",
+    "title": "Gizlilik Politikası",
+    "lastUpdated": "Son güncelleme"
+  },
+  "TermsPage": {
+    "back": "Anasayfaya Dön",
+    "title": "Kullanım Şartları",
+    "lastUpdated": "Son güncelleme"
+  },
+  "HeaderCard": {
+    "title": "İstek Başlıkları",
+    "description": "Aktif tarayıcı ve bağlantı başlıkları tespit ediliyor",
+    "refresh": "Başlıkları yenile",
+    "download": "JSON olarak indir",
+    "copy": "Tüm JSON'u kopyala"
+  },
+  "NetworkInfo": {
+    "location": {
+      "label": "Fiziksel Konum",
+      "description": "Bağlantınızın tespit edilen kökeni"
+    },
+    "isp": {
+      "label": "Servis Sağlayıcı",
+      "description": "İnternet servis sağlayıcınız (ISP)"
+    },
+    "region": {
+      "label": "Bölge",
+      "description": "Eyalet veya il düzeyinde konum"
+    },
+    "org": {
+      "label": "Organizasyon",
+      "description": "Ağ sahibi veya organizasyon"
+    },
+    "local": {
+      "title": "Yerel Ortam Tespit Edildi",
+      "description": "Headerly'ye yerel veya özel bir ağdan erişiyorsunuz. Coğrafi konum verileri sadece genel IP aralıkları için mevcuttur."
+    }
+  },
+  "UAInfo": {
+    "browser": {
+      "label": "Tarayıcı",
+      "description": "Gezinmek için kullandığınız yazılım"
+    },
+    "os": {
+      "label": "İşletim Sistemi",
+      "description": "Cihazınızın çekirdek sistem yazılımı"
+    },
+    "device": {
+      "label": "Cihaz",
+      "description": "Kullandığınız donanım platformu",
+      "desktop": "Masaüstü",
+      "computer": "Bilgisayar"
+    },
+    "engine": {
+      "label": "Motor",
+      "description": "Tarayıcıınızın işleme motoru"
+    },
+    "raw": {
+      "title": "Ham User-Agent Dizesi",
+      "description": "Bu, tarayıcınız tarafından gönderilen tam kimlik dizesidir."
+    },
+    "unknown": "Bilinmiyor"
+  },
+  "Headers": {
+    "accept": "Accept isteği başlığı, istemcinin hangi içerik türlerini (MIME türleri) anlayabildiğini sunucuya bildirir.",
+    "accept-encoding": "Accept-Encoding isteği başlığı, istemcinin hangi içerik kodlamalarını (genellikle sıkıştırma algoritmaları) anlayabildiğini bildirir.",
+    "accept-language": "Accept-Language isteği başlığı, istemcinin hangi dilleri anlayabildiğini ve hangi yerel varyantın tercih edildiğini bildirir.",
+    "authorization": "HTTP Authorization isteği başlığı, bir kullanıcı aracısının sunucuyla kimlik doğrulaması yapması için gereken kimlik bilgilerini içerir.",
+    "cache-control": "Cache-Control HTTP başlık alanı, hem isteklerde hem de yanıtlarda önbelleğe alma için yönergeler (talimatlar) tutar.",
+    "cf-connecting-ip": "Cloudflare ağı üzerinden geçen bir isteğin orijinal istemci IP adresini tanımlayan Cloudflare'a özgü bir başlıktır.",
+    "cf-ray": "Cloudflare'a özgü bir başlık. Cloudflare üzerinden geçen her istek için sorun giderme amacıyla kullanılan benzersiz bir tanımlayıcıdır.",
+    "connection": "Connection genel başlığı, geçerli işlem bittikten sonra ağ bağlantısının açık kalıp kalmayacağını kontrol eder.",
+    "content-length": "Content-Length başlığı, alıcıya gönderilen mesaj gövdesinin bayt cinsinden boyutunu gösterir.",
+    "content-type": "Content-Type temsil başlığı, kaynağın orijinal MIME türünü belirtmek için kullanılır.",
+    "cookie": "Cookie HTTP isteği başlığı, sunucu tarafından daha önce Set-Cookie başlığıyla gönderilen saklanmış HTTP çerezlerini içerir.",
+    "dnt": "DNT (Do Not Track) isteği başlığı, kullanıcının takip edilme tercihini belirtir. Kullanıcıların web siteleri tarafından takip edilmemeyi seçmesine olanak tanır.",
+    "host": "Host isteği başlığı, isteğin gönderildiği sunucunun ana bilgisayar adını ve port numarasını belirtir.",
+    "if-none-match": "If-None-Match HTTP isteği başlığı, isteği koşullu hale getirir. Sunucu, kaynağı yalnızca ETag eşleşmiyorsa döndürür.",
+    "origin": "Origin isteği başlığı, bir fetch işleminin nereden kaynaklandığını belirtir. Yol bilgisini içermez, sadece sunucu adını içerir.",
+    "priority": "Priority isteği başlığı, bir isteğin göreceli önceliğini belirtmek için kullanılır; tarayıcılar tarafından kaynak yüklemesini optimize etmek için kullanılır.",
+    "referer": "Referer isteği başlığı, şu anda istenen sayfaya giden bağlantının tıklandığı önceki web sayfasının adresini içerir.",
+    "sec-ch-ua": "Sec-CH-UA başlığı, istemci ipuçları (Client Hints) aracılığıyla kullanıcı aracısının marka ve sürüm bilgilerini sağlar.",
+    "sec-ch-ua-mobile": "Sec-CH-UA-Mobile başlığı, kullanıcı aracısının bir mobil cihazda olup olmadığını gösterir.",
+    "sec-ch-ua-platform": "Sec-CH-UA-Platform başlığı, kullanıcı aracısının üzerinde çalıştığı platformu veya işletim sistemini gösterir.",
+    "sec-fetch-dest": "Sec-Fetch-Dest fetch meta veri başlığı, isteğin hedefini gösterir.",
+    "sec-fetch-mode": "Sec-Fetch-Mode fetch meta veri başlığı, isteğin modunu gösterir.",
+    "sec-fetch-site": "Sec-Fetch-Site fetch meta veri başlığı, isteği başlatanın kökeni ile hedef kaynağın kökeni arasındaki ilişkiyi gösterir.",
+    "sec-fetch-user": "Sec-Fetch-User fetch meta veri başlığı, bir navigasyon isteğinin kullanıcı aktivasyonu tarafından tetiklenip tetiklenmediğini gösterir.",
+    "upgrade-insecure-requests": "Upgrade-Insecure-Requests isteği başlığı, sunucuya istemcinin şifrelenmiş ve doğrulanmış bir yanıt tercih ettiğini bildiren bir sinyal gönderir.",
+    "user-agent": "User-Agent isteği başlığı, sunucuların ve ağ eşlerinin istekte bulunan kullanıcı aracısının uygulamasını, işletim sistemini, satıcısını ve/veya sürümünü tanımlamasını sağlayan karakteristik bir dizedir.",
+    "x-forwarded-for": "X-Forwarded-For (XFF) isteği başlığı, bir HTTP proxy veya yük dengeleyici aracılığıyla bir web sunucusuna bağlanan bir istemcinin orijinal IP adresini tanımlamak için kullanılan fiili standart başlıktır.",
+    "x-forwarded-host": "X-Forwarded-Host isteği başlığı, istemci tarafından Host başlığında istenen orijinal ana bilgisayarı tanımlamak için kullanılan fiili standart başlıktır.",
+    "x-forwarded-proto": "X-Forwarded-Proto isteği başlığı, bir istemcinin proxy'nize veya yük dengeleyicinize bağlanmak için kullandığı protokolü (HTTP veya HTTPS) tanımlamak için kullanılan fiili standart başlıktır.",
+    "x-real-ip": "Proxy'ler ve yük dengeleyiciler tarafından orijinal istemcinin IP adresini uygulama sunucusuna iletmek için kullanılan yaygın bir fiili standart başlıktır.",
+    "defaultDescription": "Bu başlık için detaylı açıklama bulunmuyor.",
+    "infoLabel": "Header Bilgisi",
+    "mdnDocs": "MDN Dökümanları",
+    "importantBadge": "Önemli"
+  },
+  "Metadata": {
+    "title": "Headerly - HTTP İstek Başlığı Denetçisi",
+    "description": "HTTP istek başlıklarınızı anında görüntüleyin ve inceleyin. Tarayıcı-sunucu iletişimini hata ayıklamak için modern, gizlilik odaklı bir geliştirici aracı."
+  }
+}

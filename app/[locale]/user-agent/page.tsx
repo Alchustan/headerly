@@ -1,9 +1,11 @@
 import { headers } from "next/headers"
 import { UAParserComponent } from "@/components/ua-parser"
-import { Info, ShieldCheck, Zap, HelpCircle, Code2, Cpu } from "lucide-react"
+import { ShieldCheck, Zap, HelpCircle, Code2, Cpu } from "lucide-react"
+import { getTranslations } from "next-intl/server"
 
 export default async function UserAgentPage() {
   const headersList = await headers()
+  const t = await getTranslations("UserAgentPage")
   const headersObj = Object.fromEntries(headersList.entries())
   const userAgent = headersObj["user-agent"] || ""
 
@@ -11,10 +13,10 @@ export default async function UserAgentPage() {
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
       <header className="container mx-auto flex flex-col items-center gap-4 py-16 text-center px-4 md:py-24">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary">
-          User-Agent Analysis
+          {t("title")}
         </h1>
         <p className="max-w-[650px] text-muted-foreground text-lg md:text-xl leading-relaxed">
-          Deep dive into your browser's digital fingerprint and understand how identification works.
+          {t("description")}
         </p>
       </header>
 
@@ -30,21 +32,23 @@ export default async function UserAgentPage() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-xl shadow-primary/20 mb-6">
                   <HelpCircle className="h-7 w-7" />
                 </div>
-                <h2 className="text-4xl font-bold text-foreground tracking-tight">How is this detected?</h2>
-                <p className="text-xl text-primary font-medium">Decoding the browser's identity string.</p>
+                <h2 className="text-4xl font-bold text-foreground tracking-tight">{t("howItWorks.title")}</h2>
+                <p className="text-xl text-primary font-medium">{t("howItWorks.subtitle")}</p>
               </div>
 
               <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
                 <p>
-                  Every time you visit a website, your browser sends a <code>User-Agent</code> header. This string acts as a "passport" that tells the server:
+                  {t.rich("howItWorks.p1", {
+                    code: (chunks) => <code>{chunks}</code>
+                  })}
                 </p>
                 <ul className="list-disc pl-6 space-y-4">
-                  <li><strong>Browser Engine:</strong> The underlying technology (like Blink for Chrome/Edge or Gecko for Firefox).</li>
-                  <li><strong>OS Details:</strong> The operating system and version you are running.</li>
-                  <li><strong>Device Info:</strong> Whether you are on a phone, tablet, or desktop, and sometimes the specific model.</li>
+                  <li>{t.rich("howItWorks.list.engine", { strong: (chunks) => <strong>{chunks}</strong> })}</li>
+                  <li>{t.rich("howItWorks.list.os", { strong: (chunks) => <strong>{chunks}</strong> })}</li>
+                  <li>{t.rich("howItWorks.list.device", { strong: (chunks) => <strong>{chunks}</strong> })}</li>
                 </ul>
                 <p>
-                  We use an advanced parsing library to break down this complex string into human-readable components. This process is done <strong>entirely on the server</strong> and the result is only used to display this dashboard.
+                  {t("howItWorks.p2")}
                 </p>
               </div>
             </div>
@@ -52,23 +56,23 @@ export default async function UserAgentPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               <ExplanationItem
                 icon={<Code2 className="h-5 w-5" />}
-                title="Pattern Matching"
-                description="We scan the string for specific keywords and version numbers used by vendors."
+                title={t("features.matching.title")}
+                description={t("features.matching.description")}
               />
               <ExplanationItem
                 icon={<Cpu className="h-5 w-5" />}
-                title="Engine Inference"
-                description="Identifying the core rendering engine based on standard naming conventions."
+                title={t("features.engine.title")}
+                description={t("features.engine.description")}
               />
               <ExplanationItem
                 icon={<ShieldCheck className="h-5 w-5" />}
-                title="Privacy Protected"
-                description="Your ID string is processed in real-time and never saved or tracked."
+                title={t("features.privacy.title")}
+                description={t("features.privacy.description")}
               />
               <ExplanationItem
                 icon={<Zap className="h-5 w-5" />}
-                title="Real-Time Analysis"
-                description="Parsing happens in milliseconds during the request lifecycle."
+                title={t("features.realTime.title")}
+                description={t("features.realTime.description")}
               />
             </div>
           </div>

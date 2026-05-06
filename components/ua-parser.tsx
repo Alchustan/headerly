@@ -17,7 +17,10 @@ interface UAParserProps {
   userAgent: string
 }
 
+import { useTranslations } from "next-intl"
+
 export function UAParserComponent({ userAgent }: UAParserProps) {
+  const t = useTranslations("UAInfo")
   const parser = React.useMemo(() => new UAParser(userAgent), [userAgent])
   const result = React.useMemo(() => parser.getResult(), [parser])
 
@@ -37,31 +40,31 @@ export function UAParserComponent({ userAgent }: UAParserProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         <UAInfoCard
           icon={<Globe className="h-5 w-5" />}
-          label="Browser"
-          value={result.browser.name || "Unknown"}
+          label={t("browser.label")}
+          value={result.browser.name || t("unknown")}
           subValue={result.browser.version}
-          description="The software you're using to browse"
+          description={t("browser.description")}
         />
         <UAInfoCard
           icon={<Settings className="h-5 w-5" />}
-          label="Operating System"
-          value={result.os.name || "Unknown"}
+          label={t("os.label")}
+          value={result.os.name || t("unknown")}
           subValue={result.os.version}
-          description="The core system software of your device"
+          description={t("os.description")}
         />
         <UAInfoCard
           icon={getDeviceIcon()}
-          label="Device"
-          value={result.device.model || result.device.vendor || "Desktop"}
-          subValue={result.device.type || "Computer"}
-          description="The hardware platform you're using"
+          label={t("device.label")}
+          value={result.device.model || result.device.vendor || t("device.desktop")}
+          subValue={result.device.type || t("device.computer")}
+          description={t("device.description")}
         />
         <UAInfoCard
           icon={<Cpu className="h-5 w-5" />}
-          label="Engine"
-          value={result.engine.name || "Unknown"}
+          label={t("engine.label")}
+          value={result.engine.name || t("unknown")}
           subValue={result.engine.version}
-          description="The rendering engine of your browser"
+          description={t("engine.description")}
         />
       </div>
 
@@ -71,9 +74,9 @@ export function UAParserComponent({ userAgent }: UAParserProps) {
             <Search className="h-6 w-6" />
           </div>
           <div className="space-y-2 flex-1 min-w-0">
-            <h3 className="text-xl font-bold text-foreground">Raw User-Agent String</h3>
+            <h3 className="text-xl font-bold text-foreground">{t("raw.title")}</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              This is the full identification string sent by your browser.
+              {t("raw.description")}
             </p>
             <div className="mt-4 p-4 rounded-xl bg-background/50 border border-border font-mono text-xs break-all text-muted-foreground leading-normal">
               {userAgent}

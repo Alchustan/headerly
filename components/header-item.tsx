@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/tooltip"
 import { getHeaderInfo } from "@/lib/header-info"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { useTranslations } from "next-intl"
 
 interface HeaderItemProps {
   name: string
@@ -33,8 +34,14 @@ interface HeaderItemProps {
 
 export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   const [mounted, setMounted] = React.useState(false)
+  const t = useTranslations("Headers")
   const headerInfo = getHeaderInfo(name)
   const isMobile = useIsMobile()
+
+  // Try to get translation for the header description, fallback to the hardcoded one or default
+  const headerKey = name.toLowerCase()
+  const hasTranslation = t.has(headerKey)
+  const description = hasTranslation ? t(headerKey) : headerInfo.description
 
   React.useEffect(() => {
     setMounted(true)
@@ -45,7 +52,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
       <div className="flex items-center justify-between border-b border-border pb-3">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Header Info</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t("infoLabel")}</span>
         </div>
         {headerInfo.mdnUrl && (
           <a
@@ -54,14 +61,14 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs font-bold text-primary hover:underline bg-primary/10 px-2 py-1 rounded-lg transition-colors"
           >
-            MDN Docs <ExternalLink className="h-3 w-3" />
+            {t("mdnDocs")} <ExternalLink className="h-3 w-3" />
           </a>
         )}
       </div>
       <div className="space-y-2">
         <h3 className="text-lg font-bold text-foreground">{name}</h3>
         <p className="text-sm leading-relaxed text-muted-foreground font-medium">
-          {headerInfo.description}
+          {description}
         </p>
       </div>
     </div>
@@ -120,7 +127,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
 
           {isImportant && (
             <Badge variant="outline" className="h-5 px-1.5 text-[10px] uppercase tracking-wider border-primary/20 text-primary bg-primary/5 rounded-xl shrink-0 font-bold">
-              Important
+              {t("importantBadge")}
             </Badge>
           )}
         </div>

@@ -1,9 +1,11 @@
 import { headers } from "next/headers"
 import { NetworkInfoCards, type GeoData } from "@/components/network-info-card"
 import { Activity, ShieldCheck, Zap, Lock, EyeOff, Globe } from "lucide-react"
+import { getTranslations } from "next-intl/server"
 
 export default async function NetworkPage() {
   const headersList = await headers()
+  const t = await getTranslations("NetworkPage")
   const headersObj = Object.fromEntries(headersList.entries())
 
   let ip = headersObj['cf-connecting-ip'] || headersObj['x-forwarded-for']?.split(',')[0] || headersObj['x-real-ip'] || "127.0.0.1"
@@ -38,10 +40,10 @@ export default async function NetworkPage() {
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
       <header className="container mx-auto flex flex-col items-center gap-4 py-16 text-center px-4 md:py-24">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary">
-          Network Details
+          {t("title")}
         </h1>
         <p className="max-w-[650px] text-muted-foreground text-lg md:text-xl leading-relaxed">
-          Explore the technical blueprint of your current connection, derived solely from request metadata.
+          {t("description")}
         </p>
       </header>
 
@@ -57,16 +59,20 @@ export default async function NetworkPage() {
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-xl shadow-primary/20 mb-6">
                   <ShieldCheck className="h-7 w-7" />
                 </div>
-                <h2 className="text-4xl font-bold text-foreground tracking-tight">How is this data provided?</h2>
-                <p className="text-xl text-primary font-medium">Privacy-first, transparent, and secure.</p>
+                <h2 className="text-4xl font-bold text-foreground tracking-tight">{t("howItWorks.title")}</h2>
+                <p className="text-xl text-primary font-medium">{t("howItWorks.subtitle")}</p>
               </div>
 
               <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
                 <p>
-                  At Headerly, your privacy is our top priority. We <strong>do not rely on third-party geolocation APIs</strong> or share your usage data.
+                  {t.rich("howItWorks.p1", {
+                    strong: (chunks) => <strong>{chunks}</strong>
+                  })}
                 </p>
                 <p>
-                  All the network and location details displayed above are extracted solely from the <strong>HTTP request metadata</strong> sent by your browser. We use secure edge computing headers (Cloudflare Edge) to determine your approximate origin in real-time.
+                  {t.rich("howItWorks.p2", {
+                    strong: (chunks) => <strong>{chunks}</strong>
+                  })}
                 </p>
               </div>
             </div>
@@ -74,23 +80,23 @@ export default async function NetworkPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               <FeatureItem
                 icon={<EyeOff className="h-5 w-5" />}
-                title="Zero Third-Party Tracking"
-                description="No external APIs ever see your IP address."
+                title={t("features.noTracking.title")}
+                description={t("features.noTracking.description")}
               />
               <FeatureItem
                 icon={<Zap className="h-5 w-5" />}
-                title="Real-Time Processing"
-                description="Data is analyzed on-the-fly at the network edge."
+                title={t("features.realTime.title")}
+                description={t("features.realTime.description")}
               />
               <FeatureItem
                 icon={<Lock className="h-5 w-5" />}
-                title="Non-Persistent Data"
-                description="We never store your connection details."
+                title={t("features.nonPersistent.title")}
+                description={t("features.nonPersistent.description")}
               />
               <FeatureItem
                 icon={<ShieldCheck className="h-5 w-5" />}
-                title="Edge-to-Edge Security"
-                description="Encrypted delivery of your network profile."
+                title={t("features.security.title")}
+                description={t("features.security.description")}
               />
             </div>
           </div>
