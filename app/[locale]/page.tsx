@@ -13,7 +13,6 @@ export default async function Page() {
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
       <header className="container mx-auto flex flex-col items-center gap-4 py-12 text-center md:py-20 px-4">
-
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary lg:text-7xl">
           {t("title")}
         </h1>
@@ -25,22 +24,25 @@ export default async function Page() {
       <main className="container mx-auto flex-1 px-4 pb-24">
         <HeaderCard headers={headersObj} />
 
-        <section className="mt-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-          <FeatureCard 
-            icon={<Globe className="h-5 w-5" />}
-            title={t("features.privacy.title")}
-            description={t("features.privacy.description")}
-          />
-          <FeatureCard 
-            icon={<Code2 className="h-5 w-5" />}
-            title={t("features.devTools.title")}
-            description={t("features.devTools.description")}
-          />
-          <FeatureCard 
-            icon={<Terminal className="h-5 w-5" />}
-            title={t("features.openSource.title")}
-            description={t("features.openSource.description")}
-          />
+        <section className="mt-24 max-w-6xl mx-auto">
+          <h2 className="sr-only">Features</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <FeatureCard 
+              icon={<Globe className="h-5 w-5" />}
+              title={t("features.privacy.title")}
+              description={t("features.privacy.description")}
+            />
+            <FeatureCard 
+              icon={<Code2 className="h-5 w-5" />}
+              title={t("features.devTools.title")}
+              description={t("features.devTools.description")}
+            />
+            <FeatureCard 
+              icon={<Terminal className="h-5 w-5" />}
+              title={t("features.openSource.title")}
+              description={t("features.openSource.description")}
+            />
+          </div>
         </section>
       </main>
     </div>

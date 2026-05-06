@@ -3,6 +3,31 @@ import { NetworkInfoCards, type GeoData } from "@/components/network-info-card"
 import { Activity, ShieldCheck, Zap, Lock, EyeOff, Globe } from "lucide-react"
 import { getTranslations } from "next-intl/server"
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.network' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: `/${locale === 'en' ? '' : locale}/network`,
+      languages: {
+        'en': '/network',
+        'tr': '/tr/network',
+      },
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+    },
+    twitter: {
+      title: t('title'),
+      description: t('description'),
+    },
+  };
+}
+
 export default async function NetworkPage() {
   const headersList = await headers()
   const t = await getTranslations("NetworkPage")

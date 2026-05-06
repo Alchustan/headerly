@@ -1,11 +1,36 @@
 
 import { ArrowLeft } from "lucide-react"
 import { Link } from "@/i18n/routing"
-import { useTranslations, useLocale } from "next-intl"
+import { getTranslations } from "next-intl/server"
 
-export default function PrivacyPage() {
-  const t = useTranslations("PrivacyPage")
-  const locale = useLocale()
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.privacy' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: `/${locale === 'en' ? '' : locale}/privacy`,
+      languages: {
+        'en': '/privacy',
+        'tr': '/tr/privacy',
+      },
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+    },
+    twitter: {
+      title: t('title'),
+      description: t('description'),
+    },
+  };
+}
+
+export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations("PrivacyPage")
 
   const lastUpdated = new Date().toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', { 
     month: 'long', 

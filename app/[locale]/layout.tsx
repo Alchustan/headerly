@@ -65,7 +65,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     metadataBase: new URL("https://headerly.net"),
     alternates: {
-      canonical: "/",
+      canonical: `/${locale === 'en' ? '' : locale}`,
+      languages: {
+        'en': '/',
+        'tr': '/tr',
+      },
     },
   };
 }

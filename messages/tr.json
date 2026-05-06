@@ -193,6 +193,22 @@
   },
   "Metadata": {
     "title": "Headerly - HTTP İstek Başlığı Denetçisi",
-    "description": "HTTP istek başlıklarınızı anında görüntüleyin ve inceleyin. Tarayıcı-sunucu iletişimini hata ayıklamak için modern, gizlilik odaklı bir geliştirici aracı."
+    "description": "HTTP istek başlıklarınızı anında görüntüleyin ve inceleyin. Tarayıcı-sunucu iletişimini hata ayıklamak için modern, gizlilik odaklı bir geliştirici aracı.",
+    "network": {
+      "title": "Ağ Detayları - Headerly",
+      "description": "Bağlantınızın teknik detaylarını keşfedin. İstek meta verilerinden çıkarılan IP adresi, konum ve ISP bilgilerini görüntüleyin."
+    },
+    "userAgent": {
+      "title": "User-Agent Analizi - Headerly",
+      "description": "Tarayıcınızın kimliğini çözün. Tarayıcı motorlarının, işletim sistemlerinin ve cihaz türlerinin nasıl tanımlandığını anlayın."
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası - Headerly",
+      "description": "Gizliliğinize olan bağlılığımız. İstek verilerinizi nasıl güvenli ve şeffaf bir şekilde işlediğimizi öğrenin."
+    },
+    "terms": {
+      "title": "Kullanım Şartları - Headerly",
+      "description": "Headerly'nin geliştirici araçlarını ve hizmetlerini kullanma şartları ve koşulları."
+    }
   }
 }

@@ -193,6 +193,22 @@
   },
   "Metadata": {
     "title": "Headerly - HTTP Request Header Inspector",
-    "description": "Instantly view and inspect your HTTP request headers. A modern, privacy-focused developer tool for debugging browser-server communication."
+    "description": "Instantly view and inspect your HTTP request headers. A modern, privacy-focused developer tool for debugging browser-server communication.",
+    "network": {
+      "title": "Network Details - Headerly",
+      "description": "Explore your connection's technical blueprint. View IP address, location, and ISP details extracted from request metadata."
+    },
+    "userAgent": {
+      "title": "User-Agent Analysis - Headerly",
+      "description": "Decode your browser's identity. Understand how browser engines, operating systems, and device types are identified."
+    },
+    "privacy": {
+      "title": "Privacy Policy - Headerly",
+      "description": "Our commitment to your privacy. Learn how we handle your request data securely and transparently."
+    },
+    "terms": {
+      "title": "Terms of Service - Headerly",
+      "description": "The terms and conditions for using Headerly's developer tools and services."
+    }
   }
 }
