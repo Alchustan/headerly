@@ -20,7 +20,9 @@ Headerly is a modern, developer-centric tool designed to instantly view and insp
   - **One-Click Copy**: Copy individual header values or the entire JSON payload.
   - **Download JSON**: Save your headers as a `.json` file for later use.
   - **Instant Refresh**: Re-fetch headers without a full page reload, now with visual feedback.
-- **Mobile-First Experience**: Fully optimized for all devices with mobile-friendly dialogs, popovers, and horizontal scrolling support for long strings.
+- **Multi-language Support**: Full internationalization support for English and Turkish locales with a seamless language switcher.
+- **Mobile-First Experience**: Fully optimized for all devices with a dedicated mobile navigation menu, responsive dialogs, and horizontal scrolling for long strings.
+- **SEO Optimized**: Includes dynamic sitemap generation and localized metadata for enhanced search engine visibility.
 - **Dark & Light Mode**: A premium UI that respects your system preferences with a refined "Technical-Warmth" design.
 
 ## 🛠️ Tech Stack
@@ -33,6 +35,7 @@ Headerly is built using the latest modern web technologies:
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Theming**: [Next Themes](https://github.com/pacocoursey/next-themes)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Internationalization**: [next-intl](https://next-intl-docs.vercel.app/)
 - **Parsing**: [ua-parser-js](https://github.com/fent/ua-parser-js)
 
 ## 🚀 Getting Started
@@ -75,24 +78,27 @@ npm start
 
 ```text
 headerly/
-├── app/                # Next.js App Router (pages & layouts)
-│   ├── network/        # Network analysis page (IP & Geo)
-│   ├── user-agent/     # User-Agent analysis and education page
-│   ├── privacy/        # Privacy policy page
-│   ├── terms/          # Terms of service page
-│   ├── layout.tsx      # Global layout with navbar and footer
-│   └── page.tsx        # Main header inspection entry point
-├── components/         # React components
-│   ├── ui/             # Reusable UI components (Shadcn)
-│   ├── header-card.tsx # Primary header display container
-│   ├── network-info.tsx # Network details visualization
-│   └── ...             # Feature-specific components
-├── lib/                # Utility functions and shared logic
-│   ├── header-info.ts  # Database of header descriptions and MDN links
-│   └── utils.ts        # Tailwind merge utilities
-├── public/             # Static assets (images, icons)
-├── hooks/              # Custom React hooks
-└── ...                 # Configuration files (TS, ESLint, Tailwind, etc.)
+├── app/                  # Next.js App Router
+│   ├── [locale]/         # Localized route group
+│   │   ├── network/      # Network analysis page
+│   │   ├── user-agent/   # User-Agent analysis page
+│   │   ├── privacy/      # Privacy policy
+│   │   ├── terms/        # Terms of service
+│   │   ├── layout.tsx    # Root layout for locale
+│   │   └── page.tsx      # Main inspector page
+│   ├── sitemap.ts        # Dynamic sitemap generation
+│   └── globals.css       # Global styles
+├── components/           # React components
+│   ├── mobile-nav.tsx    # Mobile-responsive navigation
+│   ├── language-switcher.tsx # Locale toggle component
+│   ├── ui/               # Reusable UI components (Shadcn)
+│   └── ...               # Feature-specific components
+├── i18n/                 # Internationalization configuration
+├── messages/             # Translation dictionaries (EN, TR)
+├── lib/                  # Utility functions and shared logic
+├── public/               # Static assets (images, icons)
+├── hooks/                # Custom React hooks
+└── ...                   # Configuration files (TS, ESLint, etc.)
 ```
 
 ## 🤝 Contributing
