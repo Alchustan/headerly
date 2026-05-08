@@ -2,8 +2,8 @@
   "Navbar": {
     "brand": "Headerly",
     "headers": "Header'lar",
-    "network": "Ağ Bilgisi",
-    "userAgent": "Kullanıcı Aracısı",
+    "network": "Ağ Detayları",
+    "userAgent": "User Agent",
     "greenWeb": "Yeşil Web"
   },
   "Footer": {
