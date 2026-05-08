@@ -4,7 +4,8 @@
     "headers": "Headers",
     "network": "Network Info",
     "userAgent": "User Agent",
-    "greenWeb": "Green Web"
+    "greenWeb": "Green Web",
+    "fingerprint": "Fingerprint"
   },
   "Footer": {
     "builtWith": "Built for the modern web.",
@@ -269,6 +270,125 @@
     "greenWeb": {
       "title": "Green Web Analyzer - Headerly",
       "description": "Check if a website is hosted on green energy and estimate its carbon footprint."
+    },
+    "fingerprint": {
+      "title": "Browser Fingerprint - Headerly",
+      "description": "Discover your unique digital identifier used for cookie-less tracking."
+    }
+  },
+  "FingerprintPage": {
+    "title": "Browser Fingerprint",
+    "subtitle": "Discover your unique digital identifier used for cookie-less tracking.",
+    "hashLabel": "Generated Fingerprint Hash",
+    "loading": "Generating fingerprint...",
+    "uniqueness": {
+      "title": "Uniqueness Score",
+      "description": "How identifiable your browser is based on collected data",
+      "low": "Common",
+      "medium": "Distinct",
+      "high": "Unique"
+    },
+    "metrics": {
+      "screen": {
+        "title": "Screen & Color",
+        "description": "Resolution and color depth",
+        "tooltip": "Advertisers use this to know your physical monitor size and infer your device type."
+      },
+      "timezone": {
+        "title": "Timezone",
+        "description": "System timezone setting",
+        "tooltip": "Used to determine your geographical region and show ads when you are most likely awake."
+      },
+      "hardware": {
+        "title": "Hardware",
+        "description": "CPU cores and Device Memory",
+        "tooltip": "Reveals the processing power of your device, distinguishing high-end computers from budget devices."
+      },
+      "platform": {
+        "title": "Platform",
+        "description": "Operating System",
+        "tooltip": "Identifies your operating system (Windows, macOS, Linux, etc.) to serve targeted software."
+      },
+      "language": {
+        "title": "Language",
+        "description": "Browser primary language",
+        "tooltip": "Your browser's primary language helps identify your nationality or cultural background."
+      },
+      "cookies": {
+        "title": "Cookies Enabled",
+        "description": "Status of cookie storage",
+        "tooltip": "If disabled, sites will aggressively use fingerprinting instead of traditional tracking."
+      },
+      "dnt": {
+        "title": "Do Not Track",
+        "description": "DNT header preference",
+        "tooltip": "Ironically, having 'Do Not Track' enabled makes you MORE unique, as few users turn it on."
+      },
+      "touch": {
+        "title": "Touch Support",
+        "description": "Maximum touch points",
+        "tooltip": "Instantly separates mobile/tablet devices from traditional desktop computers."
+      },
+      "pixelRatio": {
+        "title": "Pixel Ratio",
+        "description": "DPR (Zoom Level)",
+        "tooltip": "Reveals your system's zoom level or whether you have a Retina/high-DPI display."
+      },
+      "canvas": {
+        "title": "Canvas Fingerprint",
+        "description": "Hidden image render hash",
+        "tooltip": "Draws invisible graphics to extract microscopic differences in how your GPU renders pixels."
+      },
+      "webgl": {
+        "title": "WebGL Context",
+        "description": "GPU Vendor & Renderer",
+        "tooltip": "Directly exposes the exact model of your Graphics Card (GPU) and its drivers."
+      }
+    },
+    "howItWorks": {
+      "title": "How does this work?",
+      "subtitle": "The mechanics of cookie-less tracking.",
+      "p1": "Even when you block cookies or use Incognito mode, your browser shares a unique set of hardware and software configurations with websites you visit. Scripts can silently gather this data to create a 'fingerprint' that uniquely identifies your device across the web."
+    },
+    "features": {
+      "cookieless": {
+        "title": "Cookie-less Tracking",
+        "description": "Tracks you across sessions even in Incognito mode or with cookies disabled."
+      },
+      "canvasRender": {
+        "title": "Hardware Canvas",
+        "description": "Rendering invisible graphics reveals the specific nuances of your GPU and drivers."
+      },
+      "privacy": {
+        "title": "Privacy Measures",
+        "description": "Browsers like Brave, Tor, or privacy extensions can randomize these APIs to mitigate tracking."
+      },
+      "stateless": {
+        "title": "Stateless Check",
+        "description": "We generate this hash entirely on your client. It is never sent to or stored on our servers."
+      }
+    },
+    "actionableSteps": {
+      "title": "How to Protect Yourself",
+      "subtitle": "Actionable steps to reduce your digital footprint.",
+      "steps": {
+        "browsers": {
+          "title": "Use Privacy-Focused Browsers",
+          "description": "Browsers like Brave, Tor, or Firefox (with Strict Tracking Protection) actively randomize or block fingerprinting APIs."
+        },
+        "extensions": {
+          "title": "Install Anti-Tracking Extensions",
+          "description": "Extensions like uBlock Origin or Privacy Badger block known tracking scripts before they can execute and build your profile."
+        },
+        "incognito": {
+          "title": "Understand Incognito Limits",
+          "description": "Remember that Incognito/Private mode only clears your local history and cookies. It does NOT hide your browser fingerprint."
+        },
+        "settings": {
+          "title": "Disable Unnecessary Features",
+          "description": "Disabling WebGL or third-party cookies in your browser settings can reduce the surface area available to trackers."
+        }
+      }
     }
   }
 }

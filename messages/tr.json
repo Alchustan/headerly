@@ -4,7 +4,8 @@
     "headers": "Header'lar",
     "network": "Ağ Detayları",
     "userAgent": "User Agent",
-    "greenWeb": "Yeşil Web"
+    "greenWeb": "Yeşil Web",
+    "fingerprint": "Parmak İzi"
   },
   "Footer": {
     "builtWith": "Modern web için tasarlandı.",
@@ -269,6 +270,125 @@
     "greenWeb": {
       "title": "Yeşil Web Analizcisi - Headerly",
       "description": "Bir web sitesinin yeşil enerji ile barındırılıp barındırılmadığını kontrol edin ve karbon ayak izini tahmin edin."
+    },
+    "fingerprint": {
+      "title": "Tarayıcı Parmak İzi - Headerly",
+      "description": "Çerezsiz izleme için kullanılan benzersiz dijital kimliğinizi keşfedin."
+    }
+  },
+  "FingerprintPage": {
+    "title": "Tarayıcı Parmak İzi",
+    "subtitle": "Çerezsiz izleme için kullanılan benzersiz dijital kimliğinizi keşfedin.",
+    "hashLabel": "Oluşturulan Parmak İzi Özeti (Hash)",
+    "loading": "Parmak izi oluşturuluyor...",
+    "uniqueness": {
+      "title": "Benzersizlik Skoru",
+      "description": "Toplanan verilere göre tarayıcınızın ne kadar ayırt edilebilir olduğu",
+      "low": "Sıradan",
+      "medium": "Belirgin",
+      "high": "Eşsiz"
+    },
+    "metrics": {
+      "screen": {
+        "title": "Ekran ve Renk",
+        "description": "Çözünürlük ve renk derinliği",
+        "tooltip": "Reklamcılar bunu monitör boyutunuzu bilmek ve cihaz türünüzü tahmin etmek için kullanır."
+      },
+      "timezone": {
+        "title": "Zaman Dilimi",
+        "description": "Sistem zaman dilimi ayarı",
+        "tooltip": "Coğrafi bölgenizi belirlemek ve uyanık olduğunuz saatlerde reklam göstermek için kullanılır."
+      },
+      "hardware": {
+        "title": "Donanım",
+        "description": "CPU çekirdekleri ve Cihaz Belleği",
+        "tooltip": "Cihazınızın işlem gücünü ortaya çıkararak pahalı bilgisayarları ucuz olanlardan ayırır."
+      },
+      "platform": {
+        "title": "Platform",
+        "description": "İşletim Sistemi",
+        "tooltip": "Size özel yazılım veya uygulama sunmak için işletim sisteminizi (Windows, macOS vb.) tanımlar."
+      },
+      "language": {
+        "title": "Dil",
+        "description": "Tarayıcı varsayılan dili",
+        "tooltip": "Tarayıcınızın varsayılan dili, uyruğunuzu veya kültürel geçmişinizi belirlemeye yardımcı olur."
+      },
+      "cookies": {
+        "title": "Çerezler Etkin",
+        "description": "Çerez depolama durumu",
+        "tooltip": "Eğer kapalıysa, web siteleri sizi takip etmek için geleneksel çerezler yerine parmak izi yöntemlerine daha agresif başvurur."
+      },
+      "dnt": {
+        "title": "Beni İzleme (DNT)",
+        "description": "DNT başlığı tercihi",
+        "tooltip": "İronik bir şekilde, 'Beni İzleme' (DNT) ayarını açmak sizi DAHA benzersiz yapar, çünkü çok az kişi kullanır."
+      },
+      "touch": {
+        "title": "Dokunmatik Desteği",
+        "description": "Maksimum dokunma noktası",
+        "tooltip": "Dokunmatik ekran desteği, mobil/tablet cihazları masaüstü bilgisayarlardan anında ayırır."
+      },
+      "pixelRatio": {
+        "title": "Piksel Oranı",
+        "description": "DPR (Yakınlaştırma Seviyesi)",
+        "tooltip": "Sisteminizin yakınlaştırma seviyesini veya Retina (yüksek çözünürlüklü) bir ekrana sahip olup olmadığınızı gösterir."
+      },
+      "canvas": {
+        "title": "Canvas Parmak İzi",
+        "description": "Gizli resim oluşturma özeti",
+        "tooltip": "Ekran kartınızın (GPU) pikselleri nasıl çizdiğindeki mikroskobik farklılıkları çıkarmak için görünmez grafikler çizer."
+      },
+      "webgl": {
+        "title": "WebGL Bağlamı",
+        "description": "GPU Satıcısı ve İşleyicisi",
+        "tooltip": "Ekran Kartınızın (GPU) tam modelini ve sürücü detaylarını doğrudan ifşa eder."
+      }
+    },
+    "howItWorks": {
+      "title": "Bu nasıl çalışıyor?",
+      "subtitle": "Çerezsiz izlemenin mekaniği.",
+      "p1": "Çerezleri engelleseniz veya Gizli mod kullansanız bile, tarayıcınız ziyaret ettiğiniz web siteleriyle benzersiz bir donanım ve yazılım yapılandırma seti paylaşır. Komut dosyaları, cihazınızı web'de benzersiz bir şekilde tanımlayan bir 'parmak izi' oluşturmak için bu verileri sessizce toplayabilir."
+    },
+    "features": {
+      "cookieless": {
+        "title": "Çerezsiz İzleme",
+        "description": "Gizli modda veya çerezler devre dışı bırakılmış olsa bile oturumlar boyunca sizi izler."
+      },
+      "canvasRender": {
+        "title": "Donanım Canvas",
+        "description": "Görünmez grafiklerin oluşturulması, GPU'nuzun ve sürücülerinizin belirli nüanslarını ortaya çıkarır."
+      },
+      "privacy": {
+        "title": "Gizlilik Önlemleri",
+        "description": "Brave, Tor gibi tarayıcılar veya gizlilik uzantıları izlemeyi hafifletmek için bu API'leri rastgele hale getirebilir."
+      },
+      "stateless": {
+        "title": "Durumsuz Kontrol",
+        "description": "Bu özeti tamamen istemcinizde oluşturuyoruz. Sunucularımıza asla gönderilmez veya saklanmaz."
+      }
+    },
+    "actionableSteps": {
+      "title": "Nasıl Korunabilirsiniz?",
+      "subtitle": "Dijital ayak izinizi küçültmek için atabileceğiniz adımlar.",
+      "steps": {
+        "browsers": {
+          "title": "Gizlilik Odaklı Tarayıcılar Kullanın",
+          "description": "Brave, Tor veya Firefox (Sıkı İzleme Koruması ile) gibi tarayıcılar, parmak izi API'lerini aktif olarak rastgele hale getirir veya engeller."
+        },
+        "extensions": {
+          "title": "İzleme Engelleyici Eklentiler Kurun",
+          "description": "uBlock Origin veya Privacy Badger gibi eklentiler, bilinen izleme komut dosyalarını profilinizi oluşturmadan önce engeller."
+        },
+        "incognito": {
+          "title": "Gizli Sekmenin Sınırlarını Bilin",
+          "description": "Gizli/Özel modun yalnızca yerel geçmişinizi ve çerezlerinizi temizlediğini unutmayın. Tarayıcı parmak izinizi GİZLEMEZ."
+        },
+        "settings": {
+          "title": "Gereksiz Özellikleri Devre Dışı Bırakın",
+          "description": "Tarayıcı ayarlarınızda WebGL'i veya üçüncü taraf çerezleri devre dışı bırakmak, izleyicilerin kullanabileceği veri yüzeyini azaltabilir."
+        }
+      }
     }
   }
 }
