@@ -1,0 +1,394 @@
+{
+  "Navbar": {
+    "brand": "Headerly",
+    "headers": "请求头",
+    "network": "网络信息",
+    "userAgent": "User Agent",
+    "greenWeb": "绿色网络",
+    "fingerprint": "浏览器指纹"
+  },
+  "Footer": {
+    "builtWith": "为现代 Web 打造。",
+    "home": "首页",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "github": "GitHub"
+  },
+  "HomePage": {
+    "title": "Headerly",
+    "description": "在简洁、开发者友好的界面中即时查看并检查您的 HTTP 请求头。",
+    "features": {
+      "privacy": {
+        "title": "隐私至上",
+        "description": "请求头在服务端处理且从不存储。您看到的内容仅对您可见，且仅保留在当前会话中。"
+      },
+      "devTools": {
+        "title": "开发者工具",
+        "description": "为开发者打造。只需一键即可复制单个数值或整个 JSON 负载。高性能且易于使用。"
+      },
+      "openSource": {
+        "title": "开源项目",
+        "description": "Headerly 是开源的，采用 MIT 许可。在 GitHub 上探索代码、报告问题或为改进项目做出贡献。"
+      }
+    }
+  },
+  "NetworkPage": {
+    "title": "网络详情",
+    "description": "探索当前连接的技术蓝图，完全源自请求元数据。",
+    "howItWorks": {
+      "title": "这些数据是如何提供的？",
+      "subtitle": "隐私优先、透明且安全。",
+      "p1": "在 Headerly，您的隐私是我们的首要任务。我们 <strong>不依赖第三方地理定位 API</strong>，也不共享您的使用数据。",
+      "p2": "上方显示的所有网络和位置详情均完全提取自浏览器发送的 <strong>HTTP 请求元数据</strong>。我们使用安全的边缘计算头 (Cloudflare Edge) 来实时确定您的近似来源。"
+    },
+    "features": {
+      "noTracking": {
+        "title": "零第三方追踪",
+        "description": "没有任何外部 API 会看到您的 IP 地址。"
+      },
+      "realTime": {
+        "title": "实时处理",
+        "description": "数据在网络边缘即时分析。"
+      },
+      "nonPersistent": {
+        "title": "非持久性数据",
+        "description": "我们从不存储您的连接详情。"
+      },
+      "security": {
+        "title": "端到端安全",
+        "description": "加密传输您的网络配置文件。"
+      }
+    }
+  },
+  "UserAgentPage": {
+    "title": "User-Agent 分析",
+    "description": "深入了解浏览器的数字指纹，理解身份识别的工作原理。",
+    "howItWorks": {
+      "title": "这是如何检测的？",
+      "subtitle": "解码浏览器的身份字符串。",
+      "p1": "每当您访问网站时，浏览器都会发送一个 <code>User-Agent</code> 请求头。此字符串充当“护照”，告诉服务器：",
+      "list": {
+        "engine": "<strong>浏览器引擎：</strong> 底层技术（如 Chrome/Edge 的 Blink 或 Firefox 的 Gecko）。",
+        "os": "<strong>操作系统详情：</strong> 您正在运行的操作系统及其版本。",
+        "device": "<strong>设备信息：</strong> 您使用的是手机、平板还是桌面设备，有时还包括具体型号。"
+      },
+      "p2": "我们使用先进的解析库将这一复杂的字符串分解为易于阅读的组件。此过程完全在服务器上完成，结果仅用于显示此仪表板。"
+    },
+    "features": {
+      "matching": {
+        "title": "模式匹配",
+        "description": "我们扫描字符串中厂商使用的特定关键字和版本号。"
+      },
+      "engine": {
+        "title": "引擎推断",
+        "description": "根据标准命名规范识别核心渲染引擎。"
+      },
+      "privacy": {
+        "title": "隐私受保护",
+        "description": "您的身份字符串被实时处理，从不保存或追踪。"
+      },
+      "realTime": {
+        "title": "实时分析",
+        "description": "解析发生在请求生命周期的毫秒级时间内。"
+      }
+    }
+  },
+  "PrivacyPage": {
+    "back": "返回首页",
+    "title": "隐私政策",
+    "lastUpdated": "最后更新于"
+  },
+  "TermsPage": {
+    "back": "返回首页",
+    "title": "服务条款",
+    "lastUpdated": "最后更新于"
+  },
+  "GreenWebPage": {
+    "title": "绿色网络分析器",
+    "description": "检查网站是否使用绿色能源托管，并估算其碳足迹。",
+    "inputPlaceholder": "输入网站 URL（例如 example.com）",
+    "analyzeButton": "分析",
+    "analyzing": "正在分析...",
+    "results": {
+      "isGreen": {
+        "label": "是否绿色？",
+        "yes": "是",
+        "no": "否",
+        "descGreen": "使用绿色能源托管",
+        "descNotGreen": "未使用绿色能源托管"
+      },
+      "co2": {
+        "label": "预估 CO2 排放",
+        "grams": "{value} 克",
+        "description": "每次访问的预估碳排放量"
+      },
+      "size": {
+        "label": "页面大小",
+        "mb": "{value} MB",
+        "description": "页面的预估大小"
+      },
+      "hosting": {
+        "label": "托管服务商",
+        "description": "检测到的托管服务提供商"
+      }
+    },
+    "error": "分析网站失败。请检查 URL 并重试。",
+    "howItWorks": {
+      "title": "这是如何计算的？",
+      "subtitle": "估算网页的数字足迹。",
+      "p1": "互联网上传输的每个字节都会消耗 <strong>能量</strong>。我们估算网页大小，然后根据 <strong>The Green Web Foundation</strong> 的数据库检查其域名，以验证其是否由可再生能源驱动。",
+      "p2": "结合这两个因素，我们计算出每次访问的预估 CO2 排放量，展示网站性能如何直接影响环境可持续性。"
+    },
+    "features": {
+      "energy": {
+        "title": "能源消耗",
+        "description": "互联网产生的温室气体排放约占全球总量的 4%。"
+      },
+      "hosting": {
+        "title": "绿色托管",
+        "description": "在可再生能源上运行数据中心可显著减少足迹。"
+      },
+      "performance": {
+        "title": "性能 = 生态",
+        "description": "经过优化且轻量化的网站在传输和渲染时消耗更少的能量。"
+      },
+      "privacy": {
+        "title": "关注隐私",
+        "description": "我们的无状态分析不记录任何个人或请求数据。"
+      }
+    }
+  },
+  "HeaderCard": {
+    "title": "请求头",
+    "description": "正在检测当前浏览器和连接头",
+    "refresh": "刷新请求头",
+    "download": "下载 JSON",
+    "copy": "复制完整 JSON"
+  },
+  "NetworkInfo": {
+    "location": {
+      "label": "物理位置",
+      "description": "检测到的连接来源"
+    },
+    "isp": {
+      "label": "服务提供商",
+      "description": "您的互联网服务提供商 (ISP)"
+    },
+    "region": {
+      "label": "地区",
+      "description": "州或省一级的地理位置"
+    },
+    "org": {
+      "label": "组织",
+      "description": "网络所有者或组织"
+    },
+    "local": {
+      "title": "检测到本地环境",
+      "description": "您正从本地或私有网络访问 Headerly。地理定位数据仅适用于公网 IP 范围。"
+    }
+  },
+  "UAInfo": {
+    "browser": {
+      "label": "浏览器",
+      "description": "您当前使用的浏览软件"
+    },
+    "os": {
+      "label": "操作系统",
+      "description": "您设备的核心系统软件"
+    },
+    "device": {
+      "label": "设备",
+      "description": "您正在使用的硬件平台",
+      "desktop": "桌面设备",
+      "computer": "电脑"
+    },
+    "engine": {
+      "label": "引擎",
+      "description": "您浏览器的渲染引擎"
+    },
+    "raw": {
+      "title": "原始 User-Agent 字符串",
+      "description": "这是由您的浏览器发送的完整身份标识字符串。"
+    },
+    "unknown": "未知"
+  },
+  "Headers": {
+    "accept": "Accept 请求头用来告知客户端可以理解的内容类型（以 MIME 类型表示）。",
+    "accept-encoding": "Accept-Encoding 请求头用来告知客户端可以理解的内容编码（通常是压缩算法）。",
+    "accept-language": "Accept-Language 请求头用来告知客户端可以理解的语言，以及首选的语言区域变体。",
+    "authorization": "HTTP Authorization 请求头包含了用于向服务器认证用户代理的凭据。",
+    "cache-control": "Cache-Control HTTP 头字段包含在请求和响应中用于缓存的指令。",
+    "cf-connecting-ip": "Cloudflare 特有的请求头，用于识别通过 Cloudflare 网络发送的请求的原始客户端 IP 地址。",
+    "cf-ray": "Cloudflare 特有的请求头。经过 Cloudflare 的每个请求都有一个唯一的标识符，用于故障排查。",
+    "connection": "Connection 通用头控制当前事务完成后网络连接是否保持打开。",
+    "content-length": "Content-Length 头指明了发送给接收者的消息主体的大小（以字节为单位）。",
+    "content-type": "Content-Type 表示头用于指明资源的原始 MIME 类型。",
+    "cookie": "Cookie HTTP 请求头包含了服务器之前通过 Set-Cookie 头发送并存储的 HTTP cookie。",
+    "dnt": "DNT (Do Not Track) 请求头表明了用户的追踪偏好。它允许用户退出网站追踪。",
+    "host": "Host 请求头指明了请求将要发送到的服务器的主机名和端口号。",
+    "if-none-match": "If-None-Match HTTP 请求头使请求成为条件请求。对于 GET 和 HEAD 方法，仅当服务器没有与给定值匹配的 ETag 时，才会返回请求的资源。",
+    "origin": "Origin 请求头指明了获取请求的源。它不包含任何路径信息，仅包含服务器名称。",
+    "priority": "Priority 请求头用于指明请求的相对优先级，浏览器以此优化资源加载。",
+    "referer": "Referer 请求头包含了当前请求页面的前一个网页地址，即用户是通过哪个链接跳转过来的。",
+    "sec-ch-ua": "Sec-CH-UA 头通过 Client Hints 提供用户代理的品牌和版本信息。",
+    "sec-ch-ua-mobile": "Sec-CH-UA-Mobile 头指明用户代理是否在移动设备上。",
+    "sec-ch-ua-platform": "Sec-CH-UA-Platform 头指明用户代理运行的平台或操作系统。",
+    "sec-fetch-dest": "Sec-Fetch-Dest 获取元数据头指明了请求的目的地。",
+    "sec-fetch-mode": "Sec-Fetch-Mode 获取元数据头指明了请求的模式。",
+    "sec-fetch-site": "Sec-Fetch-Site 获取元数据头指明了请求发起者的源与目标资源源之间的关系。",
+    "sec-fetch-user": "Sec-Fetch-User 获取元数据头指明导航请求是否由用户激活触发。",
+    "upgrade-insecure-requests": "Upgrade-Insecure-Requests 请求头发信号给服务器，表达客户端希望获得加密且经过认证的响应。",
+    "user-agent": "User-Agent 请求头是一个特征字符串，让服务器和网络对等端能够识别发起请求的用户代理的应用、操作系统、供应商和/或版本。",
+    "x-forwarded-for": "X-Forwarded-For (XFF) 请求头是通过 HTTP 代理或负载均衡器连接到 Web 服务器时，用于识别客户端原始 IP 地址的事实标准头。",
+    "x-forwarded-host": "X-Forwarded-Host 请求头是用于在 Host HTTP 请求头中识别客户端请求的原始主机的事实标准头。",
+    "x-forwarded-proto": "X-Forwarded-Proto 请求头是用于识别客户端连接到代理或负载均衡器时所使用的协议（HTTP 或 HTTPS）的事实标准头。",
+    "x-real-ip": "代理和负载均衡器常用的事实标准头，用于将原始客户端的 IP 地址传递给应用服务器。",
+    "defaultDescription": "此请求头暂无详细说明。",
+    "infoLabel": "请求头信息",
+    "mdnDocs": "MDN 文档",
+    "importantBadge": "重要"
+  },
+  "Metadata": {
+    "title": "Headerly - HTTP 请求头检查工具",
+    "description": "即时查看并检查您的 HTTP 请求头。一款现代化的、注重隐私的开发者工具，用于调试浏览器与服务器之间的通信。",
+    "network": {
+      "title": "网络详情 - Headerly",
+      "description": "探索您连接的技术蓝图。查看从请求元数据中提取的 IP 地址、位置和 ISP 详情。"
+    },
+    "userAgent": {
+      "title": "User-Agent 分析 - Headerly",
+      "description": "解码您的浏览器身份。了解浏览器引擎、操作系统和设备类型是如何被识别的。"
+    },
+    "privacy": {
+      "title": "隐私政策 - Headerly",
+      "description": "我们对您隐私的承诺。了解我们如何安全、透明地处理您的请求数据。"
+    },
+    "terms": {
+      "title": "服务条款 - Headerly",
+      "description": "使用 Headerly 开发者工具和服务的条款与条件。"
+    },
+    "greenWeb": {
+      "title": "绿色网络分析器 - Headerly",
+      "description": "检查网站是否使用绿色能源托管，并估算其碳足迹。"
+    },
+    "fingerprint": {
+      "title": "浏览器指纹 - Headerly",
+      "description": "发现用于无 Cookie 追踪的唯一数字标识符。"
+    }
+  },
+  "FingerprintPage": {
+    "title": "浏览器指纹",
+    "subtitle": "发现用于无 Cookie 追踪的唯一数字标识符。",
+    "hashLabel": "生成的指纹哈希",
+    "loading": "正在生成指纹...",
+    "uniqueness": {
+      "title": "唯一性得分",
+      "description": "根据收集的数据判断您的浏览器识别度",
+      "low": "常见",
+      "medium": "独特",
+      "high": "唯一"
+    },
+    "metrics": {
+      "screen": {
+        "title": "屏幕与颜色",
+        "description": "分辨率和色彩深度",
+        "tooltip": "广告商利用此信息了解您的显示器物理尺寸并推断您的设备类型。"
+      },
+      "timezone": {
+        "title": "时区",
+        "description": "系统时区设置",
+        "tooltip": "用于确定您的地理区域，并在您最可能清醒的时候展示广告。"
+      },
+      "hardware": {
+        "title": "硬件",
+        "description": "CPU 核心数和设备内存",
+        "tooltip": "揭示您设备的处理能力，区分高端电脑与入门级设备。"
+      },
+      "platform": {
+        "title": "平台",
+        "description": "操作系统",
+        "tooltip": "识别您的操作系统（Windows, macOS, Linux 等）以提供针对性的软件服务。"
+      },
+      "language": {
+        "title": "语言",
+        "description": "浏览器首选语言",
+        "tooltip": "浏览器的首选语言有助于识别您的国籍或文化背景。"
+      },
+      "cookies": {
+        "title": "Cookie 已启用",
+        "description": "Cookie 存储状态",
+        "tooltip": "如果禁用，网站将更倾向于使用指纹识别而非传统的 Cookie 追踪。"
+      },
+      "dnt": {
+        "title": "请勿追踪",
+        "description": "DNT 头偏好设置",
+        "tooltip": "讽刺的是，启用“请勿追踪”反而让您更具唯一性，因为很少有用户会开启它。"
+      },
+      "touch": {
+        "title": "触摸支持",
+        "description": "最大触摸点数",
+        "tooltip": "即刻将移动/平板设备与传统桌面电脑区分开来。"
+      },
+      "pixelRatio": {
+        "title": "像素比",
+        "description": "DPR（缩放级别）",
+        "tooltip": "揭示您系统的缩放级别，或您是否使用了 Retina/高 DPI 显示器。"
+      },
+      "canvas": {
+        "title": "Canvas 指纹",
+        "description": "隐藏的图像渲染哈希",
+        "tooltip": "绘制不可见图形，以提取 GPU 渲染像素时极细微的差异。"
+      },
+      "webgl": {
+        "title": "WebGL 上下文",
+        "description": "GPU 厂商与渲染器",
+        "tooltip": "直接暴露显卡（GPU）的确切型号及其驱动程序。"
+      }
+    },
+    "howItWorks": {
+      "title": "这是如何运作的？",
+      "subtitle": "无 Cookie 追踪的机制。",
+      "p1": "即使您禁用了 Cookie 或使用无痕模式，浏览器仍会向访问的网站共享一组唯一的硬件和软件配置。脚本可以静默收集这些数据，生成一个在网络上唯一标识您设备的“指纹”。"
+    },
+    "features": {
+      "cookieless": {
+        "title": "无 Cookie 追踪",
+        "description": "即使在无痕模式或禁用 Cookie 的情况下，也能跨会话追踪您。"
+      },
+      "canvasRender": {
+        "title": "硬件 Canvas",
+        "description": "渲染不可见图形揭示了您的 GPU 和驱动程序的具体特性。"
+      },
+      "privacy": {
+        "title": "隐私措施",
+        "description": "Brave、Tor 等浏览器或隐私扩展程序可以随机化这些 API，以减轻追踪。"
+      },
+      "stateless": {
+        "title": "无状态检查",
+        "description": "我们完全在您的客户端生成此哈希。它绝不会发送到或存储在我们的服务器上。"
+      }
+    },
+    "actionableSteps": {
+      "title": "如何保护自己",
+      "subtitle": "减少数字足迹的切实步骤。",
+      "steps": {
+        "browsers": {
+          "title": "使用注重隐私的浏览器",
+          "description": "Brave、Tor 或 Firefox（开启严格追踪保护）等浏览器会主动随机化或拦截指纹识别 API。"
+        },
+        "extensions": {
+          "title": "安装反追踪扩展",
+          "description": "uBlock Origin 或 Privacy Badger 等扩展会在追踪脚本执行并建立您的个人资料前拦截它们。"
+        },
+        "incognito": {
+          "title": "了解无痕模式的局限性",
+          "description": "请记住，无痕/私密模式仅清除您的本地历史记录和 Cookie。它并不能隐藏您的浏览器指纹。"
+        },
+        "settings": {
+          "title": "禁用不必要的功能",
+          "description": "在浏览器设置中禁用 WebGL 或第三方 Cookie 可以减少可供追踪者利用的暴露面。"
+        }
+      }
+    }
+  }
+}

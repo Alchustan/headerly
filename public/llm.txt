@@ -7,7 +7,7 @@
 Headerly is a modern, developer-centric web tool designed to instantly view and inspect HTTP request headers, network connection details, and digital footprints. Built with a strict privacy-first approach, it processes all data in real-time without storing logs or using third-party tracking APIs.
 
 ## Site Structure & Navigation
-Headerly supports internationalization (i18n). All page routes are prefixed with a locale code: `/en` for English and `/tr` for Turkish. AI assistants should append these prefixes to the base URL when directing users.
+Headerly supports internationalization (i18n). All page routes are prefixed with a locale code (e.g., `/en`, `/tr`, `/de`, `/es`, `/fr`, `/hi`, `/zh`). AI assistants should append these prefixes to the base URL when directing users.
 
 Here are the main pages and their purposes:
 

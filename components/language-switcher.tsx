@@ -23,6 +23,16 @@ export function LanguageSwitcher() {
     router.replace(pathname, { locale: newLocale });
   };
 
+  const localeLabels: Record<string, string> = {
+    en: 'English',
+    tr: 'Türkçe',
+    de: 'Deutsch',
+    es: 'Español',
+    fr: 'Français',
+    hi: 'हिन्दी',
+    zh: '中文'
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -47,7 +57,7 @@ export function LanguageSwitcher() {
               <span className="mr-2 uppercase text-[10px] font-bold border border-current px-1 rounded">
                 {l}
               </span>
-              {l === 'en' ? 'English' : 'Türkçe'}
+              {localeLabels[l] || l}
             </Button>
           ))}
         </div>

@@ -1,0 +1,394 @@
+{
+  "Navbar": {
+    "brand": "Headerly",
+    "headers": "Headers",
+    "network": "Información de red",
+    "userAgent": "User Agent",
+    "greenWeb": "Green Web",
+    "fingerprint": "Fingerprint"
+  },
+  "Footer": {
+    "builtWith": "Creado para la web moderna.",
+    "home": "Inicio",
+    "terms": "Términos",
+    "privacy": "Privacidad",
+    "github": "GitHub"
+  },
+  "HomePage": {
+    "title": "Headerly",
+    "description": "Visualiza e inspecciona al instante tus headers de solicitud HTTP en una interfaz limpia y amigable para desarrolladores.",
+    "features": {
+      "privacy": {
+        "title": "Privacidad ante todo",
+        "description": "Los headers se procesan en el servidor y nunca se guardan. Lo que ves solo es visible para ti y permanece dentro de tu sesión."
+      },
+      "devTools": {
+        "title": "Herramientas de desarrollo",
+        "description": "Creado para desarrolladores. Copia valores individuales o el payload JSON completo con un solo clic. Alto rendimiento y fácil de usar."
+      },
+      "openSource": {
+        "title": "Código abierto",
+        "description": "Headerly es de código abierto y tiene licencia MIT. Explora el código en GitHub, reporta errores o contribuye para mejorarlo."
+      }
+    }
+  },
+  "NetworkPage": {
+    "title": "Detalles de la red",
+    "description": "Explora el esquema técnico de tu conexión actual, derivado únicamente de los metadatos de la solicitud.",
+    "howItWorks": {
+      "title": "¿Cómo se proporcionan estos datos?",
+      "subtitle": "Privacidad ante todo, transparente y seguro.",
+      "p1": "En Headerly, tu privacidad es nuestra prioridad. <strong>No dependemos de APIs de geolocalización de terceros</strong> ni compartimos tus datos de uso.",
+      "p2": "Todos los detalles de red y ubicación mostrados arriba se extraen únicamente de los <strong>metadatos de la solicitud HTTP</strong> enviados por tu navegador. Utilizamos headers de computación en el edge seguros (Cloudflare Edge) para determinar tu origen aproximado en tiempo real."
+    },
+    "features": {
+      "noTracking": {
+        "title": "Cero rastreo de terceros",
+        "description": "Ninguna API externa verá jamás tu dirección IP."
+      },
+      "realTime": {
+        "title": "Procesamiento en tiempo real",
+        "description": "Los datos se analizan sobre la marcha en el edge de la red."
+      },
+      "nonPersistent": {
+        "title": "Datos no persistentes",
+        "description": "Nunca guardamos los detalles de tu conexión."
+      },
+      "security": {
+        "title": "Seguridad de extremo a extremo",
+        "description": "Entrega cifrada de tu perfil de red."
+      }
+    }
+  },
+  "UserAgentPage": {
+    "title": "Análisis del User-Agent",
+    "description": "Sumerge en la huella digital de tu navegador y comprende cómo funciona la identificación.",
+    "howItWorks": {
+      "title": "¿Cómo se detecta esto?",
+      "subtitle": "Decodificando la cadena de identidad del navegador.",
+      "p1": "Cada vez que visitas un sitio web, tu navegador envía un header <code>User-Agent</code>. Esta cadena actúa como un \"pasaporte\" que le dice al servidor:",
+      "list": {
+        "engine": "<strong>Motor del navegador:</strong> La tecnología subyacente (como Blink para Chrome/Edge o Gecko para Firefox).",
+        "os": "<strong>Detalles del SO:</strong> El sistema operativo y la versión que estás ejecutando.",
+        "device": "<strong>Info del dispositivo:</strong> Si estás en un teléfono, tablet o computadora de escritorio, y a veces el modelo específico."
+      },
+      "p2": "Utilizamos una biblioteca de parsing avanzada para desglosar esta cadena compleja en componentes legibles para humanos. Este proceso se realiza completamente en el servidor y el resultado solo se usa para mostrar este panel."
+    },
+    "features": {
+      "matching": {
+        "title": "Coincidencia de patrones",
+        "description": "Escaneamos la cadena en busca de palabras clave específicas y números de versión utilizados por los proveedores."
+      },
+      "engine": {
+        "title": "Inferencia del motor",
+        "description": "Identificamos el motor de renderizado principal basándonos en las convenciones de nomenclatura estándar."
+      },
+      "privacy": {
+        "title": "Privacidad protegida",
+        "description": "Tu cadena de ID se procesa en tiempo real y nunca se guarda ni se rastrea."
+      },
+      "realTime": {
+        "title": "Análisis en tiempo real",
+        "description": "El procesamiento ocurre en milisegundos durante el ciclo de vida de la solicitud."
+      }
+    }
+  },
+  "PrivacyPage": {
+    "back": "Volver al inicio",
+    "title": "Política de privacidad",
+    "lastUpdated": "Última actualización"
+  },
+  "TermsPage": {
+    "back": "Volver al inicio",
+    "title": "Términos de servicio",
+    "lastUpdated": "Última actualización"
+  },
+  "GreenWebPage": {
+    "title": "Analizador de Green Web",
+    "description": "Comprueba si un sitio web está alojado con energía verde y estima su huella de carbono.",
+    "inputPlaceholder": "Introduce la URL del sitio web (ej. ejemplo.com)",
+    "analyzeButton": "Analizar",
+    "analyzing": "Analizando...",
+    "results": {
+      "isGreen": {
+        "label": "¿Es verde?",
+        "yes": "Sí",
+        "no": "No",
+        "descGreen": "Alojado con energía verde",
+        "descNotGreen": "No alojado con energía verde"
+      },
+      "co2": {
+        "label": "CO2 estimado",
+        "grams": "{value} gramos",
+        "description": "Emisión de carbono estimada por visita"
+      },
+      "size": {
+        "label": "Tamaño de la página",
+        "mb": "{value} MB",
+        "description": "Tamaño estimado de la página"
+      },
+      "hosting": {
+        "label": "Proveedor de hosting",
+        "description": "Proveedor de hosting detectado"
+      }
+    },
+    "error": "Error al analizar el sitio web. Por favor, comprueba la URL e inténtalo de nuevo.",
+    "howItWorks": {
+      "title": "¿Cómo se calcula esto?",
+      "subtitle": "Estimando la huella digital de una página web.",
+      "p1": "Cada byte transferido por internet consume <strong>energía</strong>. Estimamos el tamaño de la página web y luego comprobamos su dominio contra la base de datos de <strong>The Green Web Foundation</strong> para verificar si funciona con energía renovable.",
+      "p2": "Usando estos dos factores, calculamos una emisión de CO2 estimada por visita, demostrando cómo el rendimiento del sitio web impacta directamente en la sostenibilidad ambiental."
+    },
+    "features": {
+      "energy": {
+        "title": "Consumo de energía",
+        "description": "Internet es responsable de ~4% de las emisiones globales de gases de efecto invernadero."
+      },
+      "hosting": {
+        "title": "Hosting verde",
+        "description": "Ejecutar centros de datos con energía renovable reduce drásticamente las huellas."
+      },
+      "performance": {
+        "title": "Rendimiento = Ecología",
+        "description": "Los sitios web optimizados y ligeros requieren menos energía para transferirse y renderizarse."
+      },
+      "privacy": {
+        "title": "Enfocado en la privacidad",
+        "description": "Nuestro análisis sin estado no registra datos personales ni de solicitudes."
+      }
+    }
+  },
+  "HeaderCard": {
+    "title": "Headers de la solicitud",
+    "description": "Detectando headers activos del navegador y la conexión",
+    "refresh": "Actualizar headers",
+    "download": "Descargar JSON",
+    "copy": "Copiar JSON completo"
+  },
+  "NetworkInfo": {
+    "location": {
+      "label": "Ubicación física",
+      "description": "Origen detectado de tu conexión"
+    },
+    "isp": {
+      "label": "Proveedor de servicios",
+      "description": "Tu proveedor de servicios de internet (ISP)"
+    },
+    "region": {
+      "label": "Región",
+      "description": "Ubicación a nivel de estado o provincia"
+    },
+    "org": {
+      "label": "Organización",
+      "description": "Propietario de la red u organización"
+    },
+    "local": {
+      "title": "Entorno local detectado",
+      "description": "Estás accediendo a Headerly desde una red local o privada. Los datos de geolocalización solo están disponibles para rangos de IP públicas."
+    }
+  },
+  "UAInfo": {
+    "browser": {
+      "label": "Navegador",
+      "description": "El software que estás usando para navegar"
+    },
+    "os": {
+      "label": "Sistema operativo",
+      "description": "El software del sistema principal de tu dispositivo"
+    },
+    "device": {
+      "label": "Dispositivo",
+      "description": "La plataforma de hardware que estás usando",
+      "desktop": "Escritorio",
+      "computer": "Computadora"
+    },
+    "engine": {
+      "label": "Motor",
+      "description": "El motor de renderizado de tu navegador"
+    },
+    "raw": {
+      "title": "Cadena User-Agent original",
+      "description": "Esta es la cadena de identificación completa enviada por tu navegador."
+    },
+    "unknown": "Desconocido"
+  },
+  "Headers": {
+    "accept": "El header de solicitud Accept anuncia qué tipos de contenido, expresados como tipos MIME, es capaz de entender el cliente.",
+    "accept-encoding": "El header de solicitud Accept-Encoding anuncia qué codificación de contenido, generalmente un algoritmo de compresión, es capaz de entender el cliente.",
+    "accept-language": "El header de solicitud Accept-Language anuncia qué idiomas es capaz de entender el cliente y qué variante de configuración regional es preferida.",
+    "authorization": "El header de solicitud HTTP Authorization contiene las credenciales para autenticar un User Agent con un servidor.",
+    "cache-control": "El campo de header HTTP Cache-Control contiene directivas (instrucciones) para el almacenamiento en caché tanto en solicitudes como en respuestas.",
+    "cf-connecting-ip": "Un header específico de Cloudflare que identifica la dirección IP original del cliente de una solicitud que pasa a través de la red de Cloudflare.",
+    "cf-ray": "Un header específico de Cloudflare. Un identificador único para cada solicitud que pasa por Cloudflare, utilizado para la resolución de problemas.",
+    "connection": "El header general Connection controla si la conexión de red permanece abierta después de que finaliza la transacción actual.",
+    "content-length": "El header Content-Length indica el tamaño del cuerpo del mensaje, en bytes, enviado al destinatario.",
+    "content-type": "El header de representación Content-Type se utiliza para indicar el tipo MIME original del recurso.",
+    "cookie": "El header de solicitud HTTP Cookie contiene cookies HTTP almacenadas previamente enviadas por el servidor con el header Set-Cookie.",
+    "dnt": "El header de solicitud DNT (Do Not Track) indica la preferencia de rastreo del usuario. Permite a los usuarios optar por no ser rastreados por los sitios web.",
+    "host": "El header de solicitud Host especifica el nombre del host y el número de puerto del servidor al que se envía la solicitud.",
+    "if-none-match": "El header de solicitud HTTP If-None-Match hace que la solicitud sea condicional. Para los métodos GET y HEAD, el servidor devolverá el recurso solicitado solo si no tiene un ETag que coincida con los proporcionados.",
+    "origin": "El header de solicitud Origin indica de dónde proviene una búsqueda. No incluye ninguna información de ruta, sino solo el nombre del servidor.",
+    "priority": "El header de solicitud Priority se utiliza para indicar la prioridad relativa de una solicitud, utilizada por los navegadores para optimizar la carga de recursos.",
+    "referer": "El header de solicitud Referer contiene la dirección de la página web anterior desde la cual se siguió un enlace a la página solicitada actualmente.",
+    "sec-ch-ua": "El header Sec-CH-UA proporciona información sobre la marca y la versión del User Agent a través de Client Hints.",
+    "sec-ch-ua-mobile": "El header Sec-CH-UA-Mobile indica si el User Agent está en un dispositivo móvil.",
+    "sec-ch-ua-platform": "El header Sec-CH-UA-Platform indica la plataforma o sistema operativo en el que se está ejecutando el User Agent.",
+    "sec-fetch-dest": "El header de metadatos Sec-Fetch-Dest indica el destino de la solicitud.",
+    "sec-fetch-mode": "El header de metadatos Sec-Fetch-Mode indica el modo de la solicitud.",
+    "sec-fetch-site": "El header de metadatos Sec-Fetch-Site indica la relación entre el origen del iniciador de una solicitud y el origen del recurso de destino.",
+    "sec-fetch-user": "El header de metadatos Sec-Fetch-User indica si una solicitud de navegación fue activada por una acción del usuario.",
+    "upgrade-insecure-requests": "El header de solicitud Upgrade-Insecure-Requests envía una señal al servidor expresando la preferencia del cliente por una respuesta cifrada y autenticada.",
+    "user-agent": "El header de solicitud User-Agent es una cadena característica que permite a los servidores y pares de red identificar la aplicación, el sistema operativo, el proveedor y/o la versión del User Agent solicitante.",
+    "x-forwarded-for": "El header de solicitud X-Forwarded-For (XFF) es un header estándar de facto para identificar la dirección IP de origen de un cliente que se conecta a un servidor web a través de un proxy HTTP o un equilibrador de carga.",
+    "x-forwarded-host": "El header de solicitud X-Forwarded-Host es un header estándar de facto para identificar el host original solicitado por el cliente en el header HTTP Host.",
+    "x-forwarded-proto": "El header de solicitud X-Forwarded-Proto es un header estándar de facto para identificar el protocolo (HTTP o HTTPS) que un cliente utilizó para conectarse a tu proxy o equilibrador de carga.",
+    "x-real-ip": "Un header estándar de facto común utilizado por proxies y equilibradores de carga para pasar la dirección IP original del cliente al servidor de aplicaciones.",
+    "defaultDescription": "No hay una descripción detallada disponible para este header.",
+    "infoLabel": "Info del header",
+    "mdnDocs": "Documentación de MDN",
+    "importantBadge": "Importante"
+  },
+  "Metadata": {
+    "title": "Headerly - Inspector de headers de solicitud HTTP",
+    "description": "Visualiza e inspecciona al instante tus headers de solicitud HTTP. Una herramienta moderna para desarrolladores, enfocada en la privacidad, para depurar la comunicación entre navegador y servidor.",
+    "network": {
+      "title": "Detalles de la red - Headerly",
+      "description": "Explora el esquema técnico de tu conexión. Visualiza la dirección IP, la ubicación y los detalles del ISP extraídos de los metadatos de la solicitud."
+    },
+    "userAgent": {
+      "title": "Análisis del User-Agent - Headerly",
+      "description": "Decodifica la identidad de tu navegador. Comprende cómo se identifican los motores de búsqueda, los sistemas operativos y los tipos de dispositivos."
+    },
+    "privacy": {
+      "title": "Política de privacidad - Headerly",
+      "description": "Nuestro compromiso con tu privacidad. Aprende cómo manejamos los datos de tus solicitudes de forma segura y transparente."
+    },
+    "terms": {
+      "title": "Términos de servicio - Headerly",
+      "description": "Los términos y condiciones para usar las herramientas y servicios para desarrolladores de Headerly."
+    },
+    "greenWeb": {
+      "title": "Analizador de Green Web - Headerly",
+      "description": "Comprueba si un sitio web está alojado con energía verde y estima su huella de carbono."
+    },
+    "fingerprint": {
+      "title": "Browser Fingerprint - Headerly",
+      "description": "Descubre tu identificador digital único utilizado para el rastreo sin cookies."
+    }
+  },
+  "FingerprintPage": {
+    "title": "Browser Fingerprint",
+    "subtitle": "Descubre tu identificador digital único utilizado para el rastreo sin cookies.",
+    "hashLabel": "Hash del Fingerprint generado",
+    "loading": "Generando fingerprint...",
+    "uniqueness": {
+      "title": "Puntuación de unicidad",
+      "description": "Qué tan identificable es tu navegador según los datos recopilados",
+      "low": "Común",
+      "medium": "Distinto",
+      "high": "Único"
+    },
+    "metrics": {
+      "screen": {
+        "title": "Pantalla y color",
+        "description": "Resolución y profundidad de color",
+        "tooltip": "Los anunciantes usan esto para conocer el tamaño físico de tu monitor e inferir el tipo de dispositivo."
+      },
+      "timezone": {
+        "title": "Zona horaria",
+        "description": "Configuración de la zona horaria del sistema",
+        "tooltip": "Se usa para determinar tu región geográfica y mostrar anuncios cuando es más probable que estés despierto."
+      },
+      "hardware": {
+        "title": "Hardware",
+        "description": "Núcleos de CPU y memoria del dispositivo",
+        "tooltip": "Revela la potencia de procesamiento de tu dispositivo, distinguiendo computadoras de alta gama de dispositivos económicos."
+      },
+      "platform": {
+        "title": "Plataforma",
+        "description": "Sistema operativo",
+        "tooltip": "Identifica tu sistema operativo (Windows, macOS, Linux, etc.) para ofrecer software específico."
+      },
+      "language": {
+        "title": "Idioma",
+        "description": "Idioma principal del navegador",
+        "tooltip": "El idioma principal de tu navegador ayuda a identificar tu nacionalidad o trasfondo cultural."
+      },
+      "cookies": {
+        "title": "Cookies habilitadas",
+        "description": "Estado del almacenamiento de cookies",
+        "tooltip": "Si están deshabilitadas, los sitios usarán agresivamente el fingerprinting en lugar del rastreo tradicional."
+      },
+      "dnt": {
+        "title": "Do Not Track",
+        "description": "Preferencia del header DNT",
+        "tooltip": "Irónicamente, tener habilitado 'Do Not Track' te hace MÁS único, ya que pocos usuarios lo activan."
+      },
+      "touch": {
+        "title": "Soporte táctil",
+        "description": "Puntos táctiles máximos",
+        "tooltip": "Separa instantáneamente los dispositivos móviles/tablets de las computadoras de escritorio tradicionales."
+      },
+      "pixelRatio": {
+        "title": "Relación de píxeles",
+        "description": "DPR (Nivel de zoom)",
+        "tooltip": "Revela el nivel de zoom de tu sistema o si tienes una pantalla Retina/high-DPI."
+      },
+      "canvas": {
+        "title": "Canvas Fingerprint",
+        "description": "Hash de renderizado de imagen oculta",
+        "tooltip": "Dibuja gráficos invisibles para extraer diferencias microscópicas en cómo tu GPU renderiza los píxeles."
+      },
+      "webgl": {
+        "title": "Contexto WebGL",
+        "description": "Proveedor y renderizador de GPU",
+        "tooltip": "Expone directamente el modelo exacto de tu tarjeta gráfica (GPU) y sus controladores."
+      }
+    },
+    "howItWorks": {
+      "title": "¿Cómo funciona esto?",
+      "subtitle": "La mecánica del rastreo sin cookies.",
+      "p1": "Incluso cuando bloqueas las cookies o usas el modo Incógnito, tu navegador comparte un conjunto único de configuraciones de hardware y software con los sitios web que visitas. Los scripts pueden recopilar silenciosamente estos datos para crear un 'fingerprint' que identifica de forma única tu dispositivo en la web."
+    },
+    "features": {
+      "cookieless": {
+        "title": "Rastreo sin cookies",
+        "description": "Te rastrea a través de sesiones incluso en modo Incógnito o con las cookies deshabilitadas."
+      },
+      "canvasRender": {
+        "title": "Hardware Canvas",
+        "description": "El renderizado de gráficos invisibles revela los matices específicos de tu GPU y controladores."
+      },
+      "privacy": {
+        "title": "Medidas de privacidad",
+        "description": "Navegadores como Brave, Tor o las extensiones de privacidad pueden aleatorizar estas APIs para mitigar el rastreo."
+      },
+      "stateless": {
+        "title": "Comprobación sin estado",
+        "description": "Generamos este hash completamente en tu cliente. Nunca se envía ni se almacena en nuestros servidores."
+      }
+    },
+    "actionableSteps": {
+      "title": "Cómo protegerte",
+      "subtitle": "Pasos prácticos para reducir tu huella digital.",
+      "steps": {
+        "browsers": {
+          "title": "Usa navegadores enfocados en la privacidad",
+          "description": "Navegadores como Brave, Tor o Firefox (con protección contra rastreo estricta) aleatorizan o bloquean activamente las APIs de fingerprinting."
+        },
+        "extensions": {
+          "title": "Instala extensiones antirrastreo",
+          "description": "Extensiones como uBlock Origin o Privacy Badger block conocidos tracking scripts antes de que puedan ejecutarse y crear tu perfil."
+        },
+        "incognito": {
+          "title": "Comprende los límites del modo Incógnito",
+          "description": "Recuerda que el modo Incógnito/Privado solo borra tu historial local y las cookies. NO oculta el fingerprint de tu navegador."
+        },
+        "settings": {
+          "title": "Deshabilita funciones innecesarias",
+          "description": "Deshabilitar WebGL o las cookies de terceros en la configuración de tu navegador puede reducir el área de superficie disponible para los rastreadores."
+        }
+      }
+    }
+  }
+}

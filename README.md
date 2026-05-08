@@ -22,7 +22,7 @@ Headerly is a modern, developer-centric tool designed to instantly view and insp
   - **One-Click Copy**: Copy individual header values or the entire JSON payload.
   - **Download JSON**: Save your headers as a `.json` file for later use.
   - **Instant Refresh**: Re-fetch headers without a full page reload, now with visual feedback.
-- **Multi-language Support**: Full internationalization support for English and Turkish locales with a seamless language switcher.
+- **Multi-language Support**: Full internationalization support for English, Turkish, German, Spanish, French, Hindi, and Chinese locales with a seamless language switcher.
 - **Mobile-First Experience**: Fully optimized for all devices with a dedicated mobile navigation menu, responsive dialogs, and horizontal scrolling for long strings.
 - **SEO Optimized**: Includes dynamic sitemap generation and localized metadata for enhanced search engine visibility.
 - **Dark & Light Mode**: A premium UI that respects your system preferences with a refined "Technical-Warmth" design.
@@ -98,7 +98,7 @@ headerly/
 │   ├── ui/               # Reusable UI components (Shadcn)
 │   └── ...               # Feature-specific components
 ├── i18n/                 # Internationalization configuration
-├── messages/             # Translation dictionaries (EN, TR)
+├── messages/             # Translation dictionaries (EN, TR, DE, ES, FR, HI, ZH)
 ├── lib/                  # Utility functions and shared logic
 ├── public/               # Static assets (images, icons)
 ├── hooks/                # Custom React hooks
