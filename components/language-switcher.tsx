@@ -41,7 +41,7 @@ export function LanguageSwitcher() {
           <span className="sr-only">Switch language</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end" className="w-[150px] p-1">
+      <PopoverContent align="end" className="w-[150px] p-1 bg-background/95 backdrop-blur-md border border-border shadow-2xl">
         <div className="grid gap-1">
           {routing.locales.map((l) => (
             <Button
