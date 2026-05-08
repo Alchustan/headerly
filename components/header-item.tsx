@@ -41,7 +41,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   // Try to get translation for the header description, fallback to the hardcoded one or default
   const headerKey = name.toLowerCase()
   const hasTranslation = t.has(headerKey)
-  const description = hasTranslation ? t(headerKey) : headerInfo.description
+  const description = hasTranslation ? t(headerKey) : t("defaultDescription")
 
   React.useEffect(() => {
     setMounted(true)

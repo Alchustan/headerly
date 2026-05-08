@@ -3,7 +3,8 @@
     "brand": "Headerly",
     "headers": "Headers",
     "network": "Network Info",
-    "userAgent": "User Agent"
+    "userAgent": "User Agent",
+    "greenWeb": "Green Web"
   },
   "Footer": {
     "builtWith": "Built for the modern web.",
@@ -100,6 +101,61 @@
     "back": "Back to Home",
     "title": "Terms of Service",
     "lastUpdated": "Last updated"
+  },
+  "GreenWebPage": {
+    "title": "Green Web Analyzer",
+    "description": "Check if a website is hosted on green energy and estimate its carbon footprint.",
+    "inputPlaceholder": "Enter website URL (e.g., example.com)",
+    "analyzeButton": "Analyze",
+    "analyzing": "Analyzing...",
+    "results": {
+      "isGreen": {
+        "label": "Is it Green?",
+        "yes": "Yes",
+        "no": "No",
+        "descGreen": "Hosted on green energy",
+        "descNotGreen": "Not hosted on green energy"
+      },
+      "co2": {
+        "label": "Estimated CO2",
+        "grams": "{value} grams",
+        "description": "Estimated carbon emission per visit"
+      },
+      "size": {
+        "label": "Page Size",
+        "mb": "{value} MB",
+        "description": "Estimated size of the page"
+      },
+      "hosting": {
+        "label": "Hosting Provider",
+        "description": "Detected hosting provider"
+      }
+    },
+    "error": "Failed to analyze the website. Please check the URL and try again.",
+    "howItWorks": {
+      "title": "How is this calculated?",
+      "subtitle": "Estimating the digital footprint of a webpage.",
+      "p1": "Every byte transferred over the internet consumes <strong>energy</strong>. We estimate the webpage size, then check its domain against <strong>The Green Web Foundation's</strong> database to verify if it's powered by renewable energy.",
+      "p2": "Using these two factors, we calculate an estimated CO2 emission per visit, demonstrating how website performance directly impacts environmental sustainability."
+    },
+    "features": {
+      "energy": {
+        "title": "Energy Consumption",
+        "description": "The internet is responsible for ~4% of global greenhouse gas emissions."
+      },
+      "hosting": {
+        "title": "Green Hosting",
+        "description": "Running data centers on renewable energy drastically reduces footprints."
+      },
+      "performance": {
+        "title": "Performance = Ecology",
+        "description": "Optimized, lightweight websites require less energy to transfer and render."
+      },
+      "privacy": {
+        "title": "Privacy Focused",
+        "description": "Our stateless analysis logs no personal or request data."
+      }
+    }
   },
   "HeaderCard": {
     "title": "Request Headers",
@@ -209,6 +265,10 @@
     "terms": {
       "title": "Terms of Service - Headerly",
       "description": "The terms and conditions for using Headerly's developer tools and services."
+    },
+    "greenWeb": {
+      "title": "Green Web Analyzer - Headerly",
+      "description": "Check if a website is hosted on green energy and estimate its carbon footprint."
     }
   }
 }

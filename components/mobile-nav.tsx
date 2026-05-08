@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { Activity, LayoutList, MonitorCheck, Menu, X } from "lucide-react";
+import { Activity, LayoutList, MonitorCheck, Menu, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -52,6 +52,14 @@ export function MobileNav() {
             >
               <MonitorCheck className="h-5 w-5 text-primary" />
               <span>{t("userAgent")}</span>
+            </Link>
+            <Link
+              href="/green-web"
+              onClick={close}
+              className="flex items-center gap-3 px-4 py-3 text-base font-medium rounded-xl hover:bg-muted transition-colors"
+            >
+              <Leaf className="h-5 w-5 text-primary" />
+              <span>{t("greenWeb")}</span>
             </Link>
           </div>
         </div>

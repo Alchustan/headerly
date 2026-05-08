@@ -3,7 +3,8 @@
     "brand": "Headerly",
     "headers": "Header'lar",
     "network": "Ağ Bilgisi",
-    "userAgent": "Kullanıcı Aracısı"
+    "userAgent": "Kullanıcı Aracısı",
+    "greenWeb": "Yeşil Web"
   },
   "Footer": {
     "builtWith": "Modern web için tasarlandı.",
@@ -100,6 +101,61 @@
     "back": "Anasayfaya Dön",
     "title": "Kullanım Şartları",
     "lastUpdated": "Son güncelleme"
+  },
+  "GreenWebPage": {
+    "title": "Yeşil Web Analizcisi",
+    "description": "Bir web sitesinin yeşil enerji ile barındırılıp barındırılmadığını kontrol edin ve karbon ayak izini tahmin edin.",
+    "inputPlaceholder": "Web sitesi URL'si girin (örn. example.com)",
+    "analyzeButton": "Analiz Et",
+    "analyzing": "Analiz ediliyor...",
+    "results": {
+      "isGreen": {
+        "label": "Yeşil mi?",
+        "yes": "Evet",
+        "no": "Hayır",
+        "descGreen": "Yeşil enerji ile barındırılıyor",
+        "descNotGreen": "Yeşil enerji ile barındırılmıyor"
+      },
+      "co2": {
+        "label": "Tahmini CO2",
+        "grams": "{value} gram",
+        "description": "Ziyaret başına tahmini karbon emisyonu"
+      },
+      "size": {
+        "label": "Sayfa Boyutu",
+        "mb": "{value} MB",
+        "description": "Sayfanın tahmini boyutu"
+      },
+      "hosting": {
+        "label": "Barındırma Sağlayıcı",
+        "description": "Tespit edilen barındırma sağlayıcısı"
+      }
+    },
+    "error": "Web sitesi analiz edilemedi. Lütfen URL'yi kontrol edip tekrar deneyin.",
+    "howItWorks": {
+      "title": "Bu nasıl hesaplanıyor?",
+      "subtitle": "Bir web sayfasının dijital ayak izini tahmin etmek.",
+      "p1": "İnternet üzerinden aktarılan her bayt <strong>enerji</strong> tüketir. Sayfa boyutunu tahmin ediyor, ardından alan adının yenilenebilir enerjiyle çalışıp çalışmadığını doğrulamak için <strong>The Green Web Foundation</strong> veritabanından kontrol ediyoruz.",
+      "p2": "Bu iki faktörü kullanarak ziyaret başına tahmini CO2 emisyonunu hesaplıyor ve web sitesi performansının çevresel sürdürülebilirliği nasıl doğrudan etkilediğini gösteriyoruz."
+    },
+    "features": {
+      "energy": {
+        "title": "Enerji Tüketimi",
+        "description": "İnternet, küresel sera gazı emisyonlarının yaklaşık %4'ünden sorumludur."
+      },
+      "hosting": {
+        "title": "Yeşil Barındırma",
+        "description": "Veri merkezlerini yenilenebilir enerjiyle çalıştırmak ayak izlerini büyük ölçüde azaltır."
+      },
+      "performance": {
+        "title": "Performans = Ekoloji",
+        "description": "Optimize edilmiş, hafif web sitelerinin aktarılması ve oluşturulması daha az enerji gerektirir."
+      },
+      "privacy": {
+        "title": "Gizlilik Odaklı",
+        "description": "Durumsuz (stateless) analizimiz hiçbir kişisel veya istek verisini kaydetmez."
+      }
+    }
   },
   "HeaderCard": {
     "title": "İstek Başlıkları",
@@ -209,6 +265,10 @@
     "terms": {
       "title": "Kullanım Şartları - Headerly",
       "description": "Headerly'nin geliştirici araçlarını ve hizmetlerini kullanma şartları ve koşulları."
+    },
+    "greenWeb": {
+      "title": "Yeşil Web Analizcisi - Headerly",
+      "description": "Bir web sitesinin yeşil enerji ile barındırılıp barındırılmadığını kontrol edin ve karbon ayak izini tahmin edin."
     }
   }
 }
