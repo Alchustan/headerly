@@ -15,22 +15,108 @@
     "github": "GitHub"
   },
   "HomePage": {
-    "title": "Headerly",
-    "description": "Visualiza e inspecciona al instante tus headers de solicitud HTTP en una interfaz limpia y amigable para desarrolladores.",
-    "features": {
-      "privacy": {
-        "title": "Privacidad ante todo",
-        "description": "Los headers se procesan en el servidor y nunca se guardan. Lo que ves solo es visible para ti y permanece dentro de tu sesión."
+    "hero": {
+      "title": "Entiende tu Identidad Digital",
+      "subtitle": "Explora encabezados HTTP, detalles de red, huellas digitales del navegador e impacto ambiental. Herramientas transparentes para la web moderna.",
+      "cta": "Inspeccionar Encabezados de Solicitud",
+      "github": "Ver en GitHub"
+    },
+    "sections": {
+      "digitalIdentity": {
+        "title": "¿Cuál es tu Identidad Digital?",
+        "description": "Cada solicitud web revela información sobre ti. Headerly te ayuda a entender qué datos envía tu navegador y cómo te identifica en internet.",
+        "features": {
+          "headers": {
+            "title": "Encabezados de Solicitud HTTP",
+            "description": "Ve los metadatos enviados con cada solicitud web—cookies, agentes de usuario, referentes y más."
+          },
+          "network": {
+            "title": "Detalles de Red",
+            "description": "Descubre tu dirección IP, ubicación e información de ISP derivada de tu conexión."
+          },
+          "useragent": {
+            "title": "Huella Digital del Navegador",
+            "description": "Aprende cómo tu navegador, SO y configuración de dispositivo crean una firma digital única."
+          }
+        }
       },
-      "devTools": {
-        "title": "Herramientas de desarrollo",
-        "description": "Creado para desarrolladores. Copia valores individuales o el payload JSON completo con un solo clic. Alto rendimiento y fácil de usar."
+      "privacy": {
+        "title": "Privacidad y Protección contra Rastreo",
+        "description": "Tu privacidad es lo más importante. Headerly procesa todo del lado del servidor sin rastreo, manteniendo tu huella digital privada.",
+        "features": {
+          "noStorage": {
+            "title": "Sin Almacenamiento de Datos",
+            "description": "Tus encabezados se analizan en memoria y nunca se almacenan permanentemente. Lo que ves es visible solo para ti."
+          },
+          "serverSide": {
+            "title": "Procesamiento del Lado del Servidor",
+            "description": "Todo el análisis ocurre del lado del servidor para máxima seguridad y protección de privacidad."
+          },
+          "transparent": {
+            "title": "Totalmente Transparente",
+            "description": "El código abierto significa que puedes verificar exactamente cómo se manejan tus datos."
+          }
+        }
+      },
+      "environmental": {
+        "title": "Impacto Ambiental",
+        "description": "La actividad digital tiene un costo ambiental real. Entiende la huella de carbono de los sitios web y aprende sobre alojamiento verde.",
+        "features": {
+          "greenWeb": {
+            "title": "Análisis de Web Verde",
+            "description": "Verifica si los sitios web se ejecutan con energía renovable y estima sus emisiones de carbono."
+          },
+          "impact": {
+            "title": "Huella de Carbono Digital",
+            "description": "Aprende cómo el uso de internet contribuye al cambio climático y qué puedes hacer al respecto."
+          },
+          "performance": {
+            "title": "Optimización de Rendimiento",
+            "description": "Los sitios web más rápidos usan menos energía. Descubre herramientas para construir productos digitales sostenibles."
+          }
+        }
+      },
+      "network": {
+        "title": "Transparencia de Red",
+        "description": "Sabe qué información de red es visible cuando te conectas a internet y cómo se utiliza.",
+        "features": {
+          "location": {
+            "title": "Detección de Ubicación",
+            "description": "Entiende cómo se determina tu ubicación aproximada desde metadatos de IP."
+          },
+          "metadata": {
+            "title": "Metadatos de Conexión",
+            "description": "Ve detalles de ISP, organizaciones de red e información de conexión adicional."
+          },
+          "security": {
+            "title": "Seguridad de Edge Computing",
+            "description": "Aprende cómo las redes edge proporcionan beneficios de rendimiento y privacidad."
+          }
+        }
       },
       "openSource": {
-        "title": "Código abierto",
-        "description": "Headerly es de código abierto y tiene licencia MIT. Explora el código en GitHub, reporta errores o contribuye para mejorarlo."
+        "title": "Código Abierto y Comunidad",
+        "description": "La transparencia construye confianza. Headerly tiene licencia MIT y acepta contribuciones de desarrolladores de todo el mundo.",
+        "features": {
+          "transparent": {
+            "title": "Completamente Código Abierto",
+            "description": "Inspecciona el código fuente en GitHub. Sin rastreo oculto ni algoritmos propietarios."
+          },
+          "contribute": {
+            "title": "Contribuciones Comunitarias",
+            "description": "Reporta errores, sugiere características o envía solicitudes de extracción para mejorar Headerly."
+          },
+          "community": {
+            "title": "Comunidad de Desarrolladores",
+            "description": "Únete a una comunidad en crecimiento de desarrolladores que construyen herramientas web enfocadas en privacidad."
+          }
+        }
       }
     }
+  },
+  "HeadersPage": {
+    "title": "Inspector de Encabezados de Solicitud",
+    "description": "Inspecciona los encabezados HTTP enviados con tu solicitud actual. Ve todos los metadatos que tu navegador comparte con los servidores."
   },
   "NetworkPage": {
     "title": "Detalles de la red",

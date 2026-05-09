@@ -30,7 +30,7 @@ export function MobileNav() {
         <div className="absolute left-0 top-[57px] z-50 w-full border-b border-border bg-background/95 backdrop-blur-md animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
             <Link
-              href="/"
+              href="/headers"
               onClick={close}
               className="flex items-center gap-3 px-4 py-3 text-base font-medium rounded-xl hover:bg-muted transition-colors"
             >

@@ -15,22 +15,108 @@
     "github": "GitHub"
   },
   "HomePage": {
-    "title": "Headerly",
-    "description": "在简洁、开发者友好的界面中即时查看并检查您的 HTTP 请求头。",
-    "features": {
-      "privacy": {
-        "title": "隐私至上",
-        "description": "请求头在服务端处理且从不存储。您看到的内容仅对您可见，且仅保留在当前会话中。"
+    "hero": {
+      "title": "了解您的数字身份",
+      "subtitle": "探索 HTTP 请求头、网络详情、浏览器指纹识别和环境影响。为现代网络打造的透明工具。",
+      "cta": "检查请求头",
+      "github": "在 GitHub 上查看"
+    },
+    "sections": {
+      "digitalIdentity": {
+        "title": "什么是您的数字身份?",
+        "description": "每个网络请求都会透露关于您的信息。Headerly 帮助您了解您的浏览器发送了哪些数据，以及它如何在互联网上识别您。",
+        "features": {
+          "headers": {
+            "title": "HTTP 请求头",
+            "description": "查看每个网络请求发送的元数据——Cookie、用户代理、来源和更多。"
+          },
+          "network": {
+            "title": "网络详情",
+            "description": "发现您的 IP 地址、位置和从您的连接派生的 ISP 信息。"
+          },
+          "useragent": {
+            "title": "浏览器指纹",
+            "description": "了解您的浏览器、操作系统和设备配置如何创建独特的数字签名。"
+          }
+        }
       },
-      "devTools": {
-        "title": "开发者工具",
-        "description": "为开发者打造。只需一键即可复制单个数值或整个 JSON 负载。高性能且易于使用。"
+      "privacy": {
+        "title": "隐私与追踪保护",
+        "description": "您的隐私是我们的最高优先级。Headerly 在服务器端处理所有内容，无追踪，保持您的数字足迹隐私。",
+        "features": {
+          "noStorage": {
+            "title": "无数据存储",
+            "description": "您的请求头在内存中分析，从不永久存储。您看到的内容仅对您可见。"
+          },
+          "serverSide": {
+            "title": "服务器端处理",
+            "description": "所有分析都在服务器端进行，以实现最大的安全性和隐私保护。"
+          },
+          "transparent": {
+            "title": "完全透明",
+            "description": "开源代码意味着您可以验证您的数据的确切处理方式。"
+          }
+        }
+      },
+      "environmental": {
+        "title": "环境影响",
+        "description": "数字活动有真实的环保成本。了解网站的碳足迹，学习绿色托管。",
+        "features": {
+          "greenWeb": {
+            "title": "绿色网络分析",
+            "description": "检查网站是否由可再生能源驱动，并估计其碳排放。"
+          },
+          "impact": {
+            "title": "数字碳足迹",
+            "description": "了解互联网使用如何导致气候变化，以及您可以做什么。"
+          },
+          "performance": {
+            "title": "性能优化",
+            "description": "更快的网站使用更少的能源。发现构建可持续数字产品的工具。"
+          }
+        }
+      },
+      "network": {
+        "title": "网络透明度",
+        "description": "了解当您连接到互联网时哪些网络信息是可见的，以及它们的使用方式。",
+        "features": {
+          "location": {
+            "title": "位置检测",
+            "description": "了解您的近似位置是如何从 IP 元数据确定的。"
+          },
+          "metadata": {
+            "title": "连接元数据",
+            "description": "查看 ISP 详情、网络组织和其他连接信息。"
+          },
+          "security": {
+            "title": "边缘计算安全",
+            "description": "了解边缘网络如何同时提供性能和隐私优势。"
+          }
+        }
       },
       "openSource": {
-        "title": "开源项目",
-        "description": "Headerly 是开源的，采用 MIT 许可。在 GitHub 上探索代码、报告问题或为改进项目做出贡献。"
+        "title": "开源与社区",
+        "description": "透明性建立信任。Headerly 采用 MIT 许可，欢迎来自世界各地开发者的贡献。",
+        "features": {
+          "transparent": {
+            "title": "完全开源",
+            "description": "在 GitHub 上检查源代码。无隐藏追踪或专有算法。"
+          },
+          "contribute": {
+            "title": "社区贡献",
+            "description": "报告错误、建议功能或提交拉取请求以改进 Headerly。"
+          },
+          "community": {
+            "title": "开发者社区",
+            "description": "加入日益增长的开发者社区，构建以隐私为中心的网络工具。"
+          }
+        }
       }
     }
+  },
+  "HeadersPage": {
+    "title": "请求头检查器",
+    "description": "检查您当前请求发送的 HTTP 请求头。查看您的浏览器与服务器共享的所有元数据。"
   },
   "NetworkPage": {
     "title": "网络详情",

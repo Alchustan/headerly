@@ -15,22 +15,108 @@
     "github": "GitHub"
   },
   "HomePage": {
-    "title": "Headerly",
-    "description": "HTTP istek başlıklarınızı temiz ve geliştirici dostu bir arayüzde anında görüntüleyin ve inceleyin.",
-    "features": {
-      "privacy": {
-        "title": "Önce Gizlilik",
-        "description": "Başlıklar sunucu tarafında işlenir ve asla kaydedilmez. Gördüğünüz veriler sadece size özeldir ve oturumunuzda kalır."
+    "hero": {
+      "title": "Dijital Kimliğinizi Anlayın",
+      "subtitle": "HTTP başlıklarını, ağ detaylarını, tarayıcı parmak izini ve çevresel etkiyi keşfedin. Modern web için şeffaf araçlar.",
+      "cta": "İstek Başlıklarını İnceleyin",
+      "github": "GitHub'da Görüntüleyin"
+    },
+    "sections": {
+      "digitalIdentity": {
+        "title": "Dijital Kimliğiniz Nedir?",
+        "description": "Her web isteği sizin hakkında bilgi ortaya koymaktadır. Headerly, tarayıcınızın hangi verileri gönderdiğini ve bu verilerin sizi internette nasıl tanımladığını anlamanıza yardımcı olur.",
+        "features": {
+          "headers": {
+            "title": "HTTP İstek Başlıkları",
+            "description": "Her web isteğiyle gönderilen metaveriye bakın—çerezler, kullanıcı aracıları, refererler ve daha fazlası."
+          },
+          "network": {
+            "title": "Ağ Detayları",
+            "description": "IP adresinizi, konumunuzu ve bağlantınızdan türetilen ISS bilgilerinizi keşfedin."
+          },
+          "useragent": {
+            "title": "Tarayıcı Parmak İzi",
+            "description": "Tarayıcınız, işletim sisteminiz ve cihazınızın konfigürasyonunun nasıl benzersiz bir dijital imza oluşturduğunu öğrenin."
+          }
+        }
       },
-      "devTools": {
-        "title": "Geliştirici Araçları",
-        "description": "Geliştiriciler için üretildi. Tek tıkla değerleri veya tüm JSON içeriğini kopyalayın. Yüksek performanslı ve kullanımı kolay."
+      "privacy": {
+        "title": "Gizlilik & Takip Koruması",
+        "description": "Gizlilikleriniz çok önemlidir. Headerly her şeyi sunucu tarafında hiçbir takip olmadan işler ve dijital ayakiziniz yalnız sizin kalır.",
+        "features": {
+          "noStorage": {
+            "title": "Veri Depolama Yok",
+            "description": "Başlıklarınız bellekte analiz edilir ve asla kalıcı olarak kaydedilmez. Gördüğünüz veriler sadece sizin için görünebilir."
+          },
+          "serverSide": {
+            "title": "Sunucu Tarafı İşleme",
+            "description": "Tüm analiz maksimum güvenlik ve gizlilik koruması için sunucu tarafında gerçekleşir."
+          },
+          "transparent": {
+            "title": "Tamamen Şeffaf",
+            "description": "Açık kaynak kod, verilerinizin tam olarak nasıl işlendiğini doğrulamanızı sağlar."
+          }
+        }
+      },
+      "environmental": {
+        "title": "Çevresel Etki",
+        "description": "Dijital aktivitenin gerçek çevresel bir maliyeti vardır. Web sitelerinin karbon ayakizini anlayın ve yeşil barındırmayı öğrenin.",
+        "features": {
+          "greenWeb": {
+            "title": "Yeşil Web Analizi",
+            "description": "Web sitelerinin yenilenebilir enerjide çalışıp çalışmadığını kontrol edin ve karbon emisyonlarını tahmin edin."
+          },
+          "impact": {
+            "title": "Dijital Karbon Ayakizi",
+            "description": "İnternet kullanımının iklim değişikliğine nasıl katkıda bulunduğunu ve bunu başa çıkmak için ne yapabileceğinizi öğrenin."
+          },
+          "performance": {
+            "title": "Performans Optimizasyonu",
+            "description": "Daha hızlı web siteleri daha az enerji kullanır. Sürdürülebilir dijital ürünler oluşturmak için araçları keşfedin."
+          }
+        }
+      },
+      "network": {
+        "title": "Ağ Şeffaflığı",
+        "description": "İnternete bağlandığınızda hangi ağ bilgisinin görünür olduğunu ve nasıl kullanıldığını bilin.",
+        "features": {
+          "location": {
+            "title": "Konum Tespiti",
+            "description": "Yaklaşık konumunuzun IP metaverilerinden nasıl belirlendiğini anlayın."
+          },
+          "metadata": {
+            "title": "Bağlantı Metaverisi",
+            "description": "ISS detaylarını, ağ organizasyonlarını ve diğer bağlantı bilgilerini görün."
+          },
+          "security": {
+            "title": "Edge Bilişim Güvenliği",
+            "description": "Kenar ağlarının hem performans hem de gizlilik avantajlarını nasıl sağladığını öğrenin."
+          }
+        }
       },
       "openSource": {
-        "title": "Açık Kaynak",
-        "description": "Headerly açık kaynaklıdır ve MIT lisanslıdır. Kodu GitHub'da inceleyin, hata bildirin veya daha iyi hale getirmek için katkıda bulunun."
+        "title": "Açık Kaynak & Topluluk",
+        "description": "Şeffaflık güven oluşturur. Headerly MIT lisanslıdır ve dünya çapındaki geliştiricilerden katkıları karşılar.",
+        "features": {
+          "transparent": {
+            "title": "Tamamen Açık Kaynak",
+            "description": "GitHub'da kaynak kodunu inceleyin. Hiçbir gizli takip veya tescilli algoritma yok."
+          },
+          "contribute": {
+            "title": "Topluluk Katkıları",
+            "description": "Hataları bildirin, özellikler önerin veya Headerly'i geliştirmek için çekme istekleri gönderin."
+          },
+          "community": {
+            "title": "Geliştirici Topluluğu",
+            "description": "Gizlilik odaklı web araçları oluşturan büyüyen bir geliştirici topluluğuna katılın."
+          }
+        }
       }
     }
+  },
+  "HeadersPage": {
+    "title": "İstek Başlıkları İnceleyicisi",
+    "description": "Mevcut istekle gönderilen HTTP başlıklarını inceleyin. Tarayıcınızın sunucularla paylaştığı tüm metaveriye bakın."
   },
   "NetworkPage": {
     "title": "Ağ Detayları",

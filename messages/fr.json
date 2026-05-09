@@ -15,22 +15,108 @@
     "github": "GitHub"
   },
   "HomePage": {
-    "title": "Headerly",
-    "description": "Visualisez et inspectez instantanément vos en-têtes de requête HTTP dans une interface propre et adaptée aux développeurs.",
-    "features": {
-      "privacy": {
-        "title": "La confidentialité d'abord",
-        "description": "Les en-têtes sont traités côté serveur et ne sont jamais stockés. Ce que vous voyez n'est visible que par vous et reste au sein de votre session."
+    "hero": {
+      "title": "Comprenez votre Identité Numérique",
+      "subtitle": "Explorez les en-têtes HTTP, les détails du réseau, les empreintes digitales du navigateur et l'impact environnemental. Des outils transparents pour le web moderne.",
+      "cta": "Inspecter les En-têtes de Requête",
+      "github": "Voir sur GitHub"
+    },
+    "sections": {
+      "digitalIdentity": {
+        "title": "Qu'est-ce que votre Identité Numérique?",
+        "description": "Chaque requête web révèle des informations sur vous. Headerly vous aide à comprendre les données que votre navigateur envoie et comment il vous identifie sur internet.",
+        "features": {
+          "headers": {
+            "title": "En-têtes de Requête HTTP",
+            "description": "Voir les métadonnées envoyées avec chaque requête web—cookies, user agents, référents et plus."
+          },
+          "network": {
+            "title": "Détails du Réseau",
+            "description": "Découvrez votre adresse IP, votre localisation et les informations de votre FAI dérivées de votre connexion."
+          },
+          "useragent": {
+            "title": "Empreinte Digitale du Navigateur",
+            "description": "Apprenez comment votre navigateur, votre système d'exploitation et la configuration de votre appareil créent une signature numérique unique."
+          }
+        }
       },
-      "devTools": {
-        "title": "Outils de développement",
-        "description": "Conçu pour les développeurs. Copiez des valeurs individuelles ou l'intégralité du JSON en un seul clic. Haute performance et facile à utiliser."
+      "privacy": {
+        "title": "Confidentialité & Protection Contre le Suivi",
+        "description": "Votre confidentialité est notre priorité absolue. Headerly traite tout côté serveur sans suivi, gardant votre empreinte numérique privée.",
+        "features": {
+          "noStorage": {
+            "title": "Pas de Stockage de Données",
+            "description": "Vos en-têtes sont analysés en mémoire et jamais stockés de façon permanente. Ce que vous voyez n'est visible que pour vous."
+          },
+          "serverSide": {
+            "title": "Traitement Côté Serveur",
+            "description": "Toute l'analyse se fait côté serveur pour une sécurité et une protection de la confidentialité maximales."
+          },
+          "transparent": {
+            "title": "Totalement Transparent",
+            "description": "Le code open source signifie que vous pouvez vérifier exactement comment vos données sont traitées."
+          }
+        }
+      },
+      "environmental": {
+        "title": "Impact Environnemental",
+        "description": "L'activité numérique a un coût environnemental réel. Comprenez l'empreinte carbone des sites web et apprenez-en plus sur l'hébergement écologique.",
+        "features": {
+          "greenWeb": {
+            "title": "Analyse du Web Vert",
+            "description": "Vérifiez si les sites web fonctionnent à l'énergie renouvelable et estimez leurs émissions de carbone."
+          },
+          "impact": {
+            "title": "Empreinte Carbone Numérique",
+            "description": "Apprenez comment l'utilisation d'internet contribue au changement climatique et ce que vous pouvez faire à ce sujet."
+          },
+          "performance": {
+            "title": "Optimisation des Performances",
+            "description": "Les sites web plus rapides consomment moins d'énergie. Découvrez des outils pour construire des produits numériques durables."
+          }
+        }
+      },
+      "network": {
+        "title": "Transparence du Réseau",
+        "description": "Sachez quelles informations du réseau sont visibles lorsque vous vous connectez à internet et comment elles sont utilisées.",
+        "features": {
+          "location": {
+            "title": "Détection de Localisation",
+            "description": "Comprenez comment votre localisation approximative est déterminée à partir des métadonnées IP."
+          },
+          "metadata": {
+            "title": "Métadonnées de Connexion",
+            "description": "Voyez les détails du FAI, les organisations de réseau et d'autres informations de connexion."
+          },
+          "security": {
+            "title": "Sécurité du Edge Computing",
+            "description": "Apprenez comment les réseaux edge fournissent à la fois des avantages de performance et de confidentialité."
+          }
+        }
       },
       "openSource": {
-        "title": "Open Source",
-        "description": "Headerly est open-source et sous licence MIT. Explorez le code sur GitHub, signalez des problèmes ou contribuez à l'améliorer."
+        "title": "Open Source & Communauté",
+        "description": "La transparence crée la confiance. Headerly est sous licence MIT et accueille les contributions de développeurs du monde entier.",
+        "features": {
+          "transparent": {
+            "title": "Totalement Open Source",
+            "description": "Inspectez le code source sur GitHub. Pas de suivi caché ni d'algorithmes propriétaires."
+          },
+          "contribute": {
+            "title": "Contributions Communautaires",
+            "description": "Signalez des bugs, proposez des fonctionnalités ou envoyez des pull requests pour améliorer Headerly."
+          },
+          "community": {
+            "title": "Communauté de Développeurs",
+            "description": "Rejoignez une communauté grandissante de développeurs construisant des outils web axés sur la confidentialité."
+          }
+        }
       }
     }
+  },
+  "HeadersPage": {
+    "title": "Inspecteur des En-têtes de Requête",
+    "description": "Inspectez les en-têtes HTTP envoyés avec votre requête actuelle. Voyez toutes les métadonnées que votre navigateur partage avec les serveurs."
   },
   "NetworkPage": {
     "title": "Détails du réseau",

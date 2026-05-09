@@ -15,22 +15,108 @@
     "github": "GitHub"
   },
   "HomePage": {
-    "title": "Headerly",
-    "description": "Instantly view and inspect your HTTP request headers in a clean, developer-friendly interface.",
-    "features": {
-      "privacy": {
-        "title": "Privacy First",
-        "description": "Headers are processed server-side and never stored. What you see is only visible to you and stays within your session."
+    "hero": {
+      "title": "Understand Your Digital Identity",
+      "subtitle": "Explore HTTP headers, network details, browser fingerprints, and environmental impact. Transparent tools for the modern web.",
+      "cta": "Inspect Request Headers",
+      "github": "View on GitHub"
+    },
+    "sections": {
+      "digitalIdentity": {
+        "title": "What is Your Digital Identity?",
+        "description": "Every web request reveals information about you. Headerly helps you understand what data your browser sends and how it identifies you across the internet.",
+        "features": {
+          "headers": {
+            "title": "HTTP Request Headers",
+            "description": "See the metadata sent with every web request—cookies, user agents, referrers, and more."
+          },
+          "network": {
+            "title": "Network Details",
+            "description": "Discover your IP address, location, and ISP information derived from your connection."
+          },
+          "useragent": {
+            "title": "Browser Fingerprint",
+            "description": "Learn how your browser, OS, and device configuration create a unique digital signature."
+          }
+        }
       },
-      "devTools": {
-        "title": "Developer Tools",
-        "description": "Built for developers. Copy individual values or the entire JSON payload with a single click. High performance and easy to use."
+      "privacy": {
+        "title": "Privacy & Tracking Protection",
+        "description": "Your privacy is paramount. Headerly processes everything server-side with zero tracking, ensuring your digital footprint remains yours alone.",
+        "features": {
+          "noStorage": {
+            "title": "No Data Storage",
+            "description": "Your headers are analyzed in-memory and never persisted. What you see is visible only to you."
+          },
+          "serverSide": {
+            "title": "Server-Side Processing",
+            "description": "All analysis happens server-side for maximum security and privacy protection."
+          },
+          "transparent": {
+            "title": "Fully Transparent",
+            "description": "Open-source code means you can verify exactly how your data is handled."
+          }
+        }
+      },
+      "environmental": {
+        "title": "Environmental Impact",
+        "description": "Digital activity has a real environmental cost. Understand the carbon footprint of websites and learn about green hosting.",
+        "features": {
+          "greenWeb": {
+            "title": "Green Web Analysis",
+            "description": "Check if websites run on renewable energy and estimate their carbon emissions."
+          },
+          "impact": {
+            "title": "Digital Carbon Footprint",
+            "description": "Learn how internet usage contributes to climate change and what you can do about it."
+          },
+          "performance": {
+            "title": "Performance Optimization",
+            "description": "Faster websites use less energy. Discover tools for building sustainable digital products."
+          }
+        }
+      },
+      "network": {
+        "title": "Network Transparency",
+        "description": "Know what network information is visible when you connect to the internet and how it's used.",
+        "features": {
+          "location": {
+            "title": "Location Detection",
+            "description": "Understand how your approximate location is determined from IP metadata."
+          },
+          "metadata": {
+            "title": "Connection Metadata",
+            "description": "See ISP details, network organizations, and other connection information."
+          },
+          "security": {
+            "title": "Edge Computing Security",
+            "description": "Learn how edge networks provide both performance and privacy benefits."
+          }
+        }
       },
       "openSource": {
-        "title": "Open Source",
-        "description": "Headerly is open-source and MIT licensed. Explore the code on GitHub, report issues, or contribute to make it better."
+        "title": "Open Source & Community",
+        "description": "Transparency builds trust. Headerly is MIT licensed and welcomes contributions from developers worldwide.",
+        "features": {
+          "transparent": {
+            "title": "Fully Open Source",
+            "description": "Inspect the source code on GitHub. No hidden tracking or proprietary algorithms."
+          },
+          "contribute": {
+            "title": "Community Contributions",
+            "description": "Report bugs, suggest features, or submit pull requests to improve Headerly."
+          },
+          "community": {
+            "title": "Developer Community",
+            "description": "Join a growing community of developers building privacy-first web tools."
+          }
+        }
       }
     }
+  },
+  "HeadersPage": {
+    "title": "Request Headers Inspector",
+    "description": "Inspect the HTTP headers sent with your current request. See all the metadata your browser shares with servers."
   },
   "NetworkPage": {
     "title": "Network Details",

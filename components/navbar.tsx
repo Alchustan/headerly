@@ -19,7 +19,7 @@ export function Navbar() {
           </Link>
           <div className="hidden lg:flex gap-6">
             <Link
-              href="/"
+              href="/headers"
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               <LayoutList className="h-4 w-4" />
