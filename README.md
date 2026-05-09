@@ -82,6 +82,7 @@ npm start
 headerly/
 ├── app/                  # Next.js App Router
 │   ├── [locale]/         # Localized route group
+│   │   ├── headers/      # Main HTTP Header inspector
 │   │   ├── network/      # Network analysis page
 │   │   ├── user-agent/   # User-Agent analysis page
 │   │   ├── fingerprint/  # Browser fingerprinting dashboard
@@ -89,7 +90,7 @@ headerly/
 │   │   ├── privacy/      # Privacy policy
 │   │   ├── terms/        # Terms of service
 │   │   ├── layout.tsx    # Root layout for locale
-│   │   └── page.tsx      # Main inspector page
+│   │   └── page.tsx      # Educational landing page (Hero & Feature Showcase)
 │   ├── sitemap.ts        # Dynamic sitemap generation
 │   └── globals.css       # Global styles
 ├── components/           # React components
