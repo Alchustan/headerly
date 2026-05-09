@@ -114,35 +114,35 @@ export default async function Page() {
           </div>
         </section>
 
-        {/* Environmental Impact Section */}
+        {/* Open Source Section */}
         <section className="border-b border-border py-20">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <TreePine className="h-6 w-6" />
+                <Code2 className="h-6 w-6" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.environmental.title")}
+                {t("sections.openSource.title")}
               </h2>
             </div>
             <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-              {t("sections.environmental.description")}
+              {t("sections.openSource.description")}
             </p>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              <div className="bg-emerald-100/50 dark:bg-emerald-950/20 rounded-2xl p-8 flex items-center justify-center min-h-80">
+              <div className="bg-primary/5 rounded-2xl p-8 flex items-center justify-center min-h-80">
                 <div className="text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 mb-4">
-                    <TreePine className="h-8 w-8" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
+                    <Code2 className="h-8 w-8" />
                   </div>
-                  <p className="text-muted-foreground text-sm">Green energy impact</p>
+                  <p className="text-muted-foreground text-sm">Open source community</p>
                 </div>
               </div>
               <div className="space-y-4">
                 {[
-                  { icon: <TreePine className="h-5 w-5" />, title: t("sections.environmental.features.greenWeb.title"), desc: t("sections.environmental.features.greenWeb.description") },
-                  { icon: <Globe className="h-5 w-5" />, title: t("sections.environmental.features.impact.title"), desc: t("sections.environmental.features.impact.description") },
-                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.environmental.features.performance.title"), desc: t("sections.environmental.features.performance.description") }
+                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.openSource.features.transparent.title"), desc: t("sections.openSource.features.transparent.description") },
+                  { icon: <ExternalLink className="h-5 w-5" />, title: t("sections.openSource.features.contribute.title"), desc: t("sections.openSource.features.contribute.description") },
+                  { icon: <Globe className="h-5 w-5" />, title: t("sections.openSource.features.community.title"), desc: t("sections.openSource.features.community.description") }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">
                     <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -192,27 +192,27 @@ export default async function Page() {
           </div>
         </section>
 
-        {/* Open Source Section */}
+        {/* Environmental Impact Section */}
         <section className="py-20">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Code2 className="h-6 w-6" />
+                <TreePine className="h-6 w-6" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.openSource.title")}
+                {t("sections.environmental.title")}
               </h2>
             </div>
             <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-              {t("sections.openSource.description")}
+              {t("sections.environmental.description")}
             </p>
 
             <div className="grid lg:grid-cols-2 gap-8">
               <div className="space-y-4">
                 {[
-                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.openSource.features.transparent.title"), desc: t("sections.openSource.features.transparent.description") },
-                  { icon: <ExternalLink className="h-5 w-5" />, title: t("sections.openSource.features.contribute.title"), desc: t("sections.openSource.features.contribute.description") },
-                  { icon: <Globe className="h-5 w-5" />, title: t("sections.openSource.features.community.title"), desc: t("sections.openSource.features.community.description") }
+                  { icon: <TreePine className="h-5 w-5" />, title: t("sections.environmental.features.greenWeb.title"), desc: t("sections.environmental.features.greenWeb.description") },
+                  { icon: <Globe className="h-5 w-5" />, title: t("sections.environmental.features.impact.title"), desc: t("sections.environmental.features.impact.description") },
+                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.environmental.features.performance.title"), desc: t("sections.environmental.features.performance.description") }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">
                     <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -225,12 +225,12 @@ export default async function Page() {
                   </div>
                 ))}
               </div>
-              <div className="bg-primary/5 rounded-2xl p-8 flex items-center justify-center min-h-80">
+              <div className="bg-emerald-100/50 dark:bg-emerald-950/20 rounded-2xl p-8 flex items-center justify-center min-h-80">
                 <div className="text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
-                    <Code2 className="h-8 w-8" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 mb-4">
+                    <TreePine className="h-8 w-8" />
                   </div>
-                  <p className="text-muted-foreground text-sm">Open source community</p>
+                  <p className="text-muted-foreground text-sm">Green energy impact</p>
                 </div>
               </div>
             </div>
