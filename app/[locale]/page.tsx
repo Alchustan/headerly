@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
       {/* Hero Section */}
-      <header className="container mx-auto flex flex-col items-center gap-6 py-12 text-center md:py-24 px-4">
+      <header className="container mx-auto flex flex-col items-center gap-6 py-24 text-center md:py-48 px-4">
         <div className="max-w-3xl space-y-4">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary lg:text-7xl text-balance">
             {t("hero.title")}
@@ -37,7 +37,7 @@ export default async function Page() {
       {/* Main Content */}
       <main className="flex-1 pb-24">
         {/* Digital Identity Section */}
-        <section className="border-b border-border py-20">
+        <section className="border-b border-border py-32">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -82,7 +82,7 @@ export default async function Page() {
         </section>
 
         {/* Privacy Section */}
-        <section className="border-b border-border py-20 bg-muted/30">
+        <section className="border-b border-border py-32 bg-muted/30">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -115,7 +115,7 @@ export default async function Page() {
         </section>
 
         {/* Open Source Section */}
-        <section className="border-b border-border py-20">
+        <section className="border-b border-border py-32">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -160,7 +160,7 @@ export default async function Page() {
         </section>
 
         {/* Network Transparency Section */}
-        <section className="border-b border-border py-20 bg-muted/30">
+        <section className="border-b border-border py-32 bg-muted/30">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -193,7 +193,7 @@ export default async function Page() {
         </section>
 
         {/* Environmental Impact Section */}
-        <section className="py-20">
+        <section className="py-32">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
