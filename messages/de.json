@@ -5,7 +5,8 @@
     "network": "Netzwerk-Infos",
     "userAgent": "User-Agent",
     "greenWeb": "Green Web",
-    "fingerprint": "Fingerprint"
+    "fingerprint": "Fingerprint",
+    "securityHeaders": "Sicherheitsheader"
   },
   "Footer": {
     "builtWith": "Für das moderne Web entwickelt.",
@@ -244,6 +245,45 @@
       }
     }
   },
+  "SecurityHeadersPage": {
+    "title": "Sicherheitsheader-Analyse",
+    "description": "Überprüfen Sie die Sicherheitslage einer Website durch Analyse der HTTP-Sicherheitsresponse-Header. Erhalten Sie eine Sicherheitsbewertung und Empfehlungen.",
+    "inputPlaceholder": "Website-URL eingeben (z.B. beispiel.de)",
+    "analyzeButton": "Sicherheit prüfen",
+    "analyzing": "Analysiere...",
+    "error": "Sicherheitsheader konnten nicht überprüft werden. Bitte überprüfen Sie die URL.",
+    "scannedUrl": "Gescant",
+    "grade": "Note",
+    "whatIsThis": "Was ist das?",
+    "poor": "Schwach",
+    "excellent": "Hervorragend",
+    "notPresent": "Nicht vorhanden",
+    "recommendation": "Empfehlung",
+    "howItWorks": {
+      "title": "Wie Sicherheitsheader funktionieren",
+      "subtitle": "Verstehen Sie die Ebenen der Websicherheit",
+      "p1": "Wenn Ihr Browser eine Verbindung zu einer Website herstellt, antwortet der Server mit <strong>HTTP-Sicherheitsheadern</strong>, die dem Browser mitteilen, wie er sich verhalten soll. Diese Header sind die erste Verteidigungslinie gegen häufige Webangriffe wie XSS, Clickjacking und Dateneinschleusung.",
+      "p2": "Jeder Sicherheitsheader dient einem bestimmten Zweck. <strong>Content-Security-Policy</strong> steuert, welche Ressourcen geladen werden dürfen, während <strong>Strict-Transport-Security</strong> verschlüsselte HTTPS-Verbindungen erzwingt. Unser Analysator prüft das Vorhandensein und die korrekte Konfiguration dieser kritischen Header."
+    },
+    "features": {
+      "protection": {
+        "title": "Angriffsprävention",
+        "description": "Sicherheitsheader schützen vor XSS, Clickjacking, MIME-Sniffing und Dateneinschleusung."
+      },
+      "scoring": {
+        "title": "Klares Scoring",
+        "description": "Jeder Header wird nach Vorhandensein und Konfiguration bewertet und gibt eine klare Sicherheitsnote."
+      },
+      "privacy": {
+        "title": "Datenschutz zuerst",
+        "description": "Ihre gescannten URLs werden sicher verarbeitet und niemals gespeichert. Keine Protokolle, kein Tracking."
+      },
+      "realtime": {
+        "title": "Echtzeit-Analyse",
+        "description": "Erhalten Sie sofortige Ergebnisse mit detaillierten Erklärungen und umsetzbaren Empfehlungen."
+      }
+    }
+  },
   "HeaderCard": {
     "title": "Request-Header",
     "description": "Erkennung aktiver Browser- und Verbindungs-Header",
@@ -364,6 +404,10 @@
     "headers": {
       "title": "HTTP-Header - Headerly",
       "description": "Untersuchen Sie alle von Ihrem Browser gesendeten HTTP-Anfrageheader. Eine detaillierte Ansicht jedes Headers mit Beschreibungen und MDN-Referenzen."
+    },
+    "securityHeaders": {
+      "title": "Sicherheitsheader - Headerly",
+      "description": "Analysieren Sie die HTTP-Sicherheitsheader jeder Website. Erhalten Sie eine umfassende Sicherheitsbewertung mit Empfehlungen."
     }
   },
   "FingerprintPage": {

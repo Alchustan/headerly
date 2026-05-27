@@ -5,7 +5,8 @@
     "network": "网络信息",
     "userAgent": "User Agent",
     "greenWeb": "绿色网络",
-    "fingerprint": "浏览器指纹"
+    "fingerprint": "浏览器指纹",
+    "securityHeaders": "安全标头"
   },
   "Footer": {
     "builtWith": "为现代 Web 打造。",
@@ -244,6 +245,45 @@
       }
     }
   },
+  "SecurityHeadersPage": {
+    "title": "安全标头分析器",
+    "description": "通过分析网站的 HTTP 安全响应标头来检查其安全状况。获取安全评分和建议。",
+    "inputPlaceholder": "输入网站 URL（例如：example.com）",
+    "analyzeButton": "检查安全",
+    "analyzing": "分析中...",
+    "error": "无法检查安全标头。请验证 URL。",
+    "scannedUrl": "已扫描",
+    "grade": "等级",
+    "whatIsThis": "这是什么？",
+    "poor": "较差",
+    "excellent": "优秀",
+    "notPresent": "不存在",
+    "recommendation": "建议",
+    "howItWorks": {
+      "title": "安全标头的工作原理",
+      "subtitle": "了解网络安全层",
+      "p1": "当您的浏览器连接到网站时，服务器会以 <strong>HTTP 安全标头</strong> 响应，指示浏览器如何行为。这些标头是抵御常见网络攻击（如 XSS、点击劫持和数据注入）的第一道防线。",
+      "p2": "每个安全标头都有特定的用途。例如，<strong>Content-Security-Policy</strong> 控制可以加载哪些资源，而 <strong>Strict-Transport-Security</strong> 强制执行加密的 HTTPS 连接。我们的分析器检查这些关键标头的存在和正确配置。"
+    },
+    "features": {
+      "protection": {
+        "title": "攻击防范",
+        "description": "安全标头可防御 XSS、点击劫持、MIME 嗅探和数据注入攻击。"
+      },
+      "scoring": {
+        "title": "清晰评分",
+        "description": "每个标头根据其存在和配置进行评分，为您提供清晰的安全等级。"
+      },
+      "privacy": {
+        "title": "隐私优先",
+        "description": "您扫描的 URL 会安全处理，绝不存储。无日志，无跟踪。"
+      },
+      "realtime": {
+        "title": "实时分析",
+        "description": "获取即时结果，包含详细说明和可操作的建议。"
+      }
+    }
+  },
   "HeaderCard": {
     "title": "请求头",
     "description": "正在检测当前浏览器和连接头",
@@ -364,6 +404,10 @@
     "headers": {
       "title": "HTTP 请求头 - Headerly",
       "description": "检查浏览器发送的所有 HTTP 请求头。每个请求头的详细视图，包含描述和 MDN 参考。"
+    },
+    "securityHeaders": {
+      "title": "安全标头 - Headerly",
+      "description": "分析任何网站的 HTTP 安全标头。获取全面的安全评分和建议。"
     }
   },
   "FingerprintPage": {

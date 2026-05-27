@@ -7,6 +7,7 @@ import { routing } from '@/i18n/routing';
 import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { ToastProvider } from "@/components/toast-provider"
 import { cn } from "@/lib/utils"
 
 const fontSans = Plus_Jakarta_Sans({
@@ -113,6 +114,7 @@ export default async function RootLayout({
               </div>
               <Footer />
             </TooltipProvider>
+            <ToastProvider />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

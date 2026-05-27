@@ -5,7 +5,8 @@
     "network": "Información de red",
     "userAgent": "User Agent",
     "greenWeb": "Green Web",
-    "fingerprint": "Fingerprint"
+    "fingerprint": "Fingerprint",
+    "securityHeaders": "Seguridad"
   },
   "Footer": {
     "builtWith": "Creado para la web moderna.",
@@ -244,6 +245,45 @@
       }
     }
   },
+  "SecurityHeadersPage": {
+    "title": "Analizador de Encabezados de Seguridad",
+    "description": "Compruebe la postura de seguridad de un sitio web analizando sus encabezados de respuesta HTTP de seguridad. Obtenga una puntuación y recomendaciones.",
+    "inputPlaceholder": "Ingrese URL del sitio (ej: ejemplo.com)",
+    "analyzeButton": "Verificar Seguridad",
+    "analyzing": "Analizando...",
+    "error": "No se pudieron verificar los encabezados de seguridad. Verifique la URL.",
+    "scannedUrl": "Escaneado",
+    "grade": "Calificación",
+    "whatIsThis": "¿Qué es esto?",
+    "poor": "Débil",
+    "excellent": "Excelente",
+    "notPresent": "No presente",
+    "recommendation": "Recomendación",
+    "howItWorks": {
+      "title": "Cómo funcionan los encabezados de seguridad",
+      "subtitle": "Comprenda las capas de seguridad web",
+      "p1": "Cuando su navegador se conecta a un sitio web, el servidor responde con <strong>encabezados de seguridad HTTP</strong> que indican al navegador cómo comportarse. Estos encabezados son la primera línea de defensa contra ataques web comunes como XSS, clickjacking e inyección de datos.",
+      "p2": "Cada encabezado de seguridad tiene un propósito específico. <strong>Content-Security-Policy</strong> controla qué recursos pueden cargarse, mientras que <strong>Strict-Transport-Security</strong> exige conexiones HTTPS cifradas. Nuestro analizador verifica la presencia y configuración correcta de estos encabezados críticos."
+    },
+    "features": {
+      "protection": {
+        "title": "Prevención de Ataques",
+        "description": "Los encabezados de seguridad protegen contra XSS, clickjacking, MIME sniffing e inyección de datos."
+      },
+      "scoring": {
+        "title": "Puntuación Clara",
+        "description": "Cada encabezado se puntúa según su presencia y configuración, dándole una calificación de seguridad clara."
+      },
+      "privacy": {
+        "title": "Privacidad Primero",
+        "description": "Las URLs escaneadas se procesan de forma segura y nunca se almacenan. Sin registros, sin seguimiento."
+      },
+      "realtime": {
+        "title": "Análisis en Tiempo Real",
+        "description": "Obtenga resultados instantáneos con explicaciones detalladas y recomendaciones prácticas."
+      }
+    }
+  },
   "HeaderCard": {
     "title": "Headers de la solicitud",
     "description": "Detectando headers activos del navegador y la conexión",
@@ -364,6 +404,10 @@
     "headers": {
       "title": "Encabezados HTTP - Headerly",
       "description": "Inspecciona todos los encabezados de solicitud HTTP enviados por tu navegador. Una vista detallada de cada encabezado con descripciones y referencias MDN."
+    },
+    "securityHeaders": {
+      "title": "Encabezados de Seguridad - Headerly",
+      "description": "Analice los encabezados de seguridad HTTP de cualquier sitio web. Obtenga una puntuación completa con recomendaciones."
     }
   },
   "FingerprintPage": {

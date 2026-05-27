@@ -5,7 +5,8 @@
     "network": "Network Info",
     "userAgent": "User Agent",
     "greenWeb": "Green Web",
-    "fingerprint": "Fingerprint"
+    "fingerprint": "Fingerprint",
+    "securityHeaders": "Security Headers"
   },
   "Footer": {
     "builtWith": "Built for the modern web.",
@@ -244,6 +245,45 @@
       }
     }
   },
+  "SecurityHeadersPage": {
+    "title": "Security Headers Analyzer",
+    "description": "Check a website's security posture by analyzing its HTTP security response headers. Get a security score and recommendations.",
+    "inputPlaceholder": "Enter website URL (e.g., example.com)",
+    "analyzeButton": "Check Security",
+    "analyzing": "Analyzing...",
+    "error": "Failed to check security headers. Please verify the URL.",
+    "scannedUrl": "Scanned",
+    "grade": "Grade",
+    "whatIsThis": "What is this?",
+    "poor": "Poor",
+    "excellent": "Excellent",
+    "notPresent": "Not present",
+    "recommendation": "Recommendation",
+    "howItWorks": {
+      "title": "How Security Headers Work",
+      "subtitle": "Understand the layers of web security",
+      "p1": "When your browser connects to a website, the server responds with <strong>HTTP security headers</strong> that instruct the browser how to behave. These headers are the first line of defense against common web attacks like XSS, clickjacking, and data injection.",
+      "p2": "Each security header serves a specific purpose. For example, <strong>Content-Security-Policy</strong> controls which resources can load, while <strong>Strict-Transport-Security</strong> enforces encrypted HTTPS connections. Our analyzer checks for the presence and correct configuration of these critical headers."
+    },
+    "features": {
+      "protection": {
+        "title": "Attack Prevention",
+        "description": "Security headers protect against XSS, clickjacking, MIME sniffing, and data injection attacks."
+      },
+      "scoring": {
+        "title": "Clear Scoring",
+        "description": "Each header is scored based on its presence and configuration, giving you a clear security grade."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your scanned URLs are processed securely and never stored. No logs, no tracking."
+      },
+      "realtime": {
+        "title": "Real-time Analysis",
+        "description": "Get instant results with detailed explanations and actionable recommendations for each header."
+      }
+    }
+  },
   "HeaderCard": {
     "title": "Request Headers",
     "description": "Detecting active browser and connection headers",
@@ -364,6 +404,10 @@
     "headers": {
       "title": "HTTP Headers - Headerly",
       "description": "Inspect all HTTP request headers sent by your browser. A detailed view of every header with descriptions and MDN references."
+    },
+    "securityHeaders": {
+      "title": "Security Headers - Headerly",
+      "description": "Analyze HTTP security headers of any website. Get a comprehensive security score with detailed recommendations."
     }
   },
   "FingerprintPage": {

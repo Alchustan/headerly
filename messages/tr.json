@@ -5,7 +5,8 @@
     "network": "Ağ Detayları",
     "userAgent": "User Agent",
     "greenWeb": "Yeşil Web",
-    "fingerprint": "Parmak İzi"
+    "fingerprint": "Parmak İzi",
+    "securityHeaders": "Güvenlik Başlıkları"
   },
   "Footer": {
     "builtWith": "Modern web için tasarlandı.",
@@ -244,6 +245,45 @@
       }
     }
   },
+  "SecurityHeadersPage": {
+    "title": "Güvenlik Başlıkları Analizörü",
+    "description": "Bir web sitesinin HTTP güvenlik yanıt başlıklarını analiz ederek güvenlik duruşunu kontrol edin. Güvenlik skoru ve öneriler alın.",
+    "inputPlaceholder": "Web sitesi URL'si girin (örn: ornek.com)",
+    "analyzeButton": "Güvenliği Kontrol Et",
+    "analyzing": "Analiz ediliyor...",
+    "error": "Güvenlik başlıkları kontrol edilemedi. Lütfen URL'yi doğrulayın.",
+    "scannedUrl": "Taranan",
+    "grade": "Not",
+    "whatIsThis": "Bu nedir?",
+    "poor": "Zayıf",
+    "excellent": "Mükemmel",
+    "notPresent": "Mevcut değil",
+    "recommendation": "Öneri",
+    "howItWorks": {
+      "title": "Güvenlik Başlıkları Nasıl Çalışır",
+      "subtitle": "Web güvenliği katmanlarını anlayın",
+      "p1": "Tarayıcınız bir web sitesine bağlandığında, sunucu tarayıcıya nasıl davranması gerektiğini bildiren <strong>HTTP güvenlik başlıkları</strong> ile yanıt verir. Bu başlıklar, XSS, tıklama hırsızlığı ve veri enjeksiyonu gibi yaygın web saldırılarına karşı ilk savunma hattıdır.",
+      "p2": "Her güvenlik başlığı belirli bir amaca hizmet eder. Örneğin, <strong>Content-Security-Policy</strong> hangi kaynakların yüklenebileceğini kontrol ederken, <strong>Strict-Transport-Security</strong> şifrelenmiş HTTPS bağlantılarını zorunlu kılar. Analizörümüz, bu kritik başlıkların varlığını ve doğru yapılandırmasını kontrol eder."
+    },
+    "features": {
+      "protection": {
+        "title": "Saldırı Önleme",
+        "description": "Güvenlik başlıkları XSS, tıklama hırsızlığı, MIME koklama ve veri enjeksiyonu saldırılarına karşı korur."
+      },
+      "scoring": {
+        "title": "Net Puanlama",
+        "description": "Her başlık varlığına ve yapılandırmasına göre puanlanır, size net bir güvenlik notu verir."
+      },
+      "privacy": {
+        "title": "Önce Gizlilik",
+        "description": "Taranan URL'ler güvenli bir şekilde işlenir ve asla saklanmaz. Günlük veya izleme yok."
+      },
+      "realtime": {
+        "title": "Gerçek Zamanlı Analiz",
+        "description": "Her başlık için detaylı açıklamalar ve uygulanabilir önerilerle anlık sonuçlar alın."
+      }
+    }
+  },
   "HeaderCard": {
     "title": "İstek Başlıkları",
     "description": "Aktif tarayıcı ve bağlantı başlıkları tespit ediliyor",
@@ -364,6 +404,10 @@
     "headers": {
       "title": "HTTP Başlıkları - Headerly",
       "description": "Tarayıcınızın gönderdiği tüm HTTP istek başlıklarını inceleyin. Açıklamalar ve MDN referanslarıyla her başlığın detaylı görünümü."
+    },
+    "securityHeaders": {
+      "title": "Güvenlik Başlıkları - Headerly",
+      "description": "Herhangi bir web sitesinin HTTP güvenlik başlıklarını analiz edin. Detaylı önerilerle kapsamlı bir güvenlik skoru alın."
     }
   },
   "FingerprintPage": {

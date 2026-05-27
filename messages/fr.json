@@ -5,7 +5,8 @@
     "network": "Infos réseau",
     "userAgent": "User-Agent",
     "greenWeb": "Web écologique",
-    "fingerprint": "Empreinte numérique"
+    "fingerprint": "Empreinte numérique",
+    "securityHeaders": "Sécurité"
   },
   "Footer": {
     "builtWith": "Conçu pour le web moderne.",
@@ -244,6 +245,45 @@
       }
     }
   },
+  "SecurityHeadersPage": {
+    "title": "Analyseur d'En-têtes de Sécurité",
+    "description": "Vérifiez la posture de sécurité d'un site Web en analysant ses en-têtes de réponse HTTP de sécurité. Obtenez un score de sécurité et des recommandations.",
+    "inputPlaceholder": "Entrez l'URL du site (ex: exemple.fr)",
+    "analyzeButton": "Vérifier la Sécurité",
+    "analyzing": "Analyse en cours...",
+    "error": "Impossible de vérifier les en-têtes de sécurité. Veuillez vérifier l'URL.",
+    "scannedUrl": "Scanné",
+    "grade": "Note",
+    "whatIsThis": "Qu'est-ce que c'est?",
+    "poor": "Faible",
+    "excellent": "Excellent",
+    "notPresent": "Non présent",
+    "recommendation": "Recommandation",
+    "howItWorks": {
+      "title": "Comment fonctionnent les en-têtes de sécurité",
+      "subtitle": "Comprenez les couches de la sécurité Web",
+      "p1": "Lorsque votre navigateur se connecte à un site Web, le serveur répond avec des <strong>en-têtes de sécurité HTTP</strong> qui indiquent au navigateur comment se comporter. Ces en-têtes sont la première ligne de défense contre les attaques Web courantes comme XSS, le clickjacking et l'injection de données.",
+      "p2": "Chaque en-tête de sécurité a un objectif spécifique. <strong>Content-Security-Policy</strong> contrôle quelles ressources peuvent être chargées, tandis que <strong>Strict-Transport-Security</strong> impose des connexions HTTPS chiffrées. Notre analyseur vérifie la présence et la configuration correcte de ces en-têtes critiques."
+    },
+    "features": {
+      "protection": {
+        "title": "Prévention des Attaques",
+        "description": "Les en-têtes de sécurité protègent contre XSS, le clickjacking, le MIME sniffing et l'injection de données."
+      },
+      "scoring": {
+        "title": "Notation Claire",
+        "description": "Chaque en-tête est noté selon sa présence et sa configuration, vous donnant une note de sécurité claire."
+      },
+      "privacy": {
+        "title": "Confidentialité d'Abord",
+        "description": "Les URLs scannées sont traitées en toute sécurité et jamais stockées. Pas de journaux, pas de suivi."
+      },
+      "realtime": {
+        "title": "Analyse en Temps Réel",
+        "description": "Obtenez des résultats instantanés avec des explications détaillées et des recommandations actionnables."
+      }
+    }
+  },
   "HeaderCard": {
     "title": "En-têtes de requête",
     "description": "Détection des en-têtes actifs du navigateur et de la connexion",
@@ -364,6 +404,10 @@
     "headers": {
       "title": "En-têtes HTTP - Headerly",
       "description": "Inspectez tous les en-têtes de requête HTTP envoyés par votre navigateur. Une vue détaillée de chaque en-tête avec descriptions et références MDN."
+    },
+    "securityHeaders": {
+      "title": "En-têtes de Sécurité - Headerly",
+      "description": "Analysez les en-têtes de sécurité HTTP de n'importe quel site Web. Obtenez un score de sécurité complet avec des recommandations."
     }
   },
   "FingerprintPage": {

@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 import {
   Card,
   CardContent,
@@ -37,6 +38,7 @@ export function HeaderCard({ headers }: HeaderCardProps) {
   const handleRefresh = () => {
     setIsRefreshing(true)
     router.refresh()
+    toast.info("Headers refreshed!")
     setTimeout(() => setIsRefreshing(false), 600)
   }
 
@@ -51,7 +53,7 @@ export function HeaderCard({ headers }: HeaderCardProps) {
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    toast.success("Headers downloaded!")
   }, [jsonString])
 
   const headerCount = Object.keys(headers).length

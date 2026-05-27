@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Check, Copy } from "lucide-react"
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import {
@@ -13,11 +14,13 @@ import {
 interface CopyButtonProps extends React.ComponentProps<typeof Button> {
   value: string
   copyMessage?: string
+  toastMessage?: string
 }
 
 export function CopyButton({
   value,
   copyMessage = "Copy to clipboard",
+  toastMessage = "Copied!",
   className,
   variant = "ghost",
   size = "icon",
@@ -36,10 +39,12 @@ export function CopyButton({
     try {
       await navigator.clipboard.writeText(value)
       setHasCopied(true)
+      toast.success(toastMessage)
     } catch (err) {
       console.error("Failed to copy text: ", err)
+      toast.error("Failed to copy")
     }
-  }, [value])
+  }, [value, toastMessage])
 
   return (
     <Tooltip>
