@@ -360,6 +360,10 @@
     "fingerprint": {
       "title": "Empreinte du navigateur - Headerly",
       "description": "Découvrez votre identifiant numérique unique utilisé pour le suivi sans cookie."
+    },
+    "headers": {
+      "title": "En-têtes HTTP - Headerly",
+      "description": "Inspectez tous les en-têtes de requête HTTP envoyés par votre navigateur. Une vue détaillée de chaque en-tête avec descriptions et références MDN."
     }
   },
   "FingerprintPage": {

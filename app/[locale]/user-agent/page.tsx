@@ -2,30 +2,11 @@ import { headers } from "next/headers"
 import { UAParserComponent } from "@/components/ua-parser"
 import { ShieldCheck, Zap, HelpCircle, Code2, Cpu } from "lucide-react"
 import { getTranslations } from "next-intl/server"
+import { generatePageMetadata } from "@/lib/metadata"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Metadata.userAgent' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `/${locale === 'en' ? '' : locale}/user-agent`,
-      languages: {
-        'en': '/user-agent',
-        'tr': '/tr/user-agent',
-      },
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-    },
-    twitter: {
-      title: t('title'),
-      description: t('description'),
-    },
-  };
+  return generatePageMetadata(locale, 'Metadata.userAgent', '/user-agent');
 }
 
 export default async function UserAgentPage() {

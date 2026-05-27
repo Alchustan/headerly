@@ -2,30 +2,11 @@ import { headers } from "next/headers"
 import { getTranslations } from "next-intl/server"
 import { CarbonAnalyzer } from "@/components/carbon-analyzer"
 import { HelpCircle, Zap, Leaf, Server, ShieldCheck } from "lucide-react"
+import { generatePageMetadata } from "@/lib/metadata"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Metadata.greenWeb' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `/${locale === 'en' ? '' : locale}/green-web`,
-      languages: {
-        'en': '/green-web',
-        'tr': '/tr/green-web',
-      },
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-    },
-    twitter: {
-      title: t('title'),
-      description: t('description'),
-    },
-  };
+  return generatePageMetadata(locale, 'Metadata.greenWeb', '/green-web');
 }
 
 export default async function GreenWebPage() {

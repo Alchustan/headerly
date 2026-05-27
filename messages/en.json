@@ -360,6 +360,10 @@
     "fingerprint": {
       "title": "Browser Fingerprint - Headerly",
       "description": "Discover your unique digital identifier used for cookie-less tracking."
+    },
+    "headers": {
+      "title": "HTTP Headers - Headerly",
+      "description": "Inspect all HTTP request headers sent by your browser. A detailed view of every header with descriptions and MDN references."
     }
   },
   "FingerprintPage": {

@@ -360,6 +360,10 @@
     "fingerprint": {
       "title": "浏览器指纹 - Headerly",
       "description": "发现用于无 Cookie 追踪的唯一数字标识符。"
+    },
+    "headers": {
+      "title": "HTTP 请求头 - Headerly",
+      "description": "检查浏览器发送的所有 HTTP 请求头。每个请求头的详细视图，包含描述和 MDN 参考。"
     }
   },
   "FingerprintPage": {

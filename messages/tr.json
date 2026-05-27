@@ -360,6 +360,10 @@
     "fingerprint": {
       "title": "Tarayıcı Parmak İzi - Headerly",
       "description": "Çerezsiz izleme için kullanılan benzersiz dijital kimliğinizi keşfedin."
+    },
+    "headers": {
+      "title": "HTTP Başlıkları - Headerly",
+      "description": "Tarayıcınızın gönderdiği tüm HTTP istek başlıklarını inceleyin. Açıklamalar ve MDN referanslarıyla her başlığın detaylı görünümü."
     }
   },
   "FingerprintPage": {

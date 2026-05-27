@@ -1,6 +1,12 @@
 import { headers } from "next/headers"
 import { HeaderCard } from "@/components/header-card"
 import { getTranslations } from "next-intl/server"
+import { generatePageMetadata } from "@/lib/metadata"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return generatePageMetadata(locale, 'Metadata.headers', '/headers');
+}
 
 export default async function HeadersPage() {
     const headersList = await headers()

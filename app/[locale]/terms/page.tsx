@@ -2,30 +2,11 @@
 import { ArrowLeft } from "lucide-react"
 import { Link } from "@/i18n/routing"
 import { getTranslations } from "next-intl/server"
+import { generatePageMetadata } from "@/lib/metadata"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Metadata.terms' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `/${locale === 'en' ? '' : locale}/terms`,
-      languages: {
-        'en': '/terms',
-        'tr': '/tr/terms',
-      },
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-    },
-    twitter: {
-      title: t('title'),
-      description: t('description'),
-    },
-  };
+  return generatePageMetadata(locale, 'Metadata.terms', '/terms');
 }
 
 export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {

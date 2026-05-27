@@ -1,30 +1,11 @@
 import { getTranslations } from "next-intl/server";
 import { HelpCircle, EyeOff, Monitor, ShieldCheck, Database, Shield, Puzzle, Ghost, Settings } from "lucide-react";
 import { FingerprintDashboard } from "./fingerprint-dashboard";
+import { generatePageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Metadata.fingerprint' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `/${locale === 'en' ? '' : locale}/fingerprint`,
-      languages: {
-        'en': '/fingerprint',
-        'tr': '/tr/fingerprint',
-      },
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-    },
-    twitter: {
-      title: t('title'),
-      description: t('description'),
-    },
-  };
+  return generatePageMetadata(locale, 'Metadata.fingerprint', '/fingerprint');
 }
 
 export default async function FingerprintPage() {

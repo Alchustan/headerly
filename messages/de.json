@@ -360,6 +360,10 @@
     "fingerprint": {
       "title": "Browser-Fingerprint - Headerly",
       "description": "Entdecke deinen eindeutigen digitalen Identifikator, der für Tracking ohne Cookies verwendet wird."
+    },
+    "headers": {
+      "title": "HTTP-Header - Headerly",
+      "description": "Untersuchen Sie alle von Ihrem Browser gesendeten HTTP-Anfrageheader. Eine detaillierte Ansicht jedes Headers mit Beschreibungen und MDN-Referenzen."
     }
   },
   "FingerprintPage": {
