@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "headerly",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-12",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "env": {
+    "production": {
+      "name": "headerly",
+      "services": [
+        {
+          "binding": "WORKER_SELF_REFERENCE",
+          "service": "headerly"
+        }
+      ],
+      "vars": {
+        "ENVIRONMENT": "production"
+      },
+      "routes": [
+        {
+          "pattern": "headerly.net/*",
+          "zone_id": "aeae732ac256715b0564f5fc853e6f6e"
+        }
+      ]
+    }
+  }
+}
