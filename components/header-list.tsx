@@ -27,6 +27,14 @@ export function HeaderList({ headers }: HeaderListProps) {
   const t = useTranslations("HeaderList")
   const headerT = useTranslations("Headers")
   const [selectedHeader, setSelectedHeader] = React.useState<string | null>(null)
+  const [isDetailClosing, setIsDetailClosing] = React.useState(false)
+  const closeTimerRef = React.useRef<number | null>(null)
+
+  React.useEffect(() => {
+    return () => {
+      if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current)
+    }
+  }, [])
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -61,6 +69,16 @@ export function HeaderList({ headers }: HeaderListProps) {
   const selectedDescription = visibleSelectedHeader && headerT.has(visibleSelectedHeader.toLowerCase())
     ? headerT(visibleSelectedHeader.toLowerCase())
     : headerT("defaultDescription")
+
+  const closeDetails = React.useCallback(() => {
+    setIsDetailClosing(true)
+    if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current)
+    closeTimerRef.current = window.setTimeout(() => {
+      setSelectedHeader(null)
+      setIsDetailClosing(false)
+      closeTimerRef.current = null
+    }, 260)
+  }, [])
 
   return (
     <div className="flex h-full flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -101,7 +119,11 @@ export function HeaderList({ headers }: HeaderListProps) {
                 value={value}
                 isImportant={IMPORTANT_HEADERS.includes(key.toLowerCase())}
                 isSelected={visibleSelectedHeader === key}
-                onSelect={() => setSelectedHeader(key)}
+                onSelect={() => {
+                  if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current)
+                  setIsDetailClosing(false)
+                  setSelectedHeader(key)
+                }}
               />
             ))}
             </div>
@@ -128,13 +150,13 @@ export function HeaderList({ headers }: HeaderListProps) {
         </ScrollArea>
 
         {visibleSelectedHeader && selectedValue !== undefined && selectedInfo && (
-          <aside className="h-fit rounded-2xl border border-primary/20 bg-card p-5 shadow-lg lg:sticky lg:top-20" aria-label={t("detailsTitle")}>
+          <aside key={visibleSelectedHeader} className={`header-detail-panel${isDetailClosing ? " header-detail-panel-closing" : ""} h-fit rounded-2xl border border-primary/20 bg-card p-5 shadow-lg lg:sticky lg:top-20`} aria-label={t("detailsTitle")}>
             <div className="flex items-start justify-between gap-4 border-b border-border pb-4">
               <div className="min-w-0">
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{headerT("infoLabel")}</p>
                 <h2 className="mt-1 break-all text-xl font-bold text-foreground">{visibleSelectedHeader}</h2>
               </div>
-              <button type="button" onClick={() => setSelectedHeader(null)} aria-label={t("closeDetails")} className="rounded-lg p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+              <button type="button" onClick={closeDetails} aria-label={t("closeDetails")} className="rounded-lg p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <X className="h-4 w-4" />
               </button>
             </div>

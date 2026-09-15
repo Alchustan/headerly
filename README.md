@@ -1,123 +1,137 @@
-# Headerly 🚀
+# Headerly
 
-Headerly is a modern, developer-centric tool designed to instantly view and inspect HTTP request headers and network connection details. Built with a focus on privacy and a premium "Technical-Warmth" aesthetic, it provides a clean interface for developers to debug and analyze their browser's communication with the server.
+Headerly is a developer tool for inspecting the HTTP request headers sent by your browser and understanding the technical details visible to a web server. It also provides network, User-Agent, web security-header, and green-web analysis tools.
 
-![Headerly Hero](public/screenshot.png)
+![Headerly Headers screen](public/screenshot.png)
 
-## 🌟 Key Features
+## What it provides
 
-- **Live Header Inspection**: Instantly view all HTTP headers sent by your browser.
-- **Network Analysis**: A dedicated page for comprehensive connection details, including IP address, geolocation (City, Region, Country), and ISP information—derived solely from secure edge-computing headers.
-- **User-Agent Analysis**: Detailed breakdown of your browser, operating system, and hardware platform.
-- **Digital Carbon Analyzer**: A built-in tool that calculates a webpage's CO2 footprint based on page size and hosting energy source, promoting green web practices.
-- **Enhanced Search**: Lightning-fast header filtering with keyboard shortcuts support (**⌘K** or **Ctrl+K**).
-- **Dual View Modes**:
-  - **Pretty View**: A clean, organized list with detailed descriptions and MDN documentation links for common headers.
-  - **Raw View**: A syntax-highlighted JSON representation for quick copying or debugging.
-- **Privacy First**: 
-  - **Zero Third-Party APIs**: Geolocation is determined via request headers (Cloudflare Edge), ensuring your IP is never shared with external tracking services.
-  - **Non-Persistent**: Headers are processed in real-time and are **never stored** in any database or logs.
-- **Developer Tools**:
-  - **One-Click Copy**: Copy individual header values or the entire JSON payload.
-  - **Download JSON**: Save your headers as a `.json` file for later use.
-  - **Instant Refresh**: Re-fetch headers without a full page reload, now with visual feedback.
-- **Multi-language Support**: Full internationalization support for English, Turkish, German, Spanish, French, Hindi, and Chinese locales with a seamless language switcher.
-- **Mobile-First Experience**: Fully optimized for all devices with a dedicated mobile navigation menu, responsive dialogs, and horizontal scrolling for long strings.
-- **SEO Optimized**: Includes dynamic sitemap generation and localized metadata for enhanced search engine visibility.
-- **Dark & Light Mode**: A premium UI that respects your system preferences with a refined "Technical-Warmth" design.
+- **Request header inspection** — Browse the headers sent with the current request, search by name or value, filter by category, and open explanations with RFC and MDN references where available.
+- **Pretty and Raw JSON views** — Switch between the readable header list and a JSON representation intended for debugging, copying, or export.
+- **Network information** — View IP and approximate location/network metadata derived from request headers supplied by the hosting edge. Local or private networks may not have geolocation data.
+- **User-Agent analysis** — Parse the current User-Agent into browser, operating system, device, and rendering-engine details.
+- **Security Headers analyzer** — Check a public URL’s HTTP security response headers and receive a 0–100 score with recommendations.
+- **Green Web analyzer** — Estimate a page’s carbon impact using its response size and green-hosting signals.
+- **Privacy controls** — Headerly does not use a third-party geolocation API. The application analyzes request data in memory; hosting providers may still retain standard infrastructure logs.
+- **Localization and themes** — English, Turkish, German, Spanish, French, Hindi, and Chinese translations, plus dark and light themes.
+- **Responsive interface** — Desktop and mobile layouts with keyboard-accessible controls and overflow-safe technical values.
 
-## 🛠️ Tech Stack
+## Web routes
 
-Headerly is built using the latest modern web technologies:
+The application uses Next.js App Router with locale-aware rendering. Locales are selected from the browser/request context rather than being added as a visible URL prefix.
 
-- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router & Edge-ready)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Components**: [Radix UI](https://www.radix-ui.com/) & [Shadcn UI](https://ui.shadcn.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Theming**: [Next Themes](https://github.com/pacocoursey/next-themes)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Internationalization**: [next-intl](https://next-intl-docs.vercel.app/)
-- **Parsing**: [ua-parser-js](https://github.com/fent/ua-parser-js)
+| Route | Purpose |
+| --- | --- |
+| `/` | Educational landing page |
+| `/headers` | Current request-header inspector |
+| `/network` | Network and approximate location details |
+| `/user-agent` | User-Agent parser |
+| `/green-web` | Web carbon-footprint analyzer |
+| `/security-headers` | HTTP security-header analyzer |
+| `/privacy` | Privacy policy |
+| `/terms` | Terms of service |
 
-## 🚀 Getting Started
+## Public API
 
-### Prerequisites
+The API is available under `https://headerly.net/api`. Interactive API documentation is available at [`/api/docs`](https://headerly.net/api/docs), and the OpenAPI document is available at [`/api/openapi.json`](https://headerly.net/api/openapi.json).
 
-- **Node.js**: 18.x or later
-- **npm** or **pnpm** or **yarn**
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `GET` | `/api` | API information and endpoint index |
+| `GET` | `/api/headers` | Headers from the current request |
+| `GET` | `/api/network` | IP and Cloudflare-derived network metadata |
+| `GET` | `/api/user-agent` | Parsed browser, OS, device, and engine data |
+| `GET` | `/api/header-info` | Header documentation and MDN links |
+| `POST` | `/api/security-check` | Analyze a URL’s security response headers; body: `{ "url": "https://example.com" }` |
+| `POST` | `/api/carbon-check` | Estimate a URL’s page carbon impact; body: `{ "url": "https://example.com" }` |
 
-### Installation
+API requests are rate-limited to 30 requests per minute per IP. CORS and `OPTIONS` handling are implemented for the API routes.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Alchustan/headerly.git
-   cd headerly
-   ```
+## Tech stack
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+- [Next.js 16.3.3](https://nextjs.org/) with App Router and Turbopack
+- [React 19](https://react.dev/) and [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/) with PostCSS
+- [Radix UI](https://www.radix-ui.com/) primitives and [shadcn/ui](https://ui.shadcn.com/) components
+- [Lucide React](https://lucide.dev/) icons
+- [next-intl](https://next-intl.dev/) for localization
+- [next-themes](https://github.com/pacocoursey/next-themes) for theme switching
+- [ua-parser-js](https://github.com/faisalman/ua-parser-js) for User-Agent parsing
+- [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) for the raw JSON view
+- [OpenNext](https://opennext.js.org/) and [Cloudflare Workers](https://developers.cloudflare.com/workers/) for deployment
 
-3. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
+## Local development
 
-4. **Open your browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the app in action.
+### Requirements
 
-### Production Build
+- Node.js 20.9 or newer (required by Next.js 16)
+- npm
 
-To create an optimized production build:
+### Run the project
+
 ```bash
+git clone https://github.com/Alchustan/headerly.git
+cd headerly
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). If that port is occupied, Next.js selects another available port and prints it in the terminal.
+
+### Checks and production build
+
+```bash
+npm run lint
+npm run typecheck
 npm run build
 npm start
 ```
 
-## 📂 Project Structure
+`npm run format` formats TypeScript and TSX files with Prettier.
+
+## Cloudflare deployment
+
+The project is configured for OpenNext on Cloudflare Workers. After authenticating Wrangler and configuring the required Cloudflare account access:
+
+```bash
+npm run build:worker
+npm run deploy:worker
+```
+
+Deployment settings live in [`wrangler.jsonc`](wrangler.jsonc); the production route is configured for `headerly.net`.
+
+## Project structure
 
 ```text
 headerly/
-├── app/                  # Next.js App Router
-│   ├── [locale]/         # Localized route group
-│   │   ├── headers/      # Main HTTP Header inspector
-│   │   ├── network/      # Network analysis page
-│   │   ├── user-agent/   # User-Agent analysis page
-│   │   ├── green-web/    # Digital carbon footprint analyzer
-│   │   ├── privacy/      # Privacy policy
-│   │   ├── terms/        # Terms of service
-│   │   ├── layout.tsx    # Root layout for locale
-│   │   └── page.tsx      # Educational landing page (Hero & Feature Showcase)
-│   ├── sitemap.ts        # Dynamic sitemap generation
-│   └── globals.css       # Global styles
-├── components/           # React components
-│   ├── mobile-nav.tsx    # Mobile-responsive navigation
-│   ├── language-switcher.tsx # Locale toggle component
-│   ├── ui/               # Reusable UI components (Shadcn)
-│   └── ...               # Feature-specific components
-├── i18n/                 # Internationalization configuration
-├── messages/             # Translation dictionaries (EN, TR, DE, ES, FR, HI, ZH)
-├── lib/                  # Utility functions and shared logic
-├── public/               # Static assets (images, icons)
-├── hooks/                # Custom React hooks
-└── ...                   # Configuration files (TS, ESLint, etc.)
+├── app/
+│   ├── [locale]/          # Localized pages and layout
+│   ├── api/               # API routes and OpenAPI/docs endpoints
+│   ├── actions/           # Server actions for analyzers
+│   ├── globals.css        # Global styles and design tokens
+│   ├── manifest.ts        # Web app manifest
+│   ├── robots.ts          # Robots metadata
+│   └── sitemap.ts         # Sitemap generation
+├── components/            # Feature components and reusable UI primitives
+├── hooks/                 # Shared React hooks
+├── i18n/                  # next-intl routing and request configuration
+├── lib/                   # Header data, API helpers, metadata, and analyzers
+├── messages/              # Translation dictionaries for seven locales
+├── public/                # Static assets, including the README screenshot
+├── middleware.ts          # Locale/request middleware
+├── next.config.mjs        # Next.js configuration
+└── wrangler.jsonc         # Cloudflare Workers configuration
 ```
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! If you'd like to improve Headerly, please follow these steps:
+1. Fork the repository and create a focused branch.
+2. Install dependencies and run `npm run lint`, `npm run typecheck`, and `npm run build`.
+3. Make the change, keeping user-visible copy localized in `messages/`.
+4. Open a pull request with a concise description and verification notes.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/amazing-feature`).
-3. Commit your changes (`git commit -m 'Add some amazing feature'`).
-4. Push to the branch (`git push origin feature/amazing-feature`).
-5. Open a Pull Request.
+## License
 
-## 📄 License
+Headerly is available under the [MIT License](LICENSE).
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-Built with ❤️ by [Barış Yıldızoğlu](https://github.com/Alchustan)
+Built by [Barış Yıldızoğlu](https://github.com/Alchustan).

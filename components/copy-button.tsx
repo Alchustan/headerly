@@ -56,11 +56,13 @@ export function CopyButton({
           onClick={copyToClipboard}
           {...props}
         >
-          {hasCopied ? (
-            <Check className="h-4 w-4 text-green-500" />
-          ) : (
-            <Copy className="h-4 w-4" />
-          )}
+          <span key={hasCopied ? "copied" : "copy"} className="copy-icon-enter">
+            {hasCopied ? (
+              <Check className="h-4 w-4 text-green-500" />
+            ) : (
+              <Copy className="h-4 w-4" />
+            )}
+          </span>
           <span className="sr-only">{copyMessage}</span>
         </Button>
       </TooltipTrigger>

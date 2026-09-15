@@ -30,9 +30,9 @@ export function HeaderItem({ name, value, isImportant, isSelected, onSelect }: H
       }}
       aria-pressed={isSelected}
       className={cn(
-        "group flex cursor-pointer flex-col gap-2 rounded-2xl border bg-card px-4 py-4 text-left shadow-sm transition-all hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+        "group flex cursor-pointer flex-col gap-2 rounded-2xl border bg-card px-4 py-4 text-left shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
         isImportant && "border-primary/10 bg-primary/5 shadow-primary/5",
-        isSelected && "border-primary bg-primary/10 ring-1 ring-primary/30"
+        isSelected && "border-primary bg-primary/10 ring-1 ring-primary/30 header-item-selected"
       )}
     >
       <div className="flex items-center justify-between gap-4">

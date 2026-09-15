@@ -123,9 +123,11 @@ export function HeaderCard({ headers }: HeaderCardProps) {
       </CardHeader>
       <CardContent className="pt-6">
         {view === "pretty" ? (
-          <HeaderList headers={headers} />
+          <div key="pretty" className="view-content-enter">
+            <HeaderList headers={headers} />
+          </div>
         ) : (
-          <div className="relative rounded-2xl border border-border bg-muted/30 p-1">
+          <div key="raw" className="view-content-enter relative rounded-2xl border border-border bg-muted/30 p-1">
             <ScrollArea className="h-[550px] w-full rounded-xl font-mono text-sm">
               <div className="p-6">
                 <JsonView data={headers} />

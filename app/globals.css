@@ -81,3 +81,91 @@
     cursor: pointer;
   }
 }
+
+@layer utilities {
+  @keyframes header-detail-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(18px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes view-content-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 4px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes copy-icon-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.75);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .header-detail-panel {
+    animation: header-detail-enter 280ms cubic-bezier(0, 0, 0.2, 1) both;
+  }
+
+  .header-detail-panel-closing {
+    animation: header-detail-exit 260ms cubic-bezier(0.4, 0, 1, 1) both;
+    pointer-events: none;
+  }
+
+  .header-item-selected {
+    animation: header-item-selected 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .view-content-enter {
+    animation: view-content-enter 180ms cubic-bezier(0, 0, 0.2, 1) both;
+  }
+
+  .copy-icon-enter {
+    display: inline-flex;
+    animation: copy-icon-enter 140ms cubic-bezier(0, 0, 0.2, 1) both;
+  }
+
+  @keyframes header-item-selected {
+    from {
+      transform: translate3d(0, 2px, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes header-detail-exit {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(18px, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
