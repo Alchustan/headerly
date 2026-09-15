@@ -6,7 +6,7 @@ import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 
 interface JsonViewProps {
-  data: Record<string, any>
+  data: Record<string, unknown>
 }
 
 export function JsonView({ data }: JsonViewProps) {

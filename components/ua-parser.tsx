@@ -8,7 +8,6 @@ import {
   Cpu, 
   Globe, 
   Settings, 
-  Laptop,
   Tablet,
   Search
 } from "lucide-react"

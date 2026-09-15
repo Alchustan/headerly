@@ -29,7 +29,7 @@ export function CarbonAnalyzer() {
       } else {
         setResult(res)
       }
-    } catch (err) {
+    } catch {
       setError(t("error"))
     } finally {
       setLoading(false)

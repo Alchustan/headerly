@@ -10,16 +10,13 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { cn } from '@/lib/utils';
-import { useParams } from 'next/navigation';
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const params = useParams();
 
   const toggleLanguage = (newLocale: string) => {
-    // @ts-ignore
     router.replace(pathname, { locale: newLocale });
   };
 

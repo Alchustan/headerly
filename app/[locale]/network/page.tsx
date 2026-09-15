@@ -1,6 +1,6 @@
 import { headers } from "next/headers"
 import { NetworkInfoCards, type GeoData } from "@/components/network-info-card"
-import { Activity, ShieldCheck, Zap, Lock, EyeOff, Globe } from "lucide-react"
+import { ShieldCheck, Zap, Lock, EyeOff } from "lucide-react"
 import { getTranslations } from "next-intl/server"
 import { generatePageMetadata } from "@/lib/metadata"
 

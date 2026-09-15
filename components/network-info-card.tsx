@@ -1,4 +1,4 @@
-import { MapPin, Server, Activity, Globe, Building2, LocateFixed } from "lucide-react"
+import { MapPin, Activity, Globe, Building2, LocateFixed } from "lucide-react"
 import { IPAddressCard } from "./ip-address-card"
 import { useTranslations } from "next-intl"
 

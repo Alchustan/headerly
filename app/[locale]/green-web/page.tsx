@@ -1,4 +1,3 @@
-import { headers } from "next/headers"
 import { getTranslations } from "next-intl/server"
 import { CarbonAnalyzer } from "@/components/carbon-analyzer"
 import { HelpCircle, Zap, Leaf, Server, ShieldCheck } from "lucide-react"

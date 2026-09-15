@@ -1,9 +1,9 @@
 "use client"
 
-import * as React from "react"
 import { LayoutList, Code2 } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useTranslations } from "next-intl"
+import { useHydrated } from "@/hooks/use-hydrated"
 
 interface ViewToggleProps {
   view: "pretty" | "raw"
@@ -11,12 +11,8 @@ interface ViewToggleProps {
 }
 
 export function ViewToggle({ view, onViewChange }: ViewToggleProps) {
-  const [mounted, setMounted] = React.useState(false)
+  const mounted = useHydrated()
   const t = useTranslations("ViewToggle")
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
 
   if (!mounted) {
     return (

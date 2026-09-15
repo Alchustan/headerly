@@ -53,14 +53,13 @@ export function HeaderList({ headers }: HeaderListProps) {
     )
   }, [headers, searchQuery])
 
-  React.useEffect(() => {
-    if (selectedHeader && !filteredHeaders.some(([key]) => key === selectedHeader)) setSelectedHeader(null)
-  }, [filteredHeaders, selectedHeader])
-
-  const selectedValue = selectedHeader ? headers[selectedHeader] : undefined
-  const selectedInfo = selectedHeader ? getHeaderInfo(selectedHeader) : undefined
-  const selectedDescription = selectedHeader && headerT.has(selectedHeader.toLowerCase())
-    ? headerT(selectedHeader.toLowerCase())
+  const visibleSelectedHeader = selectedHeader && filteredHeaders.some(([key]) => key === selectedHeader)
+    ? selectedHeader
+    : null
+  const selectedValue = visibleSelectedHeader ? headers[visibleSelectedHeader] : undefined
+  const selectedInfo = visibleSelectedHeader ? getHeaderInfo(visibleSelectedHeader) : undefined
+  const selectedDescription = visibleSelectedHeader && headerT.has(visibleSelectedHeader.toLowerCase())
+    ? headerT(visibleSelectedHeader.toLowerCase())
     : headerT("defaultDescription")
 
   return (
@@ -91,7 +90,7 @@ export function HeaderList({ headers }: HeaderListProps) {
         </div>
       </div>
 
-      <div className={selectedHeader ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.4fr)]" : ""}>
+      <div className={visibleSelectedHeader ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.4fr)]" : ""}>
         <ScrollArea className="h-[550px] pr-4 -mr-4">
           {filteredHeaders.length > 0 ? (
             <div className="flex flex-col gap-3 pb-6">
@@ -101,7 +100,7 @@ export function HeaderList({ headers }: HeaderListProps) {
                 name={key}
                 value={value}
                 isImportant={IMPORTANT_HEADERS.includes(key.toLowerCase())}
-                isSelected={selectedHeader === key}
+                isSelected={visibleSelectedHeader === key}
                 onSelect={() => setSelectedHeader(key)}
               />
             ))}
@@ -128,12 +127,12 @@ export function HeaderList({ headers }: HeaderListProps) {
           )}
         </ScrollArea>
 
-        {selectedHeader && selectedValue !== undefined && selectedInfo && (
+        {visibleSelectedHeader && selectedValue !== undefined && selectedInfo && (
           <aside className="h-fit rounded-2xl border border-primary/20 bg-card p-5 shadow-lg lg:sticky lg:top-20" aria-label={t("detailsTitle")}>
             <div className="flex items-start justify-between gap-4 border-b border-border pb-4">
               <div className="min-w-0">
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{headerT("infoLabel")}</p>
-                <h2 className="mt-1 break-all text-xl font-bold text-foreground">{selectedHeader}</h2>
+                <h2 className="mt-1 break-all text-xl font-bold text-foreground">{visibleSelectedHeader}</h2>
               </div>
               <button type="button" onClick={() => setSelectedHeader(null)} aria-label={t("closeDetails")} className="rounded-lg p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 <X className="h-4 w-4" />
