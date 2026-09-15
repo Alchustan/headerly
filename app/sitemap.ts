@@ -2,21 +2,12 @@ import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://headerly.net';
-  const locales = ['', '/tr', '/de', '/es', '/fr', '/hi', '/zh'];
   const routes = ['', '/headers', '/network', '/user-agent', '/green-web', '/security-headers', '/privacy', '/terms'];
 
-  const sitemapEntries: MetadataRoute.Sitemap = [];
-
-  locales.forEach((locale) => {
-    routes.forEach((route) => {
-      sitemapEntries.push({
-        url: `${baseUrl}${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: route === '' ? 1 : 0.8,
-      });
-    });
-  });
-
-  return sitemapEntries;
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: route === '' ? 1 : 0.8,
+  }));
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from 'next-intl';
-import { routing, usePathname, useRouter } from '@/i18n/routing';
+import { routing, usePathname } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 import {
@@ -13,11 +13,17 @@ import { cn } from '@/lib/utils';
 
 export function LanguageSwitcher() {
   const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
 
   const toggleLanguage = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale });
+    if (newLocale === locale) return;
+
+    // With localePrefix="never", the locale lives in the cookie. A full
+    // navigation lets the server resolve the new locale without re-rendering
+    // next-themes' inline bootstrap script through React 19.
+    // eslint-disable-next-line react-hooks/immutability
+    document.cookie = `NEXT_LOCALE=${encodeURIComponent(newLocale)}; path=/; max-age=31536000; samesite=lax`;
+    window.location.assign(pathname);
   };
 
   const localeLabels: Record<string, string> = {

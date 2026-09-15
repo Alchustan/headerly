@@ -7,7 +7,9 @@ export const routing = defineRouting({
 
   // Used when no locale matches
   defaultLocale: 'en',
-  localePrefix: 'as-needed'
+  // Locales share the same route paths. The active locale is selected via the
+  // NEXT_LOCALE cookie (and falls back to English) instead of URL prefixes.
+  localePrefix: 'never'
 });
 
 // Lightweight wrappers around Next.js navigation APIs
