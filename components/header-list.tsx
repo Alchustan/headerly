@@ -21,6 +21,14 @@ const IMPORTANT_HEADERS = [
   "referer",
 ]
 
+function getHeaderGroup(name: string) {
+  const key = name.toLowerCase()
+  if (key.startsWith("x-forwarded-") || key.startsWith("cf-") || key === "x-real-ip") return "proxy"
+  if (key.startsWith("sec-") || key === "user-agent" || key === "accept-language") return "browser"
+  if (key === "cookie" || key === "authorization" || key === "origin" || key === "referer") return "context"
+  return "protocol"
+}
+
 export function HeaderList({ headers }: HeaderListProps) {
   const [searchQuery, setSearchQuery] = React.useState("")
   const inputRef = React.useRef<HTMLInputElement>(null)
@@ -60,6 +68,15 @@ export function HeaderList({ headers }: HeaderListProps) {
         key.toLowerCase().includes(query) || value.toLowerCase().includes(query)
     )
   }, [headers, searchQuery])
+
+  const groupedHeaders = React.useMemo(() => {
+    const groups = new Map<string, Array<[string, string]>>()
+    for (const entry of filteredHeaders) {
+      const group = getHeaderGroup(entry[0])
+      groups.set(group, [...(groups.get(group) ?? []), entry])
+    }
+    return groups
+  }, [filteredHeaders])
 
   const visibleSelectedHeader = selectedHeader && filteredHeaders.some(([key]) => key === selectedHeader)
     ? selectedHeader
@@ -111,21 +128,17 @@ export function HeaderList({ headers }: HeaderListProps) {
       <div className={visibleSelectedHeader ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.4fr)]" : ""}>
         <ScrollArea className="h-[550px] pr-4 -mr-4">
           {filteredHeaders.length > 0 ? (
-            <div className="flex flex-col gap-3 pb-6">
-            {filteredHeaders.map(([key, value]) => (
-              <HeaderItem
-                key={key}
-                name={key}
-                value={value}
-                isImportant={IMPORTANT_HEADERS.includes(key.toLowerCase())}
-                isSelected={visibleSelectedHeader === key}
-                onSelect={() => {
-                  if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current)
-                  setIsDetailClosing(false)
-                  setSelectedHeader(key)
-                }}
-              />
-            ))}
+            <div className="space-y-7 pb-6">
+            {["browser", "context", "protocol", "proxy"].map((group) => {
+              const entries = groupedHeaders.get(group)
+              if (!entries?.length) return null
+              return <section key={group} aria-labelledby={`header-group-${group}`}>
+                <h2 id={`header-group-${group}`} className="mb-3 text-xs font-bold uppercase tracking-widest text-muted-foreground">{t.has(`groups.${group}`) ? t(`groups.${group}`) : group === "browser" ? "Browser signals" : group === "context" ? "Request context" : group === "proxy" ? "Proxy / CDN headers" : "HTTP protocol"}</h2>
+                <div className="flex flex-col gap-3">
+                  {entries.map(([key, value]) => <HeaderItem key={key} name={key} value={value} isImportant={IMPORTANT_HEADERS.includes(key.toLowerCase())} isSelected={visibleSelectedHeader === key} onSelect={() => { if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current); setIsDetailClosing(false); setSelectedHeader(key) }} />)}
+                </div>
+              </section>
+            })}
             </div>
           ) : (
           <div className="flex h-[400px] flex-col items-center justify-center gap-6 text-center animate-in fade-in zoom-in-95 duration-300">

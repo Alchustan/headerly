@@ -1,15 +1,18 @@
 import { getTranslations } from "next-intl/server"
 import { SecurityAnalyzer } from "@/components/security-analyzer"
-import { HelpCircle, Shield, EyeOff, Server, FileCheck } from "lucide-react"
+import { HelpCircle } from "lucide-react"
 import { generatePageMetadata } from "@/lib/metadata"
+import { reviewCopy, reviewDetails, type ReviewLocale } from "@/lib/review-copy"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return generatePageMetadata(locale, 'Metadata.securityHeaders', '/security-headers');
 }
-
-export default async function SecurityHeadersPage() {
+export default async function SecurityHeadersPage({ params }: { params: Promise<{ locale: string }> }) {
   const t = await getTranslations("SecurityHeadersPage")
+  const { locale } = await params
+  const copy = reviewCopy[locale as ReviewLocale]
+  const details = reviewDetails[locale as ReviewLocale]
 
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
@@ -52,43 +55,14 @@ export default async function SecurityHeadersPage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              <FeatureItem
-                icon={<Shield className="h-5 w-5" />}
-                title={t("features.protection.title")}
-                description={t("features.protection.description")}
-              />
-              <FeatureItem
-                icon={<FileCheck className="h-5 w-5" />}
-                title={t("features.scoring.title")}
-                description={t("features.scoring.description")}
-              />
-              <FeatureItem
-                icon={<EyeOff className="h-5 w-5" />}
-                title={t("features.privacy.title")}
-                description={t("features.privacy.description")}
-              />
-              <FeatureItem
-                icon={<Server className="h-5 w-5" />}
-                title={t("features.realtime.title")}
-                description={t("features.realtime.description")}
-              />
-            </div>
+            <ol className="space-y-4">
+              <li className="rounded-2xl border border-border bg-card p-5"><span className="font-mono text-sm text-primary">01</span><h3 className="mt-2 font-bold text-foreground">{copy.secStep1}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{details.sec1Desc}</p></li>
+              <li className="rounded-2xl border border-border bg-card p-5"><span className="font-mono text-sm text-primary">02</span><h3 className="mt-2 font-bold text-foreground">{copy.secStep2}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{details.sec2Desc}</p></li>
+              <li className="rounded-2xl border border-border bg-card p-5"><span className="font-mono text-sm text-primary">03</span><h3 className="mt-2 font-bold text-foreground">{copy.secStep3}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{details.sec3Desc}</p></li>
+            </ol>
           </div>
         </section>
       </main>
-    </div>
-  )
-}
-
-function FeatureItem({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
-  return (
-    <div className="p-6 rounded-[2rem] border border-border bg-card/50 backdrop-blur-sm transition-all hover:border-primary/20 hover:shadow-sm">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
-        {icon}
-      </div>
-      <h3 className="font-bold text-foreground mb-1">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
     </div>
   )
 }

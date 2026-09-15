@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Search, Leaf, Cloud, Server, Database, Loader2 } from "lucide-react"
 import { checkCarbonFootprint, type CarbonCheckResult } from "@/app/actions/carbon-check"
 import { Input } from "@/components/ui/input"
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 
 export function CarbonAnalyzer() {
   const t = useTranslations("GreenWebPage")
+  const locale = useLocale()
   const [url, setUrl] = React.useState("")
   const [loading, setLoading] = React.useState(false)
   const [result, setResult] = React.useState<CarbonCheckResult | null>(null)
@@ -86,6 +87,8 @@ export function CarbonAnalyzer() {
       )}
 
       {result && (
+        <>
+        {locale === "tr" && <div className="mb-5 rounded-2xl border border-amber-500/20 bg-amber-500/5 p-4 text-sm leading-relaxed text-muted-foreground">{t("results.disclaimer")}</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <ResultCard
             icon={<Leaf className="h-6 w-6" />}
@@ -113,6 +116,7 @@ export function CarbonAnalyzer() {
             description={t("results.hosting.description")}
           />
         </div>
+        </>
       )}
     </div>
   )

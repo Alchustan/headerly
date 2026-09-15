@@ -30,7 +30,7 @@ function cspCheck(value: string | null) {
   const issues: string[] = [];
   if (lower.includes("unsafe-inline")) { score -= 10; issues.push("uses unsafe-inline"); }
   if (lower.includes("unsafe-eval")) { score -= 5; issues.push("uses unsafe-eval"); }
-  if (lower.includes("*")) { score -= 5; issues.push("uses wildcard (*)"); }
+  if (/(^|[;\s])(?:default-src|script-src|style-src|connect-src|img-src|font-src)\s+[^;]*\*/.test(lower)) { score -= 5; issues.push("uses a wildcard source"); }
   if (!lower.includes("default-src") && !lower.includes("script-src")) { score -= 5; issues.push("no default-src or script-src restriction"); }
   const status = score >= 20 ? "pass" as const : "fail" as const;
   return {
@@ -189,7 +189,11 @@ export function analyzeSecurityHeaders(
     };
   });
 
+  // A site that does not set cookies should not lose points for cookie flags.
+  // Keep the finding visible, but remove the not-applicable control from the denominator.
+  const cookieHeader = results.find((header) => header.id === "cookie");
+  const maxScore = cookieHeader?.status === "missing" ? MAX_SECURITY_SCORE - cookieHeader.maxScore : MAX_SECURITY_SCORE;
   const totalScore = results.reduce((sum, h) => sum + h.score, 0);
 
-  return { totalScore, maxScore: MAX_SECURITY_SCORE, headers: results };
+  return { totalScore, maxScore, headers: results };
 }

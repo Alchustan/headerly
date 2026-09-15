@@ -19,7 +19,7 @@ export function MobileNav() {
         variant="ghost"
         size="icon"
         onClick={() => setOpen(!open)}
-        className="h-9 w-9"
+        className="h-11 w-11"
         aria-label="Toggle menu"
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

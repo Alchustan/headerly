@@ -1,244 +1,102 @@
-import { Globe, Lock, Code2, TreePine, Share2, ExternalLink } from "lucide-react"
-import { getTranslations } from "next-intl/server"
+import { Lock, Code2, TreePine, Share2, ExternalLink, ArrowRight } from "lucide-react"
+import { getLocale, getTranslations } from "next-intl/server"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { reviewCopy, reviewDetails, type ReviewLocale } from "@/lib/review-copy"
+import { SmoothScrollLink } from "@/components/smooth-scroll-link"
+
+const tools = [
+  { key: "headers", href: "/headers", icon: Code2 },
+  { key: "network", href: "/network", icon: Share2 },
+  { key: "useragent", href: "/user-agent", icon: Lock },
+  { key: "greenWeb", href: "/green-web", icon: TreePine },
+  { key: "security", href: "/security-headers", icon: ShieldIcon },
+]
+
+function ShieldIcon(props: React.ComponentProps<typeof Lock>) {
+  return <Lock {...props} />
+}
 
 export default async function Page() {
   const t = await getTranslations("HomePage")
+  const securityT = await getTranslations("SecurityHeadersPage")
+  const locale = await getLocale()
+  const isTurkish = locale === "tr"
+  const copy = reviewCopy[locale as ReviewLocale]
+  const details = reviewDetails[locale as ReviewLocale]
 
   return (
-    <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
-      {/* Hero Section */}
-      <header className="container mx-auto flex flex-col items-center gap-6 py-24 text-center md:py-48 px-4">
-        <div className="max-w-3xl space-y-4">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary lg:text-7xl text-balance">
-            {t("hero.title")}
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-balance">
-            {t("hero.subtitle")}
-          </p>
+    <div className="relative flex flex-1 flex-col bg-background">
+      <header className="container mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-[1fr_0.9fr] md:items-center md:py-32">
+        <div className="space-y-7">
+          <div className="space-y-4">
+            <p className="font-mono text-sm font-semibold uppercase tracking-widest text-primary">{copy.homeEyebrow}</p>
+            <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl text-balance">
+              {t("hero.title")}
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              {t("hero.subtitle")}
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link href="/headers"><Button size="lg" className="rounded-xl gap-2">{t("hero.cta")}<ArrowRight className="h-4 w-4" /></Button></Link>
+            <SmoothScrollLink href="#tools"><Button variant="outline" size="lg" className="rounded-xl">{copy.homeExplore}</Button></SmoothScrollLink>
+          </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <Link href="/headers">
-            <Button size="lg" className="rounded-xl">
-              {t("hero.cta")}
-            </Button>
-          </Link>
-          <Link href="https://github.com/Alchustan/headerly" target="_blank">
-            <Button variant="outline" size="lg" className="rounded-xl gap-2">
-              <svg
-                aria-hidden="true"
-                className="h-5 w-5 fill-current"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-              </svg>
-              {t("hero.github")}
-            </Button>
-          </Link>
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <div className="mb-4 flex items-center justify-between border-b border-border pb-3">
+            <span className="text-sm font-semibold text-foreground">{copy.homeExample}</span>
+            <span className="font-mono text-xs text-muted-foreground">GET /</span>
+          </div>
+          <div className="space-y-3 font-mono text-sm">
+            {(isTurkish ? [["user-agent", "Chrome / Windows"], ["accept-language", "tr"], ["sec-fetch-site", "none"], ["referer", "—"]] : [["user-agent", "Chrome / Windows"], ["accept-language", "en"], ["sec-fetch-site", "none"], ["referer", "—"]]).map(([name, value]) => (
+              <div key={name} className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 rounded-lg bg-muted/60 px-3 py-2">
+                <span className="break-all text-primary">{name}</span><span className="break-all text-foreground">{value}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{copy.homeExampleNote}</p>
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1 pb-24">
-        {/* Digital Identity Section */}
-        <section className="border-b border-border py-32">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Globe className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.digitalIdentity.title")}
-              </h2>
+        <section id="tools" className="scroll-mt-20 border-y border-border bg-muted/30 py-20">
+          <div className="container mx-auto max-w-6xl px-4">
+            <div className="mb-10 max-w-2xl">
+              <><p className="mb-3 font-mono text-sm font-semibold uppercase tracking-widest text-primary">{copy.homeStart ?? copy.homeExplore}</p><h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">{copy.homeStartTitle ?? copy.homeBoundaries}</h2><p className="mt-4 leading-relaxed text-muted-foreground">{copy.homeStartText ?? copy.homeExampleNote}</p></>
             </div>
-            <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-              {t("sections.digitalIdentity.description")}
-            </p>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                {[
-                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.digitalIdentity.features.headers.title"), desc: t("sections.digitalIdentity.features.headers.description") },
-                  { icon: <Share2 className="h-5 w-5" />, title: t("sections.digitalIdentity.features.network.title"), desc: t("sections.digitalIdentity.features.network.description") },
-                  { icon: <Lock className="h-5 w-5" />, title: t("sections.digitalIdentity.features.useragent.title"), desc: t("sections.digitalIdentity.features.useragent.description") }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-base text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="bg-primary/5 rounded-2xl p-8 flex items-center justify-center min-h-80">
-                <div className="text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
-                    <Globe className="h-8 w-8" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">HTTP request visualization</p>
-                </div>
-              </div>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+              {tools.map(({ key, href, icon: Icon }) => {
+                const section = key === "headers" || key === "network" || key === "useragent" ? "digitalIdentity" : key === "greenWeb" ? "environmental" : "security"
+                const itemKey = key === "security" ? "security" : key
+                return <Link key={key} href={href} className="group rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/40">
+                  <Icon className="mb-5 h-6 w-6 text-primary" />
+                  <h3 className="font-semibold text-foreground">{key === "security" ? securityT("title") : t(`sections.${section}.features.${itemKey}.title`)}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{key === "security" ? securityT("description") : t(`sections.${section}.features.${itemKey}.description`)}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">{copy.inspect ?? copy.homeExplore} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></span>
+                </Link>
+              })}
             </div>
           </div>
         </section>
 
-        {/* Privacy Section */}
-        <section className="border-b border-border py-32 bg-muted/30">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Lock className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.privacy.title")}
-              </h2>
+        <section className="container mx-auto max-w-6xl px-4 py-20">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
+              <Lock className="mb-5 h-7 w-7 text-primary" />
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">{copy.homeBoundaries}</h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">{details.homeBoundaryText}</p>
             </div>
-            <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-3xl">
-              {t("sections.privacy.description")}
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: <Lock className="h-5 w-5" />, title: t("sections.privacy.features.noStorage.title"), desc: t("sections.privacy.features.noStorage.description") },
-                { icon: <Globe className="h-5 w-5" />, title: t("sections.privacy.features.serverSide.title"), desc: t("sections.privacy.features.serverSide.description") },
-                { icon: <Code2 className="h-5 w-5" />, title: t("sections.privacy.features.transparent.title"), desc: t("sections.privacy.features.transparent.description") }
-              ].map((item, idx) => (
-                <div key={idx} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors hover:-translate-y-1">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Open Source Section */}
-        <section className="border-b border-border py-32">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Code2 className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.openSource.title")}
-              </h2>
-            </div>
-            <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-              {t("sections.openSource.description")}
-            </p>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="bg-primary/5 rounded-2xl p-8 flex items-center justify-center min-h-80">
-                <div className="text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
-                    <Code2 className="h-8 w-8" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">Open source community</p>
-                </div>
-              </div>
-              <div className="space-y-4">
-                {[
-                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.openSource.features.transparent.title"), desc: t("sections.openSource.features.transparent.description") },
-                  { icon: <ExternalLink className="h-5 w-5" />, title: t("sections.openSource.features.contribute.title"), desc: t("sections.openSource.features.contribute.description") },
-                  { icon: <Globe className="h-5 w-5" />, title: t("sections.openSource.features.community.title"), desc: t("sections.openSource.features.community.description") }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-base text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Network Transparency Section */}
-        <section className="border-b border-border py-32 bg-muted/30">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Share2 className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.network.title")}
-              </h2>
-            </div>
-            <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-3xl">
-              {t("sections.network.description")}
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: <Globe className="h-5 w-5" />, title: t("sections.network.features.location.title"), desc: t("sections.network.features.location.description") },
-                { icon: <Code2 className="h-5 w-5" />, title: t("sections.network.features.metadata.title"), desc: t("sections.network.features.metadata.description") },
-                { icon: <Lock className="h-5 w-5" />, title: t("sections.network.features.security.title"), desc: t("sections.network.features.security.description") }
-              ].map((item, idx) => (
-                <div key={idx} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-colors hover:-translate-y-1">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Environmental Impact Section */}
-        <section className="py-32">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <TreePine className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                {t("sections.environmental.title")}
-              </h2>
-            </div>
-            <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-              {t("sections.environmental.description")}
-            </p>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                {[
-                  { icon: <TreePine className="h-5 w-5" />, title: t("sections.environmental.features.greenWeb.title"), desc: t("sections.environmental.features.greenWeb.description") },
-                  { icon: <Globe className="h-5 w-5" />, title: t("sections.environmental.features.impact.title"), desc: t("sections.environmental.features.impact.description") },
-                  { icon: <Code2 className="h-5 w-5" />, title: t("sections.environmental.features.performance.title"), desc: t("sections.environmental.features.performance.description") }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-base text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="bg-emerald-100/50 dark:bg-emerald-950/20 rounded-2xl p-8 flex items-center justify-center min-h-80">
-                <div className="text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 mb-4">
-                    <TreePine className="h-8 w-8" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">Green energy impact</p>
-                </div>
-              </div>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-semibold text-foreground">{details.homeHow}</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+                <li>• İstek başlıkları mevcut bağlantı üzerinden okunur.</li>
+                <li>• Seçtiğiniz header için açıklama ve kaynak gösterilir.</li>
+                <li>• URL analizleri hedef siteye sunucu tarafından istek gönderir.</li>
+                <li>• Hosting sağlayıcısının erişim logları Headerly’nin kontrolünde değildir.</li>
+              </ul>
+              <Link href="/privacy" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">{details.homePrivacy} <ExternalLink className="h-3.5 w-3.5" /></Link>
             </div>
           </div>
         </section>

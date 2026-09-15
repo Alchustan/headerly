@@ -3,15 +3,19 @@ import { NetworkInfoCards, type GeoData } from "@/components/network-info-card"
 import { ShieldCheck, Zap, Lock, EyeOff } from "lucide-react"
 import { getTranslations } from "next-intl/server"
 import { generatePageMetadata } from "@/lib/metadata"
+import { reviewCopy, reviewDetails, type ReviewLocale } from "@/lib/review-copy"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return generatePageMetadata(locale, 'Metadata.network', '/network');
 }
 
-export default async function NetworkPage() {
+export default async function NetworkPage({ params }: { params: Promise<{ locale: string }> }) {
   const headersList = await headers()
   const t = await getTranslations("NetworkPage")
+  const { locale } = await params
+  const copy = reviewCopy[locale as ReviewLocale]
+  const details = reviewDetails[locale as ReviewLocale]
   const headersObj = Object.fromEntries(headersList.entries())
 
   let ip = headersObj['cf-connecting-ip'] || headersObj['x-forwarded-for']?.split(',')[0] || headersObj['x-real-ip'] || "127.0.0.1"
@@ -56,6 +60,17 @@ export default async function NetworkPage() {
       <main className="container mx-auto flex-1 px-4 pb-32">
         <section className="mb-24">
           <NetworkInfoCards geoData={geoData} />
+        </section>
+
+        <section className="mx-auto mb-24 max-w-6xl rounded-2xl border border-border bg-card p-6">
+          <h2 className="text-2xl font-bold text-foreground">{copy.networkInterpret}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{copy.networkNote}</p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[620px] text-left text-sm">
+              <thead className="border-b border-border text-xs uppercase tracking-wider text-muted-foreground"><tr><th className="px-3 py-3">Bilgi</th><th className="px-3 py-3">Kaynak</th><th className="px-3 py-3">Kesinlik</th></tr></thead>
+              <tbody className="divide-y divide-border"><tr><td className="px-3 py-3 font-medium text-foreground">{details.networkIp}</td><td className="px-3 py-3 text-muted-foreground">{details.networkIpSource}</td><td className="px-3 py-3 text-muted-foreground">{details.networkIpCertainty}</td></tr><tr><td className="px-3 py-3 font-medium text-foreground">{details.networkLocation}</td><td className="px-3 py-3 text-muted-foreground">{details.networkLocationSource}</td><td className="px-3 py-3 text-muted-foreground">{details.networkLocationCertainty}</td></tr><tr><td className="px-3 py-3 font-medium text-foreground">{details.networkOrg}</td><td className="px-3 py-3 text-muted-foreground">{details.networkOrgSource}</td><td className="px-3 py-3 text-muted-foreground">{details.networkOrgCertainty}</td></tr></tbody>
+            </table>
+          </div>
         </section>
 
         <section className="max-w-6xl mx-auto">

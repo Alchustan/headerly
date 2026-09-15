@@ -2,14 +2,18 @@ import { getTranslations } from "next-intl/server"
 import { CarbonAnalyzer } from "@/components/carbon-analyzer"
 import { HelpCircle, Zap, Leaf, Server, ShieldCheck } from "lucide-react"
 import { generatePageMetadata } from "@/lib/metadata"
+import { reviewCopy, reviewDetails, type ReviewLocale } from "@/lib/review-copy"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return generatePageMetadata(locale, 'Metadata.greenWeb', '/green-web');
 }
 
-export default async function GreenWebPage() {
+export default async function GreenWebPage({ params }: { params: Promise<{ locale: string }> }) {
   const t = await getTranslations("GreenWebPage")
+  const { locale } = await params
+  const copy = reviewCopy[locale as ReviewLocale]
+  const details = reviewDetails[locale as ReviewLocale]
 
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-background">
@@ -24,6 +28,16 @@ export default async function GreenWebPage() {
 
       <main className="container mx-auto flex-1 px-4 pb-32">
         <CarbonAnalyzer />
+
+        <section className="mx-auto mt-16 max-w-6xl rounded-2xl border border-border bg-card p-6">
+          <h2 className="text-2xl font-bold text-foreground">{copy.greenMeasure}</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{copy.greenNote}</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl bg-muted/50 p-4"><h3 className="font-semibold text-foreground">{details.greenSize}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{details.greenSizeDesc}</p></div>
+            <div className="rounded-xl bg-muted/50 p-4"><h3 className="font-semibold text-foreground">{details.greenHosting}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{details.greenHostingDesc}</p></div>
+            <div className="rounded-xl bg-muted/50 p-4"><h3 className="font-semibold text-foreground">{details.greenCarbon}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{details.greenCarbonDesc}</p></div>
+          </div>
+        </section>
         
         <section className="mt-32 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import {
   Search,
   Shield,
@@ -39,6 +39,7 @@ function statusIcon(status: "pass" | "fail" | "missing") {
 
 export function SecurityAnalyzer() {
   const t = useTranslations("SecurityHeadersPage")
+  const locale = useLocale()
   const [url, setUrl] = React.useState("")
   const [loading, setLoading] = React.useState(false)
   const [result, setResult] = React.useState<SecurityCheckResult | null>(null)
@@ -177,6 +178,9 @@ export function SecurityAnalyzer() {
               <span>{t("poor")}</span>
               <span>{t("excellent")}</span>
             </div>
+            <p className="max-w-2xl rounded-2xl border border-border bg-muted/30 p-4 text-center text-sm leading-relaxed text-muted-foreground">
+              {t("scoreDisclaimer")}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -215,6 +219,7 @@ export function SecurityAnalyzer() {
                   </div>
                   <div className="flex shrink-0 items-center gap-2">
                     {statusIcon(header.status)}
+                    {locale === "tr" && <span className="text-xs font-semibold text-muted-foreground">{t(`status.${header.status}`)}</span>}
                   </div>
                 </div>
 
