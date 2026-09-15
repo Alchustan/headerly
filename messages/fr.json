@@ -5,7 +5,6 @@
     "network": "Infos réseau",
     "userAgent": "User-Agent",
     "greenWeb": "Web écologique",
-    "fingerprint": "Empreinte numérique",
     "securityHeaders": "Sécurité"
   },
   "Footer": {
@@ -18,7 +17,7 @@
   "HomePage": {
     "hero": {
       "title": "Comprenez votre Identité Numérique",
-      "subtitle": "Explorez les en-têtes HTTP, les détails du réseau, les empreintes digitales du navigateur et l'impact environnemental. Des outils transparents pour le web moderne.",
+      "subtitle": "Explorez les en-têtes HTTP, les détails du réseau, les informations du navigateur et l'impact environnemental. Des outils transparents pour le web moderne.",
       "cta": "Inspecter les En-têtes de Requête",
       "github": "Voir sur GitHub"
     },
@@ -397,10 +396,6 @@
       "title": "Analyseur de Web écologique - Headerly",
       "description": "Vérifiez si un site web est hébergé avec de l'énergie verte et estimez son empreinte carbone."
     },
-    "fingerprint": {
-      "title": "Empreinte du navigateur - Headerly",
-      "description": "Découvrez votre identifiant numérique unique utilisé pour le suivi sans cookie."
-    },
     "headers": {
       "title": "En-têtes HTTP - Headerly",
       "description": "Inspectez tous les en-têtes de requête HTTP envoyés par votre navigateur. Une vue détaillée de chaque en-tête avec descriptions et références MDN."
@@ -410,119 +405,28 @@
       "description": "Analysez les en-têtes de sécurité HTTP de n'importe quel site Web. Obtenez un score de sécurité complet avec des recommandations."
     }
   },
-  "FingerprintPage": {
-    "title": "Empreinte du navigateur",
-    "subtitle": "Découvrez votre identifiant numérique unique utilisé pour le suivi sans cookie.",
-    "hashLabel": "Hachage de l'empreinte générée",
-    "loading": "Génération de l'empreinte...",
-    "uniqueness": {
-      "title": "Score d'unicité",
-      "description": "Dans quelle mesure votre navigateur est identifiable sur la base des données collectées",
-      "low": "Commun",
-      "medium": "Distinct",
-      "high": "Unique"
-    },
-    "metrics": {
-      "screen": {
-        "title": "Écran et Couleur",
-        "description": "Résolution et profondeur de couleur",
-        "tooltip": "Les annonceurs utilisent cela pour connaître la taille physique de votre moniteur et en déduire votre type d'appareil."
-      },
-      "timezone": {
-        "title": "Fuseau horaire",
-        "description": "Paramètre de fuseau horaire du système",
-        "tooltip": "Utilisé pour déterminer votre région géographique et afficher des publicités lorsque vous êtes le plus susceptible d'être éveillé."
-      },
-      "hardware": {
-        "title": "Matériel",
-        "description": "Cœurs de CPU et mémoire de l'appareil",
-        "tooltip": "Révèle la puissance de traitement de votre appareil, distinguant les ordinateurs haut de gamme des appareils bon marché."
-      },
-      "platform": {
-        "title": "Plateforme",
-        "description": "Système d'exploitation",
-        "tooltip": "Identifie votre système d'exploitation (Windows, macOS, Linux, etc.) pour proposer des logiciels ciblés."
-      },
-      "language": {
-        "title": "Langue",
-        "description": "Langue principale du navigateur",
-        "tooltip": "La langue principale de votre navigateur aide à identifier votre nationalité ou votre origine culturelle."
-      },
-      "cookies": {
-        "title": "Cookies activés",
-        "description": "Statut du stockage des cookies",
-        "tooltip": "S'ils sont désactivés, les sites utiliseront agressivement l'empreinte numérique au lieu du suivi traditionnel."
-      },
-      "dnt": {
-        "title": "Ne pas suivre (DNT)",
-        "description": "Préférence d'en-tête DNT",
-        "tooltip": "Ironiquement, avoir 'Do Not Track' activé vous rend PLUS unique, car peu d'utilisateurs l'activent."
-      },
-      "touch": {
-        "title": "Support tactile",
-        "description": "Points tactiles maximum",
-        "tooltip": "Sépare instantanément les appareils mobiles/tablettes des ordinateurs de bureau traditionnels."
-      },
-      "pixelRatio": {
-        "title": "Ratio de pixels",
-        "description": "DPR (niveau de zoom)",
-        "tooltip": "Révèle le niveau de zoom de votre système ou si vous avez un écran Retina/haute densité."
-      },
-      "canvas": {
-        "title": "Empreinte Canvas",
-        "description": "Hachage du rendu d'image cachée",
-        "tooltip": "Dessine des graphiques invisibles pour extraire des différences microscopiques dans la façon dont votre GPU restitue les pixels."
-      },
-      "webgl": {
-        "title": "Contexte WebGL",
-        "description": "Vendeur et moteur de rendu GPU",
-        "tooltip": "Expose directement le modèle exact de votre carte graphique (GPU) et ses pilotes."
-      }
-    },
-    "howItWorks": {
-      "title": "Comment cela fonctionne-t-il ?",
-      "subtitle": "La mécanique du suivi sans cookie.",
-      "p1": "Même lorsque vous bloquez les cookies ou utilisez le mode Incognito, votre navigateur partage un ensemble unique de configurations matérielles et logicielles avec les sites web que vous visitez. Des scripts peuvent collecter silencieusement ces données pour créer une 'empreinte' qui identifie de manière unique votre appareil sur le web."
-    },
-    "features": {
-      "cookieless": {
-        "title": "Suivi sans cookie",
-        "description": "Vous suit d'une session à l'autre, même en mode Incognito ou avec les cookies désactivés."
-      },
-      "canvasRender": {
-        "title": "Canvas matériel",
-        "description": "Le rendu de graphiques invisibles révèle les nuances spécifiques de votre GPU et de ses pilotes."
-      },
-      "privacy": {
-        "title": "Mesures de confidentialité",
-        "description": "Les navigateurs comme Brave, Tor ou des extensions de confidentialité peuvent rendre ces API aléatoires pour limiter le suivi."
-      },
-      "stateless": {
-        "title": "Vérification sans état",
-        "description": "Nous générons ce hachage entièrement sur votre client. Il n'est jamais envoyé ni stocké sur nos serveurs."
-      }
-    },
-    "actionableSteps": {
-      "title": "Comment se protéger",
-      "subtitle": "Étapes concrètes pour réduire votre empreinte numérique.",
-      "steps": {
-        "browsers": {
-          "title": "Utiliser des navigateurs axés sur la confidentialité",
-          "description": "Les navigateurs comme Brave, Tor ou Firefox (avec protection stricte contre le pistage) randomisent ou bloquent activement les API d'empreinte numérique."
-        },
-        "extensions": {
-          "title": "Installer des extensions anti-suivi",
-          "description": "Des extensions comme uBlock Origin ou Privacy Badger bloquent les scripts de suivi connus avant qu'ils ne puissent s'exécuter et construire votre profil."
-        },
-        "incognito": {
-          "title": "Comprendre les limites du mode Incognito",
-          "description": "N'oubliez pas que le mode Incognito/Privé ne fait qu'effacer votre historique local et vos cookies. Il ne cache PAS l'empreinte de votre navigateur."
-        },
-        "settings": {
-          "title": "Désactiver les fonctionnalités inutiles",
-          "description": "Désactiver WebGL ou les cookies tiers dans les paramètres de votre navigateur peut réduire la surface d'exposition disponible pour les trackers."
-        }
-      }
-    }
+  "HeaderList": {
+    "search": "Rechercher des en-têtes...",
+    "aria": "Rechercher des en-têtes de requête",
+    "clear": "Effacer la recherche",
+    "empty": "Aucun en-tête trouvé",
+    "emptyDesc": "Aucun en-tête ne correspond à \"{query}\".",
+    "clearAll": "Effacer les filtres",
+    "pretty": "Vue détaillée",
+    "raw": "JSON brut",
+    "copied": "Copié !",
+    "failed": "Échec de la copie",
+    "refreshed": "En-têtes actualisés !",
+    "downloaded": "En-têtes téléchargés !"
+  },
+  "ViewToggle": {
+    "pretty": "Vue détaillée",
+    "raw": "JSON brut"
+  },
+  "Common": {
+    "copied": "Copié !",
+    "failed": "Échec de la copie",
+    "refreshed": "En-têtes actualisés !",
+    "downloaded": "En-têtes téléchargés !"
   }
 }

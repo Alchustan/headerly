@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://headerly.net';
   const locales = ['', '/tr', '/de', '/es', '/fr', '/hi', '/zh'];
-  const routes = ['', '/network', '/user-agent', '/privacy', '/terms'];
+  const routes = ['', '/headers', '/network', '/user-agent', '/green-web', '/security-headers', '/privacy', '/terms'];
 
   const sitemapEntries: MetadataRoute.Sitemap = [];
 

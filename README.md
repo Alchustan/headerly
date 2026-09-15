@@ -8,8 +8,7 @@ Headerly is a modern, developer-centric tool designed to instantly view and insp
 
 - **Live Header Inspection**: Instantly view all HTTP headers sent by your browser.
 - **Network Analysis**: A dedicated page for comprehensive connection details, including IP address, geolocation (City, Region, Country), and ISP information—derived solely from secure edge-computing headers.
-- **User-Agent Analysis**: Detailed breakdown of your browser, operating system, and hardware platform, including an educational "How it works" section to understand digital fingerprints.
-- **Browser Fingerprinting Dashboard**: An interactive educational tool visualizing tracking mechanisms with a "Uniqueness Score" and detailed browser metrics (e.g., Canvas, WebGL, DNT, Language) to help understand digital privacy risks.
+- **User-Agent Analysis**: Detailed breakdown of your browser, operating system, and hardware platform.
 - **Digital Carbon Analyzer**: A built-in tool that calculates a webpage's CO2 footprint based on page size and hosting energy source, promoting green web practices.
 - **Enhanced Search**: Lightning-fast header filtering with keyboard shortcuts support (**⌘K** or **Ctrl+K**).
 - **Dual View Modes**:
@@ -85,7 +84,6 @@ headerly/
 │   │   ├── headers/      # Main HTTP Header inspector
 │   │   ├── network/      # Network analysis page
 │   │   ├── user-agent/   # User-Agent analysis page
-│   │   ├── fingerprint/  # Browser fingerprinting dashboard
 │   │   ├── green-web/    # Digital carbon footprint analyzer
 │   │   ├── privacy/      # Privacy policy
 │   │   ├── terms/        # Terms of service

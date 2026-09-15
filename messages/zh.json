@@ -5,7 +5,6 @@
     "network": "网络信息",
     "userAgent": "User Agent",
     "greenWeb": "绿色网络",
-    "fingerprint": "浏览器指纹",
     "securityHeaders": "安全标头"
   },
   "Footer": {
@@ -18,7 +17,7 @@
   "HomePage": {
     "hero": {
       "title": "了解您的数字身份",
-      "subtitle": "探索 HTTP 请求头、网络详情、浏览器指纹识别和环境影响。为现代网络打造的透明工具。",
+      "subtitle": "探索 HTTP 请求头、网络详情、浏览器和设备信息识别和环境影响。为现代网络打造的透明工具。",
       "cta": "检查请求头",
       "github": "在 GitHub 上查看"
     },
@@ -36,7 +35,7 @@
             "description": "发现您的 IP 地址、位置和从您的连接派生的 ISP 信息。"
           },
           "useragent": {
-            "title": "浏览器指纹",
+            "title": "浏览器和设备信息",
             "description": "了解您的浏览器、操作系统和设备配置如何创建独特的数字签名。"
           }
         }
@@ -397,10 +396,6 @@
       "title": "绿色网络分析器 - Headerly",
       "description": "检查网站是否使用绿色能源托管，并估算其碳足迹。"
     },
-    "fingerprint": {
-      "title": "浏览器指纹 - Headerly",
-      "description": "发现用于无 Cookie 追踪的唯一数字标识符。"
-    },
     "headers": {
       "title": "HTTP 请求头 - Headerly",
       "description": "检查浏览器发送的所有 HTTP 请求头。每个请求头的详细视图，包含描述和 MDN 参考。"
@@ -410,119 +405,28 @@
       "description": "分析任何网站的 HTTP 安全标头。获取全面的安全评分和建议。"
     }
   },
-  "FingerprintPage": {
-    "title": "浏览器指纹",
-    "subtitle": "发现用于无 Cookie 追踪的唯一数字标识符。",
-    "hashLabel": "生成的指纹哈希",
-    "loading": "正在生成指纹...",
-    "uniqueness": {
-      "title": "唯一性得分",
-      "description": "根据收集的数据判断您的浏览器识别度",
-      "low": "常见",
-      "medium": "独特",
-      "high": "唯一"
-    },
-    "metrics": {
-      "screen": {
-        "title": "屏幕与颜色",
-        "description": "分辨率和色彩深度",
-        "tooltip": "广告商利用此信息了解您的显示器物理尺寸并推断您的设备类型。"
-      },
-      "timezone": {
-        "title": "时区",
-        "description": "系统时区设置",
-        "tooltip": "用于确定您的地理区域，并在您最可能清醒的时候展示广告。"
-      },
-      "hardware": {
-        "title": "硬件",
-        "description": "CPU 核心数和设备内存",
-        "tooltip": "揭示您设备的处理能力，区分高端电脑与入门级设备。"
-      },
-      "platform": {
-        "title": "平台",
-        "description": "操作系统",
-        "tooltip": "识别您的操作系统（Windows, macOS, Linux 等）以提供针对性的软件服务。"
-      },
-      "language": {
-        "title": "语言",
-        "description": "浏览器首选语言",
-        "tooltip": "浏览器的首选语言有助于识别您的国籍或文化背景。"
-      },
-      "cookies": {
-        "title": "Cookie 已启用",
-        "description": "Cookie 存储状态",
-        "tooltip": "如果禁用，网站将更倾向于使用指纹识别而非传统的 Cookie 追踪。"
-      },
-      "dnt": {
-        "title": "请勿追踪",
-        "description": "DNT 头偏好设置",
-        "tooltip": "讽刺的是，启用“请勿追踪”反而让您更具唯一性，因为很少有用户会开启它。"
-      },
-      "touch": {
-        "title": "触摸支持",
-        "description": "最大触摸点数",
-        "tooltip": "即刻将移动/平板设备与传统桌面电脑区分开来。"
-      },
-      "pixelRatio": {
-        "title": "像素比",
-        "description": "DPR（缩放级别）",
-        "tooltip": "揭示您系统的缩放级别，或您是否使用了 Retina/高 DPI 显示器。"
-      },
-      "canvas": {
-        "title": "Canvas 指纹",
-        "description": "隐藏的图像渲染哈希",
-        "tooltip": "绘制不可见图形，以提取 GPU 渲染像素时极细微的差异。"
-      },
-      "webgl": {
-        "title": "WebGL 上下文",
-        "description": "GPU 厂商与渲染器",
-        "tooltip": "直接暴露显卡（GPU）的确切型号及其驱动程序。"
-      }
-    },
-    "howItWorks": {
-      "title": "这是如何运作的？",
-      "subtitle": "无 Cookie 追踪的机制。",
-      "p1": "即使您禁用了 Cookie 或使用无痕模式，浏览器仍会向访问的网站共享一组唯一的硬件和软件配置。脚本可以静默收集这些数据，生成一个在网络上唯一标识您设备的“指纹”。"
-    },
-    "features": {
-      "cookieless": {
-        "title": "无 Cookie 追踪",
-        "description": "即使在无痕模式或禁用 Cookie 的情况下，也能跨会话追踪您。"
-      },
-      "canvasRender": {
-        "title": "硬件 Canvas",
-        "description": "渲染不可见图形揭示了您的 GPU 和驱动程序的具体特性。"
-      },
-      "privacy": {
-        "title": "隐私措施",
-        "description": "Brave、Tor 等浏览器或隐私扩展程序可以随机化这些 API，以减轻追踪。"
-      },
-      "stateless": {
-        "title": "无状态检查",
-        "description": "我们完全在您的客户端生成此哈希。它绝不会发送到或存储在我们的服务器上。"
-      }
-    },
-    "actionableSteps": {
-      "title": "如何保护自己",
-      "subtitle": "减少数字足迹的切实步骤。",
-      "steps": {
-        "browsers": {
-          "title": "使用注重隐私的浏览器",
-          "description": "Brave、Tor 或 Firefox（开启严格追踪保护）等浏览器会主动随机化或拦截指纹识别 API。"
-        },
-        "extensions": {
-          "title": "安装反追踪扩展",
-          "description": "uBlock Origin 或 Privacy Badger 等扩展会在追踪脚本执行并建立您的个人资料前拦截它们。"
-        },
-        "incognito": {
-          "title": "了解无痕模式的局限性",
-          "description": "请记住，无痕/私密模式仅清除您的本地历史记录和 Cookie。它并不能隐藏您的浏览器指纹。"
-        },
-        "settings": {
-          "title": "禁用不必要的功能",
-          "description": "在浏览器设置中禁用 WebGL 或第三方 Cookie 可以减少可供追踪者利用的暴露面。"
-        }
-      }
-    }
+  "HeaderList": {
+    "search": "搜索请求头...",
+    "aria": "搜索请求头",
+    "clear": "清除搜索",
+    "empty": "未找到请求头",
+    "emptyDesc": "没有请求头匹配“{query}”。",
+    "clearAll": "清除所有筛选",
+    "pretty": "简洁视图",
+    "raw": "原始 JSON",
+    "copied": "已复制！",
+    "failed": "复制失败",
+    "refreshed": "请求头已刷新！",
+    "downloaded": "请求头已下载！"
+  },
+  "ViewToggle": {
+    "pretty": "简洁视图",
+    "raw": "原始 JSON"
+  },
+  "Common": {
+    "copied": "已复制！",
+    "failed": "复制失败",
+    "refreshed": "请求头已刷新！",
+    "downloaded": "请求头已下载！"
   }
 }

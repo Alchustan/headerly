@@ -74,7 +74,7 @@ export default async function Page() {
                   <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
                     <Globe className="h-8 w-8" />
                   </div>
-                  <p className="text-muted-foreground text-sm">Digital fingerprint visualization</p>
+                  <p className="text-muted-foreground text-sm">HTTP request visualization</p>
                 </div>
               </div>
             </div>

@@ -31,6 +31,7 @@ import { useTranslations } from "next-intl"
 
 export function HeaderCard({ headers }: HeaderCardProps) {
   const t = useTranslations("HeaderCard")
+  const common = useTranslations("Common")
   const [view, setView] = React.useState<"pretty" | "raw">("pretty")
   const [isRefreshing, setIsRefreshing] = React.useState(false)
   const router = useRouter()
@@ -38,7 +39,7 @@ export function HeaderCard({ headers }: HeaderCardProps) {
   const handleRefresh = () => {
     setIsRefreshing(true)
     router.refresh()
-    toast.info("Headers refreshed!")
+    toast.info(common("refreshed"))
     setTimeout(() => setIsRefreshing(false), 600)
   }
 
@@ -53,8 +54,8 @@ export function HeaderCard({ headers }: HeaderCardProps) {
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
-    toast.success("Headers downloaded!")
-  }, [jsonString])
+    toast.success(common("downloaded"))
+  }, [jsonString, common])
 
   const headerCount = Object.keys(headers).length
 
@@ -113,6 +114,7 @@ export function HeaderCard({ headers }: HeaderCardProps) {
             <CopyButton 
               value={jsonString} 
               copyMessage={t("copy")} 
+              toastMessage={common("copied")}
               variant="outline"
               className="rounded-xl border-border bg-background shadow-sm active:scale-95 transition-transform"
             />

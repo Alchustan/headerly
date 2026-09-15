@@ -35,6 +35,7 @@ interface HeaderItemProps {
 export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
   const [mounted, setMounted] = React.useState(false)
   const t = useTranslations("Headers")
+  const common = useTranslations("Common")
   const headerInfo = getHeaderInfo(name)
   const isMobile = useIsMobile()
 
@@ -132,7 +133,7 @@ export function HeaderItem({ name, value, isImportant }: HeaderItemProps) {
           )}
         </div>
         <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 active:scale-95">
-          <CopyButton value={value} copyMessage={`Copy ${name}`} />
+          <CopyButton value={value} copyMessage={`${name}`} toastMessage={common("copied")} />
         </div>
       </div>
 

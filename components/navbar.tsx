@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { MobileNav } from "@/components/mobile-nav"
-import { Activity, LayoutList, MonitorCheck, Leaf, Fingerprint, Shield } from "lucide-react"
+import { Activity, LayoutList, MonitorCheck, Leaf, Shield } from "lucide-react"
 
 export function Navbar() {
   const t = useTranslations("Navbar")
@@ -52,13 +52,6 @@ export function Navbar() {
             >
               <Shield className="h-4 w-4" />
               <span>{t("securityHeaders")}</span>
-            </Link>
-            <Link
-              href="/fingerprint"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Fingerprint className="h-4 w-4" />
-              <span>{t("fingerprint")}</span>
             </Link>
           </div>
         </div>

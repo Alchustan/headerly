@@ -5,7 +5,6 @@
     "network": "Netzwerk-Infos",
     "userAgent": "User-Agent",
     "greenWeb": "Green Web",
-    "fingerprint": "Fingerprint",
     "securityHeaders": "Sicherheitsheader"
   },
   "Footer": {
@@ -18,7 +17,7 @@
   "HomePage": {
     "hero": {
       "title": "Verstehe deine digitale Identität",
-      "subtitle": "Erkunde HTTP-Header, Netzwerkdetails, Browser-Fingerprints und Umweltauswirkungen. Transparente Tools für das moderne Web.",
+      "subtitle": "Erkunde HTTP-Header, Netzwerkdetails, Browser- und Gerätedetails und Umweltauswirkungen. Transparente Tools für das moderne Web.",
       "cta": "Request-Header inspizieren",
       "github": "Auf GitHub ansehen"
     },
@@ -36,7 +35,7 @@
             "description": "Entdecke deine IP-Adresse, deinen Standort und ISP-Informationen aus deiner Verbindung."
           },
           "useragent": {
-            "title": "Browser-Fingerprint",
+            "title": "User-Agent-Analyse",
             "description": "Erfahre, wie dein Browser, dein Betriebssystem und deine Gerätekonfiguration eine eindeutige digitale Signatur erzeugen."
           }
         }
@@ -397,10 +396,6 @@
       "title": "Green Web Analyzer - Headerly",
       "description": "Prüfe, ob eine Website mit grüner Energie gehostet wird, und schätze ihren CO2-Fußabdruck."
     },
-    "fingerprint": {
-      "title": "Browser-Fingerprint - Headerly",
-      "description": "Entdecke deinen eindeutigen digitalen Identifikator, der für Tracking ohne Cookies verwendet wird."
-    },
     "headers": {
       "title": "HTTP-Header - Headerly",
       "description": "Untersuchen Sie alle von Ihrem Browser gesendeten HTTP-Anfrageheader. Eine detaillierte Ansicht jedes Headers mit Beschreibungen und MDN-Referenzen."
@@ -410,119 +405,28 @@
       "description": "Analysieren Sie die HTTP-Sicherheitsheader jeder Website. Erhalten Sie eine umfassende Sicherheitsbewertung mit Empfehlungen."
     }
   },
-  "FingerprintPage": {
-    "title": "Browser-Fingerprint",
-    "subtitle": "Entdecke deinen eindeutigen digitalen Identifikator, der für Tracking ohne Cookies verwendet wird.",
-    "hashLabel": "Generierter Fingerprint-Hash",
-    "loading": "Fingerprint wird generiert...",
-    "uniqueness": {
-      "title": "Einzigartigkeits-Score",
-      "description": "Wie identifizierbar dein Browser basierend auf den gesammelten Daten ist",
-      "low": "Häufig",
-      "medium": "Markant",
-      "high": "Einzigartig"
-    },
-    "metrics": {
-      "screen": {
-        "title": "Bildschirm & Farbe",
-        "description": "Auflösung und Farbtiefe",
-        "tooltip": "Werbetreibende nutzen dies, um deine physische Monitorgröße zu kennen und deinen Gerätetyp abzuleiten."
-      },
-      "timezone": {
-        "title": "Zeitzone",
-        "description": "System-Zeitzoneneinstellung",
-        "tooltip": "Wird verwendet, um deine geografische Region zu bestimmen und Anzeigen zu schalten, wenn du am wahrscheinlichsten wach bist."
-      },
-      "hardware": {
-        "title": "Hardware",
-        "description": "CPU-Kerne und Gerätespeicher",
-        "tooltip": "Verrät die Rechenleistung deines Geräts und unterscheidet High-End-Computer von Budget-Geräten."
-      },
-      "platform": {
-        "title": "Plattform",
-        "description": "Betriebssystem",
-        "tooltip": "Identifiziert dein Betriebssystem (Windows, macOS, Linux etc.), um zielgerichtete Software anzubieten."
-      },
-      "language": {
-        "title": "Sprache",
-        "description": "Primäre Browser-Sprache",
-        "tooltip": "Die Primärsprache deines Browsers hilft, deine Nationalität oder deinen kulturellen Hintergrund zu identifizieren."
-      },
-      "cookies": {
-        "title": "Cookies aktiviert",
-        "description": "Status der Cookie-Speicherung",
-        "tooltip": "Wenn deaktiviert, nutzen Seiten verstärkt Fingerprinting anstelle von traditionellem Tracking."
-      },
-      "dnt": {
-        "title": "Do Not Track",
-        "description": "DNT-Header-Präferenz",
-        "tooltip": "Ironischerweise macht dich ein aktiviertes „Do Not Track“ EINZIGARTIGER, da nur wenige Nutzer es einschalten."
-      },
-      "touch": {
-        "title": "Touch-Unterstützung",
-        "description": "Maximale Touch-Punkte",
-        "tooltip": "Trennt sofort Mobil-/Tablet-Geräte von traditionellen Desktop-Computern."
-      },
-      "pixelRatio": {
-        "title": "Pixel-Ratio",
-        "description": "DPR (Zoom-Level)",
-        "tooltip": "Verrät das Zoom-Level deines Systems oder ob du ein Retina-/High-DPI-Display hast."
-      },
-      "canvas": {
-        "title": "Canvas-Fingerprint",
-        "description": "Hash einer versteckten Grafik-Renderung",
-        "tooltip": "Zeichnet unsichtbare Grafiken, um mikroskopische Unterschiede darin zu extrahieren, wie deine GPU Pixel rendert."
-      },
-      "webgl": {
-        "title": "WebGL-Kontext",
-        "description": "GPU-Hersteller & Renderer",
-        "tooltip": "Legt das exakte Modell deiner Grafikkarte (GPU) und deren Treiber offen."
-      }
-    },
-    "howItWorks": {
-      "title": "Wie funktioniert das?",
-      "subtitle": "Die Mechanik des trackings ohne Cookies.",
-      "p1": "Selbst wenn du Cookies blockierst oder den Inkognito-Modus nutzt, teilt dein Browser eine eindeutige Kombination aus Hardware- und Softwarekonfigurationen mit den von dir besuchten Websites. Skripte können diese Daten lautlos sammeln, um einen „Fingerabdruck“ zu erstellen, der dein Gerät netzweit eindeutig identifiziert."
-    },
-    "features": {
-      "cookieless": {
-        "title": "Tracking ohne Cookies",
-        "description": "Trackt dich über Sitzungen hinweg, selbst im Inkognito-Modus oder bei deaktivierten Cookies."
-      },
-      "canvasRender": {
-        "title": "Hardware-Canvas",
-        "description": "Das Rendern unsichtbarer Grafiken enthüllt spezifische Nuancen deiner GPU und Treiber."
-      },
-      "privacy": {
-        "title": "Privatsphäre-Maßnahmen",
-        "description": "Browser wie Brave, Tor oder Privatsphäre-Erweiterungen können diese APIs randomisieren, um Tracking zu erschweren."
-      },
-      "stateless": {
-        "title": "Zustandsloser Check",
-        "description": "Wir generieren diesen Hash vollständig auf deinem Client. Er wird niemals an unsere Server gesendet oder dort gespeichert."
-      }
-    },
-    "actionableSteps": {
-      "title": "Wie du dich schützen kannst",
-      "subtitle": "Konkrete Schritte zur Reduzierung deines digitalen Fußabdrucks.",
-      "steps": {
-        "browsers": {
-          "title": "Nutze Privatsphäre-orientierte Browser",
-          "description": "Browser wie Brave, Tor oder Firefox (mit strengem Tracking-Schutz) randomisieren oder blockieren Fingerprinting-APIs aktiv."
-        },
-        "extensions": {
-          "title": "Installiere Anti-Tracking-Erweiterungen",
-          "description": "Erweiterungen wie uBlock Origin oder Privacy Badger blockieren bekannte Tracking-Skripte, bevor sie dein Profil erstellen können."
-        },
-        "incognito": {
-          "title": "Verstehe die Grenzen von Inkognito",
-          "description": "Denke daran, dass der Inkognito-/Private-Modus nur deinen lokalen Verlauf und Cookies löscht. Er verbirgt NICHT deinen Browser-Fingerprint."
-        },
-        "settings": {
-          "title": "Deaktiviere unnötige Funktionen",
-          "description": "Das Deaktivieren von WebGL oder Drittanbieter-Cookies in deinen Browser-Einstellungen kann die für Tracker verfügbare Angriffsfläche verringern."
-        }
-      }
-    }
+  "HeaderList": {
+    "search": "Header durchsuchen...",
+    "aria": "Request-Header durchsuchen",
+    "clear": "Suche löschen",
+    "empty": "Keine Header gefunden",
+    "emptyDesc": "Keine Header entsprechen \"{query}\".",
+    "clearAll": "Filter löschen",
+    "pretty": "Übersicht",
+    "raw": "Rohes JSON",
+    "copied": "Kopiert!",
+    "failed": "Kopieren fehlgeschlagen",
+    "refreshed": "Header aktualisiert!",
+    "downloaded": "Header heruntergeladen!"
+  },
+  "ViewToggle": {
+    "pretty": "Übersicht",
+    "raw": "Rohes JSON"
+  },
+  "Common": {
+    "copied": "Kopiert!",
+    "failed": "Kopieren fehlgeschlagen",
+    "refreshed": "Header aktualisiert!",
+    "downloaded": "Header heruntergeladen!"
   }
 }

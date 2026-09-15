@@ -3,9 +3,8 @@
 import * as React from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { Activity, LayoutList, MonitorCheck, Menu, X, Leaf, Fingerprint, Shield } from "lucide-react";
+import { Activity, LayoutList, MonitorCheck, Menu, X, Leaf, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
@@ -68,14 +67,6 @@ export function MobileNav() {
             >
               <Shield className="h-5 w-5 text-primary" />
               <span>{t("securityHeaders")}</span>
-            </Link>
-            <Link
-              href="/fingerprint"
-              onClick={close}
-              className="flex items-center gap-3 px-4 py-3 text-base font-medium rounded-xl hover:bg-muted transition-colors"
-            >
-              <Fingerprint className="h-5 w-5 text-primary" />
-              <span>{t("fingerprint")}</span>
             </Link>
           </div>
         </div>

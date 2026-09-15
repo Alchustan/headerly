@@ -5,6 +5,7 @@ import { HeaderItem } from "./header-item"
 import { Input } from "@/components/ui/input"
 import { Search, X } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { useTranslations } from "next-intl"
 
 interface HeaderListProps {
   headers: Record<string, string>
@@ -22,6 +23,7 @@ const IMPORTANT_HEADERS = [
 export function HeaderList({ headers }: HeaderListProps) {
   const [searchQuery, setSearchQuery] = React.useState("")
   const inputRef = React.useRef<HTMLInputElement>(null)
+  const t = useTranslations("HeaderList")
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -54,17 +56,17 @@ export function HeaderList({ headers }: HeaderListProps) {
         <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors" />
         <Input
           ref={inputRef}
-          placeholder="Search headers..."
+          placeholder={t("search")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          aria-label="Search request headers"
+          aria-label={t("aria")}
           className="h-14 pl-12 pr-24 rounded-2xl border border-border bg-background text-base focus-visible:ring-primary/50 shadow-sm text-foreground placeholder:text-muted-foreground transition-all focus:bg-muted/20"
         />
         <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              aria-label="Clear search"
+              aria-label={t("clear")}
               className="p-1 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted"
             >
               <X className="h-4 w-4" />
@@ -95,16 +97,16 @@ export function HeaderList({ headers }: HeaderListProps) {
               <Search className="relative h-10 w-10 text-primary" />
             </div>
             <div className="space-y-2">
-              <p className="text-xl font-bold text-foreground">No headers found</p>
+              <p className="text-xl font-bold text-foreground">{t("empty")}</p>
               <p className="text-muted-foreground max-w-[300px]">
-                No headers match "{searchQuery}". Try a different keyword or clear the search.
+                {t("emptyDesc", { query: searchQuery })}
               </p>
             </div>
             <button 
               onClick={() => setSearchQuery("")}
               className="text-sm font-bold text-primary hover:underline"
             >
-              Clear all filters
+              {t("clearAll")}
             </button>
           </div>
         )}

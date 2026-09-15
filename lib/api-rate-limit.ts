@@ -8,8 +8,8 @@ const rateMap = new Map<string, { count: number; resetAt: number }>();
 
 function getClientIp(request: NextRequest): string {
   return (
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     request.headers.get("cf-connecting-ip")?.trim() ||
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     "127.0.0.1"
   );
 }
@@ -17,6 +17,9 @@ function getClientIp(request: NextRequest): string {
 export function checkRateLimit(request: NextRequest) {
   const ip = getClientIp(request);
   const now = Date.now();
+  if (rateMap.size > 10_000) {
+    for (const [key, value] of rateMap) if (value.resetAt <= now) rateMap.delete(key);
+  }
   const entry = rateMap.get(ip);
 
   if (!entry || now > entry.resetAt) {

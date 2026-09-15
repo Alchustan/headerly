@@ -5,7 +5,6 @@
     "network": "Ağ Detayları",
     "userAgent": "User Agent",
     "greenWeb": "Yeşil Web",
-    "fingerprint": "Parmak İzi",
     "securityHeaders": "Güvenlik Başlıkları"
   },
   "Footer": {
@@ -18,7 +17,7 @@
   "HomePage": {
     "hero": {
       "title": "Dijital Kimliğinizi Anlayın",
-      "subtitle": "HTTP başlıklarını, ağ detaylarını, tarayıcı parmak izini ve çevresel etkiyi keşfedin. Modern web için şeffaf araçlar.",
+      "subtitle": "HTTP başlıklarını, ağ detaylarını, tarayıcı ve cihaz bilgilerini ve çevresel etkiyi keşfedin. Modern web için şeffaf araçlar.",
       "cta": "İstek Başlıklarını İnceleyin",
       "github": "GitHub'da Görüntüleyin"
     },
@@ -36,14 +35,14 @@
             "description": "IP adresinizi, konumunuzu ve bağlantınızdan türetilen ISS bilgilerinizi keşfedin."
           },
           "useragent": {
-            "title": "Tarayıcı Parmak İzi",
+            "title": "User-Agent Analizi",
             "description": "Tarayıcınız, işletim sisteminiz ve cihazınızın konfigürasyonunun nasıl benzersiz bir dijital imza oluşturduğunu öğrenin."
           }
         }
       },
       "privacy": {
         "title": "Gizlilik & Takip Koruması",
-        "description": "Gizlilikleriniz çok önemlidir. Headerly her şeyi sunucu tarafında hiçbir takip olmadan işler ve dijital ayakiziniz yalnız sizin kalır.",
+        "description": "Gizlilikleriniz çok önemlidir. Headerly her şeyi sunucu tarafında hiçbir takip olmadan işler ve istek verileriniz yalnız sizin kalır.",
         "features": {
           "noStorage": {
             "title": "Veri Depolama Yok",
@@ -116,7 +115,7 @@
     }
   },
   "HeadersPage": {
-    "title": "İstek Başlıkları İnceleyicisi",
+    "title": "HTTP İstek Başlıkları",
     "description": "Mevcut istekle gönderilen HTTP başlıklarını inceleyin. Tarayıcınızın sunucularla paylaştığı tüm metaveriye bakın."
   },
   "NetworkPage": {
@@ -149,7 +148,7 @@
   },
   "UserAgentPage": {
     "title": "User-Agent Analizi",
-    "description": "Tarayıcınızın dijital parmak izine derinlemesine dalın ve kimlik belirlemenin nasıl çalıştığını anlayın.",
+    "description": "User-Agent dizesinden tarayıcınızın, işletim sisteminizin ve cihazınızın nasıl tanındığını öğrenin.",
     "howItWorks": {
       "title": "Bu nasıl tespit ediliyor?",
       "subtitle": "Tarayıcının kimlik dizesini çözmek.",
@@ -397,10 +396,6 @@
       "title": "Yeşil Web Analizcisi - Headerly",
       "description": "Bir web sitesinin yeşil enerji ile barındırılıp barındırılmadığını kontrol edin ve karbon ayak izini tahmin edin."
     },
-    "fingerprint": {
-      "title": "Tarayıcı Parmak İzi - Headerly",
-      "description": "Çerezsiz izleme için kullanılan benzersiz dijital kimliğinizi keşfedin."
-    },
     "headers": {
       "title": "HTTP Başlıkları - Headerly",
       "description": "Tarayıcınızın gönderdiği tüm HTTP istek başlıklarını inceleyin. Açıklamalar ve MDN referanslarıyla her başlığın detaylı görünümü."
@@ -410,119 +405,28 @@
       "description": "Herhangi bir web sitesinin HTTP güvenlik başlıklarını analiz edin. Detaylı önerilerle kapsamlı bir güvenlik skoru alın."
     }
   },
-  "FingerprintPage": {
-    "title": "Tarayıcı Parmak İzi",
-    "subtitle": "Çerezsiz izleme için kullanılan benzersiz dijital kimliğinizi keşfedin.",
-    "hashLabel": "Oluşturulan Parmak İzi Özeti (Hash)",
-    "loading": "Parmak izi oluşturuluyor...",
-    "uniqueness": {
-      "title": "Benzersizlik Skoru",
-      "description": "Toplanan verilere göre tarayıcınızın ne kadar ayırt edilebilir olduğu",
-      "low": "Sıradan",
-      "medium": "Belirgin",
-      "high": "Eşsiz"
-    },
-    "metrics": {
-      "screen": {
-        "title": "Ekran ve Renk",
-        "description": "Çözünürlük ve renk derinliği",
-        "tooltip": "Reklamcılar bunu monitör boyutunuzu bilmek ve cihaz türünüzü tahmin etmek için kullanır."
-      },
-      "timezone": {
-        "title": "Zaman Dilimi",
-        "description": "Sistem zaman dilimi ayarı",
-        "tooltip": "Coğrafi bölgenizi belirlemek ve uyanık olduğunuz saatlerde reklam göstermek için kullanılır."
-      },
-      "hardware": {
-        "title": "Donanım",
-        "description": "CPU çekirdekleri ve Cihaz Belleği",
-        "tooltip": "Cihazınızın işlem gücünü ortaya çıkararak pahalı bilgisayarları ucuz olanlardan ayırır."
-      },
-      "platform": {
-        "title": "Platform",
-        "description": "İşletim Sistemi",
-        "tooltip": "Size özel yazılım veya uygulama sunmak için işletim sisteminizi (Windows, macOS vb.) tanımlar."
-      },
-      "language": {
-        "title": "Dil",
-        "description": "Tarayıcı varsayılan dili",
-        "tooltip": "Tarayıcınızın varsayılan dili, uyruğunuzu veya kültürel geçmişinizi belirlemeye yardımcı olur."
-      },
-      "cookies": {
-        "title": "Çerezler Etkin",
-        "description": "Çerez depolama durumu",
-        "tooltip": "Eğer kapalıysa, web siteleri sizi takip etmek için geleneksel çerezler yerine parmak izi yöntemlerine daha agresif başvurur."
-      },
-      "dnt": {
-        "title": "Beni İzleme (DNT)",
-        "description": "DNT başlığı tercihi",
-        "tooltip": "İronik bir şekilde, 'Beni İzleme' (DNT) ayarını açmak sizi DAHA benzersiz yapar, çünkü çok az kişi kullanır."
-      },
-      "touch": {
-        "title": "Dokunmatik Desteği",
-        "description": "Maksimum dokunma noktası",
-        "tooltip": "Dokunmatik ekran desteği, mobil/tablet cihazları masaüstü bilgisayarlardan anında ayırır."
-      },
-      "pixelRatio": {
-        "title": "Piksel Oranı",
-        "description": "DPR (Yakınlaştırma Seviyesi)",
-        "tooltip": "Sisteminizin yakınlaştırma seviyesini veya Retina (yüksek çözünürlüklü) bir ekrana sahip olup olmadığınızı gösterir."
-      },
-      "canvas": {
-        "title": "Canvas Parmak İzi",
-        "description": "Gizli resim oluşturma özeti",
-        "tooltip": "Ekran kartınızın (GPU) pikselleri nasıl çizdiğindeki mikroskobik farklılıkları çıkarmak için görünmez grafikler çizer."
-      },
-      "webgl": {
-        "title": "WebGL Bağlamı",
-        "description": "GPU Satıcısı ve İşleyicisi",
-        "tooltip": "Ekran Kartınızın (GPU) tam modelini ve sürücü detaylarını doğrudan ifşa eder."
-      }
-    },
-    "howItWorks": {
-      "title": "Bu nasıl çalışıyor?",
-      "subtitle": "Çerezsiz izlemenin mekaniği.",
-      "p1": "Çerezleri engelleseniz veya Gizli mod kullansanız bile, tarayıcınız ziyaret ettiğiniz web siteleriyle benzersiz bir donanım ve yazılım yapılandırma seti paylaşır. Komut dosyaları, cihazınızı web'de benzersiz bir şekilde tanımlayan bir 'parmak izi' oluşturmak için bu verileri sessizce toplayabilir."
-    },
-    "features": {
-      "cookieless": {
-        "title": "Çerezsiz İzleme",
-        "description": "Gizli modda veya çerezler devre dışı bırakılmış olsa bile oturumlar boyunca sizi izler."
-      },
-      "canvasRender": {
-        "title": "Donanım Canvas",
-        "description": "Görünmez grafiklerin oluşturulması, GPU'nuzun ve sürücülerinizin belirli nüanslarını ortaya çıkarır."
-      },
-      "privacy": {
-        "title": "Gizlilik Önlemleri",
-        "description": "Brave, Tor gibi tarayıcılar veya gizlilik uzantıları izlemeyi hafifletmek için bu API'leri rastgele hale getirebilir."
-      },
-      "stateless": {
-        "title": "Durumsuz Kontrol",
-        "description": "Bu özeti tamamen istemcinizde oluşturuyoruz. Sunucularımıza asla gönderilmez veya saklanmaz."
-      }
-    },
-    "actionableSteps": {
-      "title": "Nasıl Korunabilirsiniz?",
-      "subtitle": "Dijital ayak izinizi küçültmek için atabileceğiniz adımlar.",
-      "steps": {
-        "browsers": {
-          "title": "Gizlilik Odaklı Tarayıcılar Kullanın",
-          "description": "Brave, Tor veya Firefox (Sıkı İzleme Koruması ile) gibi tarayıcılar, parmak izi API'lerini aktif olarak rastgele hale getirir veya engeller."
-        },
-        "extensions": {
-          "title": "İzleme Engelleyici Eklentiler Kurun",
-          "description": "uBlock Origin veya Privacy Badger gibi eklentiler, bilinen izleme komut dosyalarını profilinizi oluşturmadan önce engeller."
-        },
-        "incognito": {
-          "title": "Gizli Sekmenin Sınırlarını Bilin",
-          "description": "Gizli/Özel modun yalnızca yerel geçmişinizi ve çerezlerinizi temizlediğini unutmayın. Tarayıcı parmak izinizi GİZLEMEZ."
-        },
-        "settings": {
-          "title": "Gereksiz Özellikleri Devre Dışı Bırakın",
-          "description": "Tarayıcı ayarlarınızda WebGL'i veya üçüncü taraf çerezleri devre dışı bırakmak, izleyicilerin kullanabileceği veri yüzeyini azaltabilir."
-        }
-      }
-    }
+  "HeaderList": {
+    "search": "Başlıklarda ara...",
+    "aria": "İstek başlıklarında ara",
+    "clear": "Aramayı temizle",
+    "empty": "Başlık bulunamadı",
+    "emptyDesc": "\"{query}\" ile eşleşen başlık yok. Farklı bir terim deneyin veya aramayı temizleyin.",
+    "clearAll": "Tüm filtreleri temizle",
+    "pretty": "Düzenli",
+    "raw": "Ham JSON",
+    "copied": "Kopyalandı!",
+    "failed": "Kopyalama başarısız",
+    "refreshed": "Başlıklar yenilendi!",
+    "downloaded": "Başlıklar indirildi!"
+  },
+  "ViewToggle": {
+    "pretty": "Düzenli",
+    "raw": "Ham JSON"
+  },
+  "Common": {
+    "copied": "Kopyalandı!",
+    "failed": "Kopyalama başarısız",
+    "refreshed": "Başlıklar yenilendi!",
+    "downloaded": "Başlıklar indirildi!"
   }
 }
