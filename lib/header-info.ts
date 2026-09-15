@@ -1,28 +1,29 @@
 export interface HeaderInfo {
   description: string;
   mdnUrl?: string;
+  rfc?: string;
 }
 
 export const HEADER_DESCRIPTIONS: Record<string, HeaderInfo> = {
   "accept": {
     description: "The Accept request header advertises which content types, expressed as MIME types, the client is able to understand.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept", rfc: "RFC 9110"
   },
   "accept-encoding": {
     description: "The Accept-Encoding request header advertises which content encoding, usually a compression algorithm, the client is able to understand.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding", rfc: "RFC 9110"
   },
   "accept-language": {
     description: "The Accept-Language request header advertises which languages the client is able to understand, and which locale variant is preferred.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language", rfc: "RFC 9110"
   },
   "authorization": {
     description: "The HTTP Authorization request header contains the credentials to authenticate a user agent with a server.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization", rfc: "RFC 9110"
   },
   "cache-control": {
     description: "The Cache-Control HTTP header field holds directives (instructions) for caching in both requests and responses.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control", rfc: "RFC 9111"
   },
   "cf-connecting-ip": {
     description: "A Cloudflare-specific header that identifies the original client IP address of a request passing through the Cloudflare network.",
@@ -32,19 +33,19 @@ export const HEADER_DESCRIPTIONS: Record<string, HeaderInfo> = {
   },
   "connection": {
     description: "The Connection general header controls whether the network connection stays open after the current transaction finishes.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection", rfc: "RFC 9110"
   },
   "content-length": {
     description: "The Content-Length header indicates the size of the message body, in bytes, sent to the recipient.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length", rfc: "RFC 9110"
   },
   "content-type": {
     description: "The Content-Type representation header is used to indicate the original MIME type of the resource.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type", rfc: "RFC 9110"
   },
   "cookie": {
     description: "The Cookie HTTP request header contains stored HTTP cookies previously sent by the server with the Set-Cookie header.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie", rfc: "RFC 6265"
   },
   "dnt": {
     description: "The DNT (Do Not Track) request header indicates the user's tracking preference. It lets users opt out of tracking by websites.",
@@ -52,7 +53,7 @@ export const HEADER_DESCRIPTIONS: Record<string, HeaderInfo> = {
   },
   "host": {
     description: "The Host request header specifies the host name and port number of the server to which the request is being sent.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host", rfc: "RFC 9110"
   },
   "if-none-match": {
     description: "The If-None-Match HTTP request header makes the request conditional. For GET and HEAD methods, the server will return the requested resource only if it doesn't have an ETag matching the given ones.",
@@ -60,7 +61,7 @@ export const HEADER_DESCRIPTIONS: Record<string, HeaderInfo> = {
   },
   "origin": {
     description: "The Origin request header indicates where a fetch originates from. It doesn't include any path information, but only the server name.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin", rfc: "RFC 6454"
   },
   "priority": {
     description: "The Priority request header is used to indicate the relative priority of a request, used by browsers to optimize resource loading.",
@@ -68,7 +69,7 @@ export const HEADER_DESCRIPTIONS: Record<string, HeaderInfo> = {
   },
   "referer": {
     description: "The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer", rfc: "RFC 9110"
   },
   "sec-ch-ua": {
     description: "The Sec-CH-UA header provides the user agent's branding and version information via Client Hints.",
@@ -100,11 +101,11 @@ export const HEADER_DESCRIPTIONS: Record<string, HeaderInfo> = {
   },
   "upgrade-insecure-requests": {
     description: "The Upgrade-Insecure-Requests request header sends a signal to the server expressing the client's preference for an encrypted and authenticated response.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Upgrade-Insecure-Requests"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Upgrade-Insecure-Requests", rfc: "RFC 6797"
   },
   "user-agent": {
     description: "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent.",
-    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent"
+    mdnUrl: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent", rfc: "RFC 9110"
   },
   "x-forwarded-for": {
     description: "The X-Forwarded-For (XFF) request header is a de-facto standard header for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or a load balancer.",

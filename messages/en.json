@@ -371,7 +371,8 @@
     "defaultDescription": "No detailed description available for this header.",
     "infoLabel": "Header Info",
     "mdnDocs": "MDN Docs",
-    "importantBadge": "Important"
+    "importantBadge": "Important",
+    "rfcLabel": "RFC reference"
   },
   "Metadata": {
     "title": "Headerly - HTTP Request Header Inspector",
@@ -417,7 +418,9 @@
     "copied": "Copied!",
     "failed": "Failed to copy",
     "refreshed": "Headers refreshed!",
-    "downloaded": "Headers downloaded!"
+    "downloaded": "Headers downloaded!",
+    "detailsTitle": "Header details",
+    "closeDetails": "Close details"
   },
   "ViewToggle": {
     "pretty": "Pretty",

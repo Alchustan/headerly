@@ -371,7 +371,8 @@
     "defaultDescription": "此请求头暂无详细说明。",
     "infoLabel": "请求头信息",
     "mdnDocs": "MDN 文档",
-    "importantBadge": "重要"
+    "importantBadge": "重要",
+    "rfcLabel": "RFC 参考"
   },
   "Metadata": {
     "title": "Headerly - HTTP 请求头检查工具",
@@ -417,7 +418,9 @@
     "copied": "已复制！",
     "failed": "复制失败",
     "refreshed": "请求头已刷新！",
-    "downloaded": "请求头已下载！"
+    "downloaded": "请求头已下载！",
+    "detailsTitle": "请求头详情",
+    "closeDetails": "关闭详情"
   },
   "ViewToggle": {
     "pretty": "简洁视图",

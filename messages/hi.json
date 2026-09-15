@@ -371,7 +371,8 @@
     "defaultDescription": "इस हेडर के लिए कोई विस्तृत विवरण उपलब्ध नहीं है।",
     "infoLabel": "Header जानकारी",
     "mdnDocs": "MDN Docs",
-    "importantBadge": "महत्वपूर्ण"
+    "importantBadge": "महत्वपूर्ण",
+    "rfcLabel": "RFC संदर्भ"
   },
   "Metadata": {
     "title": "Headerly - HTTP Request Header इंस्पेक्टर",
@@ -417,7 +418,9 @@
     "copied": "कॉपी हो गया!",
     "failed": "कॉपी विफल",
     "refreshed": "हेडर रीफ़्रेश हो गए!",
-    "downloaded": "हेडर डाउनलोड हो गए!"
+    "downloaded": "हेडर डाउनलोड हो गए!",
+    "detailsTitle": "हेडर विवरण",
+    "closeDetails": "विवरण बंद करें"
   },
   "ViewToggle": {
     "pretty": "साफ़ दृश्य",

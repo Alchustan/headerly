@@ -371,7 +371,8 @@
     "defaultDescription": "No hay una descripción detallada disponible para este header.",
     "infoLabel": "Info del header",
     "mdnDocs": "Documentación de MDN",
-    "importantBadge": "Importante"
+    "importantBadge": "Importante",
+    "rfcLabel": "Referencia RFC"
   },
   "Metadata": {
     "title": "Headerly - Inspector de headers de solicitud HTTP",
@@ -417,7 +418,9 @@
     "copied": "¡Copiado!",
     "failed": "No se pudo copiar",
     "refreshed": "¡Encabezados actualizados!",
-    "downloaded": "¡Encabezados descargados!"
+    "downloaded": "¡Encabezados descargados!",
+    "detailsTitle": "Detalles del encabezado",
+    "closeDetails": "Cerrar detalles"
   },
   "ViewToggle": {
     "pretty": "Vista",

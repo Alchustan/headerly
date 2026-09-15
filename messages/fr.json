@@ -371,7 +371,8 @@
     "defaultDescription": "Aucune description détaillée disponible pour cet en-tête.",
     "infoLabel": "Infos sur l'en-tête",
     "mdnDocs": "Docs MDN",
-    "importantBadge": "Important"
+    "importantBadge": "Important",
+    "rfcLabel": "Référence RFC"
   },
   "Metadata": {
     "title": "Headerly - Inspecteur d'en-têtes de requête HTTP",
@@ -417,7 +418,9 @@
     "copied": "Copié !",
     "failed": "Échec de la copie",
     "refreshed": "En-têtes actualisés !",
-    "downloaded": "En-têtes téléchargés !"
+    "downloaded": "En-têtes téléchargés !",
+    "detailsTitle": "Détails de l’en-tête",
+    "closeDetails": "Fermer les détails"
   },
   "ViewToggle": {
     "pretty": "Vue détaillée",

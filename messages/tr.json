@@ -371,7 +371,8 @@
     "defaultDescription": "Bu başlık için detaylı açıklama bulunmuyor.",
     "infoLabel": "Header Bilgisi",
     "mdnDocs": "MDN Dökümanları",
-    "importantBadge": "Önemli"
+    "importantBadge": "Önemli",
+    "rfcLabel": "RFC referansı"
   },
   "Metadata": {
     "title": "Headerly - HTTP İstek Başlığı Denetçisi",
@@ -417,7 +418,9 @@
     "copied": "Kopyalandı!",
     "failed": "Kopyalama başarısız",
     "refreshed": "Başlıklar yenilendi!",
-    "downloaded": "Başlıklar indirildi!"
+    "downloaded": "Başlıklar indirildi!",
+    "detailsTitle": "Başlık detayı",
+    "closeDetails": "Detayları kapat"
   },
   "ViewToggle": {
     "pretty": "Düzenli",
